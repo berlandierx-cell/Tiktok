@@ -3,50 +3,33 @@ import json
 import re
 from google import genai
 
-# Ta liste de modèles qui fonctionnent
-MODELS_PRIORITY = [
-    "gemini-2.5-flash",
-    "gemini-2.0-flash",
-    "gemini-flash-latest",
-    "gemini-2.5-pro",
-]
+MODELS_PRIORITY = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-flash-latest"]
 
 def generate():
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
     
+    # On demande une phrase unique (Punchline)
     prompt = """Réponds UNIQUEMENT en JSON pur.
-    Sujet : Un conseil de trading crypto percutant.
-    Contrainte : La 'voix_off' doit faire MAXIMUM 40 mots.
+    Sujet : Conseil trading crypto radical.
+    Contrainte : Le texte 'voix_off' doit faire MAXIMUM 15 mots (une seule phrase).
     Format : {"titre": "...", "voix_off": "...", "tags": "..."}"""
 
-    success = False
     for model_name in MODELS_PRIORITY:
         try:
-            print(f"🤖 Tentative avec le modèle : {model_name}...")
-            response = client.models.generate_content(
-                model=model_name,
-                contents=prompt
-            )
-            
-            # Extraction et nettoyage du JSON
+            response = client.models.generate_content(model=model_name, contents=prompt)
             raw_text = response.text
             match = re.search(r'\{.*\}', raw_text, re.DOTALL)
             if match:
-                clean_json = match.group()
                 with open('video_metadata.json', 'w', encoding='utf-8') as f:
-                    f.write(clean_json)
-                print(f"✅ Succès avec {model_name} !")
-                success = True
-                break
-        except Exception as e:
-            print(f"❌ Échec avec {model_name} : {e}")
+                    f.write(match.group())
+                print(f"✅ Brain : Punchline générée avec {model_name}")
+                return
+        except:
             continue
-
-    if not success:
-        print("⚠️ Aucun modèle n'a fonctionné. Utilisation du backup manuel.")
-        fallback = {"titre": "Trading Tip", "voix_off": "Ne tradez jamais sans stop loss.", "tags": "#trading"}
-        with open('video_metadata.json', 'w', encoding='utf-8') as f:
-            json.dump(fallback, f)
+    
+    # Backup si tout rate
+    with open('video_metadata.json', 'w', encoding='utf-8') as f:
+        json.dump({"voix_off": "Arrête de trader avec tes émotions, suis ton plan."}, f)
 
 if __name__ == "__main__":
     generate()
