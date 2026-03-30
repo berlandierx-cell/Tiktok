@@ -1,23 +1,30 @@
-import google.generativeai as genai
-import os, json, re
-
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+import os
+import json
+import re
+from google import genai
 
 def generate():
-    model = genai.GenerativeModel('gemini-1.5-flash')
-    # Prompt ultra direct pour un format TikTok percutant et court
-    prompt = """Réponds UNIQUEMENT en JSON pur. 
-    Sujet : Astuce de trading crypto/forex virale. 
-    Contrainte : La 'voix_off' doit faire MAXIMUM 60 mots (environ 25 secondes). 
-    Structure : {"sujet": "", "titre": "", "voix_off": "", "tags": ""}"""
+    # Initialisation avec le nouveau SDK 2026
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
     
-    response = model.generate_content(prompt)
-    # Nettoyage du JSON au cas où Gemini met des balises Markdown
-    clean_json = re.sub(r'```json|```', '', response.text).strip()
+    prompt = """Réponds UNIQUEMENT en JSON pur.
+    Sujet : Un conseil de trading crypto percutant.
+    Contrainte : La 'voix_off' doit faire MAXIMUM 40 mots (très court).
+    Format : {"titre": "", "voix_off": "", "tags": ""}"""
+
+    # Utilisation du modèle flash stable
+    response = client.models.generate_content(
+        model='gemini-1.5-flash',
+        contents=prompt
+    )
+
+    # Nettoyage et sauvegarde
+    text = response.text
+    clean_json = re.sub(r'```json|```', '', text).strip()
     
     with open('video_metadata.json', 'w', encoding='utf-8') as f:
         f.write(clean_json)
-    print("✅ Metadata générées (Format Court)")
+    print("✅ Brain : Metadata générées (Format court validé)")
 
 if __name__ == "__main__":
     generate()
