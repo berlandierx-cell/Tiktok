@@ -2,56 +2,69 @@ import os
 import json
 import asyncio
 import edge_tts
-import shutil
-from gradio_client import Client, handle_file
+import fal_client
+import requests
 
-HF_SPACE_ID = "KwaiVGI/LivePortrait"
+# CONFIGURATION
+# Tu devras ajouter FAL_KEY dans tes Secrets GitHub (comme pour Gemini)
+os.environ["FAL_KEY"] = os.environ.get("FAL_KEY", "") 
 AVATAR_PATH = "assets/1774899221632.png"
 
 async def generate_audio(text):
-    # Denise est rapide et claire
+    print(f"🎙️ Création de l'audio...")
     communicate = edge_tts.Communicate(text, "fr-FR-DeniseNeural")
     await communicate.save("voice.mp3")
     print("✅ Audio prêt.")
 
 def animate_character():
-    print(f"🚀 Animation éclair sur Hugging Face...")
+    print(f"🚀 Animation haute vitesse sur Fal.ai...")
     try:
-        client = Client(HF_SPACE_ID)
-        
-        # On met les intensités à 0 pour un calcul ultra-rapide par le GPU
-        result = client.predict(
-            0, 0,                   # Aucun mouvement inutile, focus LipSync
-            handle_file(AVATAR_PATH), 
-            True,                   # LipSync actif
-            api_name="/gpu_wrapped_execute_image"
+        # 1. Upload des fichiers sur leurs serveurs temporaires
+        image_url = fal_client.upload_file(AVATAR_PATH)
+        audio_url = fal_client.upload_file("voice.mp3")
+
+        # 2. Lancement de l'animation LivePortrait
+        # C'est le modèle le plus performant et stable en 2026
+        result = fal_client.subscribe(
+            "fal-ai/live-portrait/video-to-video", # Ou "fal-ai/live-portrait"
+            arguments={
+                "input_image_url": image_url,
+                "input_audio_url": audio_url,
+                "ref_video_url": "https://v.fal.media/live-portrait/ref.mp4", # Vidéo de référence standard
+                "precision": "fast"
+            },
+            with_logs=True
         )
         
-        video_tmp = result[0] if isinstance(result, (list, tuple)) else result
-        if isinstance(video_tmp, dict):
-            video_tmp = video_tmp.get("video", video_tmp.get("path"))
-        return video_tmp
+        video_url = result['video']['url']
+        
+        # 3. Téléchargement de la vidéo finale
+        response = requests.get(video_url)
+        with open("avatar_talking.mp4", "wb") as f:
+            f.write(response.content)
+            
+        return "avatar_talking.mp4"
     except Exception as e:
-        print(f"❌ Erreur Serveur : {e}")
+        print(f"❌ Erreur Fal.ai : {e}")
         return None
 
 async def main():
-    if not os.path.exists("video_metadata.json"): return
+    if not os.path.exists("video_metadata.json"):
+        return
+
     with open("video_metadata.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # Audio (phrase très courte)
-    await generate_audio(data.get("voix_off", "Trade le plan, pas l'émotion."))
+    # Audio
+    await generate_audio(data.get("voix_off", "Succès garanti."))
 
     # Vidéo
-    video_tmp = animate_character()
+    video_file = animate_character()
 
-    if video_tmp:
-        if os.path.exists("avatar_talking.mp4"): os.remove("avatar_talking.mp4")
-        shutil.copy(video_tmp, "avatar_talking.mp4")
-        print("✨ SUCCÈS : Vidéo générée !")
+    if video_file:
+        print(f"✨ TERMINÉ : {video_file} créé en un temps record.")
     else:
-        print("⚠️ Le serveur Hugging Face est trop lent. Réessaie dans 5 minutes.")
+        print("⚠️ L'animation a échoué.")
 
 if __name__ == "__main__":
     asyncio.run(main())
