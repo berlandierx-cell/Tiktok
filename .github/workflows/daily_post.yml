@@ -1,40 +1,51 @@
-name: Trading TikTok Bot
+name: TikTok Video Generator 2026
 
 on:
-  workflow_dispatch: # Pour lancer manuellement
+  workflow_dispatch: # Permet de lancer manuellement depuis l'onglet Actions
   schedule:
-    - cron: '0 8 * * *' # Tous les jours à 8h
+    - cron: '0 10 * * *' # Se lance automatiquement tous les jours à 10h00
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write # IMPORTANT pour le push
-    
+
     steps:
-      - name: Checkout Code
+      - name: 📂 Checkout du dépôt
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: 🐍 Configuration de Python 3.11
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11' # On passe en 3.11 pour éviter les warnings de version
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - name: 📦 Installation des dépendances
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: 1. Gemini Brain
+      - name: 🧠 Étape 1 : Génération du script par Gemini
+        run: python brain.py
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python brain.py
 
-      - name: 2. Animation Video
+      - name: 🎙️ Étape 2 : Audio et Animation via Fal.ai
         run: python video_gen.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FAL_KEY: ${{ secrets.FAL_KEY }}
 
-      - name: 3. Save Files to Repo
+      - name: 📤 Sauvegarde de la vidéo (Artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-video
+          path: avatar_talking.mp4
+          retention-days: 5
+
+      - name: 🚀 Commit et Push des résultats
         run: |
-          git config --global user.name "TraderBot"
-          git config --global user.email "bot@github.com"
-          git add video_metadata.json avatar_talking.mp4 voice.mp3
-          git commit -m "🚀 Nouvelle vidéo générée le $(date)" || exit 0
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add video_metadata.json avatar_talking.mp4 || true
+          git commit -m "Automated Video Update: $(date +'%Y-%m-%d')" || echo "Rien à commit"
           git push
