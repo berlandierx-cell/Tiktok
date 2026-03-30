@@ -1,51 +1,51 @@
-name: TikTok Video Generator 2026
+name: TikTok Generator 2026
 
 on:
-  workflow_dispatch: # Permet de lancer manuellement depuis l'onglet Actions
-  schedule:
-    - cron: '0 10 * * *' # Se lance automatiquement tous les jours à 10h00
+  workflow_dispatch: # Lancement manuel
+  push:
+    branches:
+      - main # Se lance à chaque push sur main
+
+permissions:
+  contents: write # INDISPENSABLE pour que GitHub puisse enregistrer la vidéo dans ton dépôt
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: 📂 Checkout du dépôt
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Récupère tout l'historique pour éviter les erreurs de push
 
-      - name: 🐍 Configuration de Python 3.11
+      - name: 🐍 Setup Python 3.11
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11' # On passe en 3.11 pour éviter les warnings de version
+          python-version: '3.11'
 
       - name: 📦 Installation des dépendances
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install --upgrade pip
+          pip install google-genai edge-tts fal-client requests
 
-      - name: 🧠 Étape 1 : Génération du script par Gemini
+      - name: 🧠 Étape 1 : Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python brain.py
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      - name: 🎙️ Étape 2 : Audio et Animation via Fal.ai
-        run: python video_gen.py
+      - name: 🎙️ Étape 2 : Vidéo (Fal.ai)
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: python video_gen.py
 
-      - name: 📤 Sauvegarde de la vidéo (Artifact)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: final-video
-          path: avatar_talking.mp4
-          retention-days: 5
-
-      - name: 🚀 Commit et Push des résultats
+      - name: 📤 Sauvegarde du résultat
         run: |
-          git config --global user.name "GitHub Action"
-          git config --global user.email "action@github.com"
-          git add video_metadata.json avatar_talking.mp4 || true
-          git commit -m "Automated Video Update: $(date +'%Y-%m-%d')" || echo "Rien à commit"
-          git push
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # On ajoute seulement si les fichiers existent pour éviter l'erreur
+          if [ -f "video_metadata.json" ]; then git add video_metadata.json; fi
+          if [ -f "avatar_talking.mp4" ]; then git add avatar_talking.mp4; fi
+          
+          git commit -m "Update: Nouvelle vidéo générée le $(date)" || echo "Rien à commiter"
+          git push origin main
