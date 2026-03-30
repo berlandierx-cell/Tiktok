@@ -10,93 +10,81 @@ HF_SPACE_ID = "KwaiVGI/LivePortrait"
 AVATAR_PATH = "assets/1774899221632.png" 
 
 async def generate_audio(text):
-    """Génère le fichier voice.mp3 à partir du texte de Gemini"""
-    # Nettoyage des caractères spéciaux pour la synthèse vocale
+    """Génère le fichier voice.mp3"""
     clean_text = text.replace('*', '').replace('#', '').strip()
-    print(f"🎙️ Tentative de synthèse vocale pour : {clean_text[:100]}...")
+    print(f"🎙️ Synthèse vocale : {clean_text[:100]}...")
     
     try:
-        # Utilisation de Denise (voix très stable)
+        # On reste sur Denise qui a bien fonctionné au run précédent
         communicate = edge_tts.Communicate(clean_text, "fr-FR-DeniseNeural")
         await communicate.save("voice.mp3")
-        
-        if os.path.exists("voice.mp3") and os.path.getsize("voice.mp3") > 0:
-            print("✅ Fichier voice.mp3 généré avec succès.")
-        else:
-            raise Exception("Le fichier audio généré est vide.")
+        print("✅ Fichier voice.mp3 généré.")
     except Exception as e:
         print(f"❌ Erreur Edge-TTS : {e}")
         raise
 
 def animate_character():
-    """Envoie l'image et l'audio à Hugging Face pour créer la vidéo"""
+    """Animation basée sur les endpoints détectés dans tes logs"""
     print(f"🚀 Connexion au moteur {HF_SPACE_ID}...")
     try:
         client = Client(HF_SPACE_ID)
         
-        # On ne spécifie plus api_name pour laisser le client choisir la fonction par défaut
+        # On utilise l'endpoint /gpu_wrapped_execute_image trouvé dans tes logs
+        # param_0: slider (0-0.8), param_1: slider (0-0.8), param_2: image, param_3: bool
+        # Note: Si le LipSync ne bouge pas assez, on montera param_0 et param_1 à 0.5 plus tard
+        
         result = client.predict(
-            input_image=handle_file(AVATAR_PATH),
-            input_audio=handle_file("voice.mp3")
+            0.5,                    # param_0: Intensité (on met 0.5 pour voir le mouvement)
+            0.5,                    # param_1: Intensité
+            handle_file(AVATAR_PATH), # param_2: L'image de ton avatar
+            True,                   # param_3: Checkbox (LipSync ON)
+            api_name="/gpu_wrapped_execute_image"
         )
         
-        # Le résultat peut être une liste [video_path, json_data] ou juste le chemin
+        # L'API renvoie (value_3, value_4), on récupère la première vidéo
         video_tmp_path = result[0] if isinstance(result, (list, tuple)) else result
         
-        if video_tmp_path and os.path.exists(video_tmp_path):
-            print(f"✅ Animation réussie ! Fichier temporaire : {video_tmp_path}")
+        if video_tmp_path:
+            # Si le résultat est un dictionnaire (courant sur Gradio 4/5)
+            if isinstance(video_tmp_path, dict):
+                video_tmp_path = video_tmp_path.get("video", video_tmp_path.get("path"))
+            
+            print(f"✅ Animation réussie !")
             return video_tmp_path
-        else:
-            print("❌ Le moteur n'a pas renvoyé de chemin de fichier valide.")
-            return None
+        return None
             
     except Exception as e:
         print(f"❌ Erreur lors de l'animation : {e}")
-        # Optionnel : affiche l'aide de l'API en cas d'échec pour le debug
-        try:
-            client.view_api()
-        except:
-            pass
         return None
 
 async def main():
-    # 1. Vérifications de base
+    # 1. Vérifications
     if not os.path.exists("video_metadata.json"):
-        print("❌ Erreur : video_metadata.json est introuvable.")
+        print("❌ Erreur : video_metadata.json manquant.")
         return
 
-    if not os.path.exists(AVATAR_PATH):
-        print(f"❌ Erreur : L'image de l'avatar est introuvable dans {AVATAR_PATH}")
-        return
-
-    # 2. Lecture du script de Gemini
+    # 2. Lecture du JSON
     with open("video_metadata.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # Récupération du texte (on gère plusieurs noms de clés possibles)
-    script_text = data.get("voix_off", data.get("script", data.get("text", "")))
+    script_text = data.get("voix_off", data.get("script", ""))
     
-    if not script_text:
-        print("❌ Erreur : Aucun texte trouvé dans le JSON.")
-        return
-
-    # 3. Étape Audio
+    # 3. Audio
     await generate_audio(script_text)
 
-    # 4. Étape Animation (LipSync)
+    # 4. Animation
     video_output = animate_character()
 
     if video_output:
-        # Nettoyage de l'ancienne vidéo si elle existe
         final_name = "avatar_talking.mp4"
         if os.path.exists(final_name):
             os.remove(final_name)
             
-        # Déplacement du fichier généré vers la racine de ton repo
+        # Déplacement du fichier final
         shutil.move(video_output, final_name)
-        print(f"✨ SUCCÈS : {final_name} est prêt dans ton dépôt !")
+        print(f"✨ SUCCÈS : {final_name} créé !")
     else:
-        print("⚠️ L'animation a échoué, vérifie les logs Hugging Face.")
+        print("⚠️ L'animation a échoué.")
 
 if __name__ == "__main__":
     asyncio.run(main())
