@@ -10,7 +10,7 @@ HF_SPACE_ID = "KwaiVGI/LivePortrait"
 AVATAR_PATH = "assets/1774899221632.png"
 
 async def generate_audio(text):
-    print(f"🎙️ Voix off : {text[:50]}...")
+    print(f"🎙️ Création de l'audio pour : {text[:40]}...")
     communicate = edge_tts.Communicate(text, "fr-FR-DeniseNeural")
     await communicate.save("voice.mp3")
     print("✅ Audio prêt.")
@@ -20,16 +20,16 @@ def animate_character():
     try:
         client = Client(HF_SPACE_ID)
         
-        # Paramètres exacts selon tes derniers logs d'erreur
+        # Endpoint validé par tes logs précédents
         result = client.predict(
-            0.2,                    # param_0 : Expression (0.2 pour être léger)
-            0.2,                    # param_1 : Mouvement (0.2)
+            0.1,                    # param_0 : Intensité
+            0.1,                    # param_1 : Mouvement
             handle_file(AVATAR_PATH), # param_2 : Ton image
-            True,                   # param_3 : LipSync activé
+            True,                   # param_3 : LipSync ON
             api_name="/gpu_wrapped_execute_image"
         )
         
-        # Extraction propre du chemin vidéo
+        # Extraction du fichier vidéo
         video_tmp = result[0] if isinstance(result, (list, tuple)) else result
         if isinstance(video_tmp, dict):
             video_tmp = video_tmp.get("video", video_tmp.get("path"))
@@ -41,23 +41,26 @@ def animate_character():
 
 async def main():
     if not os.path.exists("video_metadata.json"):
+        print("❌ Metadata absentes.")
         return
 
     with open("video_metadata.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
     # 1. Audio
-    await generate_audio(data.get("voix_off", ""))
+    text_to_speak = data.get("voix_off", "Activez vos stop loss.")
+    await generate_audio(text_to_speak)
 
     # 2. Vidéo
     video_tmp = animate_character()
 
     if video_tmp:
-        if os.path.exists("avatar_talking.mp4"): os.remove("avatar_talking.mp4")
-        shutil.copy(video_tmp, "avatar_talking.mp4")
-        print("✨ TERMINÉ : avatar_talking.mp4 créé.")
+        final_name = "avatar_talking.mp4"
+        if os.path.exists(final_name): os.remove(final_name)
+        shutil.copy(video_tmp, final_name)
+        print(f"✨ TERMINÉ : {final_name} est disponible !")
     else:
-        print("⚠️ Échec de l'animation.")
+        print("⚠️ L'animation a échoué (quota GPU ou erreur serveur).")
 
 if __name__ == "__main__":
     asyncio.run(main())
