@@ -1,4 +1,3 @@
 google-generativeai
 edge-tts
 gradio_client
-shutil
