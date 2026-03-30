@@ -5,86 +5,71 @@ import edge_tts
 import shutil
 from gradio_client import Client, handle_file
 
-# --- CONFIGURATION ---
+# CONFIGURATION
 HF_SPACE_ID = "KwaiVGI/LivePortrait" 
 AVATAR_PATH = "assets/1774899221632.png" 
 
 async def generate_audio(text):
-    """Génère le fichier voice.mp3"""
+    """Génère l'audio avec une voix stable"""
     clean_text = text.replace('*', '').replace('#', '').strip()
-    print(f"🎙️ Synthèse vocale : {clean_text[:100]}...")
-    
+    print(f"🎙️ Synthèse vocale (Court) : {clean_text[:50]}...")
     try:
-        # On reste sur Denise qui a bien fonctionné au run précédent
         communicate = edge_tts.Communicate(clean_text, "fr-FR-DeniseNeural")
         await communicate.save("voice.mp3")
-        print("✅ Fichier voice.mp3 généré.")
+        print("✅ voice.mp3 prêt.")
     except Exception as e:
-        print(f"❌ Erreur Edge-TTS : {e}")
+        print(f"❌ Erreur Audio : {e}")
         raise
 
 def animate_character():
-    """Animation basée sur les endpoints détectés dans tes logs"""
+    """Appel l'API avec les réglages optimisés pour le GPU gratuit"""
     print(f"🚀 Connexion au moteur {HF_SPACE_ID}...")
     try:
         client = Client(HF_SPACE_ID)
         
-        # On utilise l'endpoint /gpu_wrapped_execute_image trouvé dans tes logs
-        # param_0: slider (0-0.8), param_1: slider (0-0.8), param_2: image, param_3: bool
-        # Note: Si le LipSync ne bouge pas assez, on montera param_0 et param_1 à 0.5 plus tard
-        
+        # On utilise les paramètres param_0 à param_3 détectés dans tes logs
         result = client.predict(
-            0.5,                    # param_0: Intensité (on met 0.5 pour voir le mouvement)
-            0.5,                    # param_1: Intensité
-            handle_file(AVATAR_PATH), # param_2: L'image de ton avatar
-            True,                   # param_3: Checkbox (LipSync ON)
+            0.1,                    # param_0 : Intensité faible (Rapide)
+            0.1,                    # param_1 : Intensité faible
+            handle_file(AVATAR_PATH), # param_2 : Ton image
+            True,                   # param_3 : LipSync activé
             api_name="/gpu_wrapped_execute_image"
         )
         
-        # L'API renvoie (value_3, value_4), on récupère la première vidéo
-        video_tmp_path = result[0] if isinstance(result, (list, tuple)) else result
-        
-        if video_tmp_path:
-            # Si le résultat est un dictionnaire (courant sur Gradio 4/5)
-            if isinstance(video_tmp_path, dict):
-                video_tmp_path = video_tmp_path.get("video", video_tmp_path.get("path"))
+        # On extrait le chemin de la vidéo du résultat
+        video_tmp = result[0] if isinstance(result, (list, tuple)) else result
+        if isinstance(video_tmp, dict):
+            video_tmp = video_tmp.get("video", video_tmp.get("path"))
             
-            print(f"✅ Animation réussie !")
-            return video_tmp_path
-        return None
-            
+        return video_tmp
     except Exception as e:
-        print(f"❌ Erreur lors de l'animation : {e}")
+        print(f"❌ Erreur Animation (GPU Limit?) : {e}")
         return None
 
 async def main():
-    # 1. Vérifications
     if not os.path.exists("video_metadata.json"):
-        print("❌ Erreur : video_metadata.json manquant.")
+        print("❌ Erreur : Lance brain.py d'abord.")
         return
 
-    # 2. Lecture du JSON
     with open("video_metadata.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    script_text = data.get("voix_off", data.get("script", ""))
+    # Récupération du texte court
+    text = data.get("voix_off", "")
     
-    # 3. Audio
-    await generate_audio(script_text)
+    # 1. Audio
+    await generate_audio(text)
 
-    # 4. Animation
+    # 2. Animation
     video_output = animate_character()
 
     if video_output:
         final_name = "avatar_talking.mp4"
-        if os.path.exists(final_name):
-            os.remove(final_name)
-            
-        # Déplacement du fichier final
+        if os.path.exists(final_name): os.remove(final_name)
         shutil.move(video_output, final_name)
-        print(f"✨ SUCCÈS : {final_name} créé !")
+        print(f"✨ SUCCÈS : {final_name} est créé !")
     else:
-        print("⚠️ L'animation a échoué.")
+        print("⚠️ Échec de l'animation.")
 
 if __name__ == "__main__":
     asyncio.run(main())
