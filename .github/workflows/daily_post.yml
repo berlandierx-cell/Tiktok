@@ -1,51 +1,48 @@
 name: TikTok Generator 2026
 
 on:
-  workflow_dispatch: # Lancement manuel
+  workflow_dispatch:
   push:
     branches:
-      - main # Se lance à chaque push sur main
+      - main
 
 permissions:
-  contents: write # INDISPENSABLE pour que GitHub puisse enregistrer la vidéo dans ton dépôt
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 📂 Checkout du dépôt
+      - name: 📂 Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Récupère tout l'historique pour éviter les erreurs de push
+          fetch-depth: 0
 
-      - name: 🐍 Setup Python 3.11
+      - name: 🐍 Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: 📦 Installation des dépendances
+      - name: 📦 Install dependencies
         run: |
           pip install --upgrade pip
           pip install google-genai edge-tts fal-client requests
 
-      - name: 🧠 Étape 1 : Gemini
+      - name: 🧠 Step 1 - Brain
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python brain.py
 
-      - name: 🎙️ Étape 2 : Vidéo (Fal.ai)
+      - name: 🎙️ Step 2 - Video
         env:
           FAL_KEY: ${{ secrets.FAL_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python video_gen.py
 
-      - name: 📤 Sauvegarde du résultat
+      - name: 📤 Push Results
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # On ajoute seulement si les fichiers existent pour éviter l'erreur
-          if [ -f "video_metadata.json" ]; then git add video_metadata.json; fi
-          if [ -f "avatar_talking.mp4" ]; then git add avatar_talking.mp4; fi
-          
-          git commit -m "Update: Nouvelle vidéo générée le $(date)" || echo "Rien à commiter"
+          git add -A
+          git commit -m "Update video: $(date)" || echo "No changes"
           git push origin main
