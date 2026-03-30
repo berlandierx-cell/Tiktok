@@ -6,7 +6,7 @@ from gradio_client import Client, handle_file
 
 # CONFIGURATION DU MOTEUR OFFICIEL
 HF_SPACE_ID = "KwaiVGI/LivePortrait" 
-AVATAR_PATH = "assets/avatar.jpg"
+AVATAR_PATH = "assets/1774899221632.png"
 
 async def generate_audio(text):
     print(f"🎙️ Création de la voix off...")
