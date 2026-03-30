@@ -1,0 +1,38 @@
+name: Trading Bot Pipeline
+
+on:
+  schedule:
+    # Cette ligne lance le script tous les jours à 8h00 UTC
+    - cron: '0 8 * * *'
+  # Permet de lancer le script manuellement pour tester
+  workflow_dispatch:
+
+jobs:
+  run-logic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate Content with Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python src/brain.py
+
+      - name: Commit and Push Metadata
+        run: |
+          git config --global user.name "TraderBot"
+          git config --global user.secret "bot@github.com"
+          git add video_metadata.json
+          git commit -m "New video metadata generated" || exit 0
+          git push
