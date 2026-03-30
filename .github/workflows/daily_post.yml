@@ -27,7 +27,7 @@ jobs:
       - name: Generate Content with Gemini
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python src/brain.py
+        run: python brain.py
 
       - name: Commit and Push Metadata
         run: |
