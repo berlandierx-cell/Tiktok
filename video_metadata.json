@@ -1,32 +1,28 @@
 {
-  "titre": "Chandeliers Japonais : Votre GPS du Marché XRP",
-  "sujet": "les chandeliers japonais",
-  "niveau": "intermédiaire",
-  "actif": "XRP/USDT",
-  "categorie": "crypto",
-  "fond_type": "chandeliers",
-  "voix_off": "Marre de naviguer à l'aveugle sur les marchés ? Les chandeliers japonais sont VOTRE GPS ! Chaque bougie sur ce graphique XRP/USDT raconte une histoire cruciale sur l'action des prix. Un chandelier, c'est bien plus qu'une simple barre. Son corps représente l'écart entre le prix d'ouverture et de clôture. Vert, c'est bullish, le prix a monté. Rouge, c'est bearish, il a chuté. Les mèches, ou ombres, indiquent les prix les plus hauts et les plus bas atteints pendant cette période. Une longue mèche supérieure peut signaler un rejet des hauts, tandis qu'une longue mèche inférieure suggère un fort support. Comprendre cette anatomie est fondamental. Observez ce XRP : voyez comment les corps et les mèches nous donnent des indices sur la pression acheteuse ou vendeuse. C'est la base pour identifier les patterns de retournement comme les Marubozu ou Doji, ou les modèles de continuation qui peuvent vous donner un avantage sur le marché crypto. Maîtriser ça, c'est commencer à lire le langage des prix. Abonnez-vous pour décrypter les patterns avancés !",
+  "titre": "MME : Votre Outil Ultime sur EUR/USD",
+  "sujet": "les moyennes mobiles exponentielles",
+  "niveau": "confirmé",
+  "actif": "EUR/USD",
+  "categorie": "forex",
+  "fond_type": "moyenne_mobile",
+  "voix_off": "Marre des signaux lagging de vos moyennes mobiles simples sur l'EUR/USD ? Les Moyennes Mobiles Exponentielles, ou MME, sont votre allié pour capter la dynamique du marché avec plus de précision. Contrairement aux SMA qui traitent toutes les données de manière égale, la MME pondère exponentiellement les prix récents. Cela lui confère une réactivité accrue aux changements de sentiment, essentielle sur des paires volatiles comme l'EUR/USD. Sur votre graphique, une MME courte, par exemple une 9 ou 21 périodes, peut servir de support ou résistance dynamique. Observez comment le prix interagit avec elle : un rebond en tendance haussière confirme l'élan, tandis qu'une cassure peut signaler un point d'inflexion. Les croisements de MME, comme une 9 MME passant au-dessus d'une 21 MME, peuvent générer des signaux d'entrée et de sortie plus rapides. Cependant, n'oubliez pas que les MME sont des indicateurs suiveurs de tendance. Ne les utilisez jamais isolément. Confirmez toujours vos lectures avec d'autres outils, comme le volume ou les divergences RSI, pour filtrer le bruit et valider vos setups. Maîtrisez la MME pour affiner vos décisions sur le Forex !",
   "sous_titres": [
-    "Marre de naviguer à l'aveugle ?",
-    "Chandeliers = Votre GPS !",
-    "Chaque bougie XRP raconte une histoire.",
-    "Corps: Ouverture et Clôture.",
-    "Vert = Bullish, Rouge = Bearish.",
-    "Mèches: Plus haut et Plus bas.",
-    "Longues mèches = Rejet ou Support.",
-    "Anatomie fondamentale du prix.",
-    "Indices sur pression acheteuse/vendeuse.",
-    "Base des patterns de trading.",
-    "Marubozu, Doji, Continuation...",
-    "Lisez le langage des prix !",
-    "Abonnez-vous pour plus d'astuces !"
+    "Marre des signaux lagging ?",
+    "La MME : réactivité accrue !",
+    "Pondération exponentielle des prix.",
+    "EUR/USD : Captez la dynamique.",
+    "MME 9/21 : Support/Résistance dynamique.",
+    "Croisements MME : signaux rapides.",
+    "Ne jamais l'utiliser isolément.",
+    "Confirmez avec d'autres outils.",
+    "Affinez vos décisions Forex !"
   ],
   "concepts_cles": [
-    "Chandeliers japonais",
-    "Corps de bougie",
-    "Mèches (Ombres)",
-    "Bullish / Bearish",
-    "Patterns de Chandeliers"
+    "Moyenne Mobile Exponentielle",
+    "Pondération exponentielle",
+    "Réactivité",
+    "Support/Résistance Dynamique",
+    "Croisement de MME"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
