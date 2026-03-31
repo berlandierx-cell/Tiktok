@@ -140,7 +140,7 @@ def generate_timeline(metadata_path="video_metadata.json", voice_path="voice.mp3
 
 
 # ─────────────────────────────────────────────
-# SCRIPT FFmpeg DYNAMIQUE
+# SCRIPT FFmpeg DYNAMIQUE (ROBUSTE)
 # ─────────────────────────────────────────────
 
 def generate_ffscript(timeline):
