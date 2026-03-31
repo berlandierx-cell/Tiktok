@@ -9,14 +9,22 @@ HEIGHT = 1920
 INTRO_DURATION = 5
 OUTRO_DURATION = 3
 
-AV_SIZE = 460
+AV_SIZE = 420  # légèrement réduit pour mieux s'insérer
+
+# Zone graphique background.py : header(10%) + graphique(48%) = 58% = 0→1113px
+# Zone sous-titres background.py : 42% du bas = 1113→1920px  (807px de haut)
+# → Avatar doit être SOUS y=1500 pour ne pas toucher les sous-titres
+# → Sous-titres sont entre y≈1200 et y≈1750 sur l'image finale
+# On place l'avatar encore plus bas : y_min = 1520
 
 POP_POSITIONS = [
-    (60,                   HEIGHT - AV_SIZE - 120),
-    (WIDTH - AV_SIZE - 60, HEIGHT - AV_SIZE - 120),
-    ((WIDTH - AV_SIZE)//2, HEIGHT - AV_SIZE - 120),
-    (80,                   HEIGHT - AV_SIZE - 260),
-    (WIDTH - AV_SIZE - 80, HEIGHT - AV_SIZE - 260),
+    # (x, y)  — avatar de 420px, zone safe : y entre 1500 et 1920-420=1500
+    # On varie x gauche/droite, y légèrement pour du dynamisme
+    (60,                   1500),   # gauche bas
+    (WIDTH - AV_SIZE - 60, 1500),   # droite bas
+    ((WIDTH - AV_SIZE)//2, 1490),   # centre bas
+    (80,                   1470),   # gauche légèrement plus haut
+    (WIDTH - AV_SIZE - 80, 1470),   # droite légèrement plus haut
 ]
 
 SUBTITLES_PER_POP = 3
@@ -40,7 +48,7 @@ def check_file(path, label):
     return True
 
 
-def create_circle_mask(size=460, border=6):
+def create_circle_mask(size=420, border=6):
     try:
         from PIL import Image, ImageDraw
         mask = Image.new("L", (size, size), 0)
@@ -51,11 +59,36 @@ def create_circle_mask(size=460, border=6):
         d.ellipse([0, 0, size, size], fill=(255, 255, 255, 255))
         d.ellipse([border, border, size-border, size-border], fill=(0, 0, 0, 0))
         brd.save("circle_border.png")
-        print(f"   ✓ Masques circulaires générés")
+        print(f"   ✓ Masques circulaires générés ({size}px)")
         return True
     except ImportError:
         print("   ⚠️ PIL absent, fallback colorkey")
         return False
+
+
+def wrap_title(titre, max_chars=22):
+    """Découpe le titre en 2 lignes max pour FFmpeg drawtext."""
+    words = titre.split()
+    line1, line2 = [], []
+    current = []
+    for w in words:
+        if len(" ".join(current + [w])) <= max_chars:
+            current.append(w)
+        else:
+            if not line1:
+                line1 = current
+                current = [w]
+            else:
+                line2 = current + [w]
+                break
+    if not line1:
+        line1 = current
+    elif not line2:
+        line2 = current if current != line1 else []
+
+    l1 = " ".join(line1)
+    l2 = " ".join(line2) if line2 else ""
+    return l1, l2
 
 
 def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
@@ -73,36 +106,62 @@ def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
     niveau_image = niveau_image_map.get(niveau, "assets/Debutant.png")
     print(f"🎬 Intro ({niveau})...")
 
-    # shadowradius non supporté → on utilise seulement shadowx/shadowy
+    line1, line2 = wrap_title(titre, max_chars=20)
+    print(f"   Titre ligne 1 : '{line1}'")
+    if line2:
+        print(f"   Titre ligne 2 : '{line2}'")
+
+    # Taille de fonte adaptée à la longueur
+    fontsize = 75 if len(line1) <= 15 else 60
+
     if not os.path.exists(niveau_image):
-        vf = (
-            f"color=black:s=1080x1920:d={INTRO_DURATION},"
-            f"drawtext=text='{titre}':fontcolor=white:fontsize=70:"
-            f"x=(w-text_w)/2:y=(h-text_h)/2:"
-            f"shadowcolor=black:shadowx=3:shadowy=3"
-        )
-        cmd = ["ffmpeg", "-y", "-f", "lavfi", "-i", vf,
-               "-t", str(INTRO_DURATION),
+        vf_parts = [
+            f"color=black:s=1080x1920:d={INTRO_DURATION}",
+            f"drawtext=text='{line1}':fontcolor=white:fontsize={fontsize}:"
+            f"x=(w-text_w)/2:y=860:shadowcolor=black:shadowx=3:shadowy=3"
+        ]
+        if line2:
+            vf_parts.append(
+                f"drawtext=text='{line2}':fontcolor=white:fontsize={fontsize}:"
+                f"x=(w-text_w)/2:y={860 + fontsize + 10}:shadowcolor=black:shadowx=3:shadowy=3"
+            )
+        cmd = ["ffmpeg", "-y", "-f", "lavfi", "-i", ",".join(vf_parts[:1]),
+               "-vf", ",".join(vf_parts[1:]),
+               "-t", str(INTRO_DURATION), "-r", "30",
                "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
-               "-r", "30", "-an", output]
+               "-an", output]
     else:
+        # Bande noire au centre + titre sur 1 ou 2 lignes + niveau en cyan
+        y1 = 820
+        y2 = y1 + fontsize + 15
+        y_niveau = y2 + fontsize + 20 if line2 else y1 + fontsize + 20
+
         vf = (
             f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
-            f"drawbox=x=0:y=600:w=1080:h=720:color=black@0.60:t=fill,"
-            f"drawtext=text='{titre}':"
-            f"fontcolor=white:fontsize=80:"
-            f"x=(w-text_w)/2:y=820:"
-            f"shadowcolor=black:shadowx=4:shadowy=4,"
-            f"drawtext=text='{niveau.upper()}':"
-            f"fontcolor=#00e5ff:fontsize=52:"
-            f"x=(w-text_w)/2:y=940:"
+            f"drawbox=x=0:y=750:w=1080:h=400:color=black@0.65:t=fill,"
+            f"drawtext=text='{line1}':"
+            f"fontcolor=white:fontsize={fontsize}:"
+            f"x=(w-text_w)/2:y={y1}:"
+            f"shadowcolor=black:shadowx=4:shadowy=4"
+        )
+        if line2:
+            vf += (
+                f",drawtext=text='{line2}':"
+                f"fontcolor=white:fontsize={fontsize}:"
+                f"x=(w-text_w)/2:y={y2}:"
+                f"shadowcolor=black:shadowx=4:shadowy=4"
+            )
+        vf += (
+            f",drawtext=text='{niveau.upper()}':"
+            f"fontcolor=#00e5ff:fontsize=46:"
+            f"x=(w-text_w)/2:y={y_niveau}:"
             f"shadowcolor=black:shadowx=3:shadowy=3"
         )
+
         cmd = ["ffmpeg", "-y",
                "-loop", "1", "-i", niveau_image,
                "-vf", vf,
-               "-t", str(INTRO_DURATION),
-               "-r", "30",
+               "-t", str(INTRO_DURATION), "-r", "30",
                "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
                "-an", output]
 
@@ -122,16 +181,14 @@ def create_outro(output="outro.mp4"):
             f"fade=t=in:st=0:d=0.5,fade=t=out:st={OUTRO_DURATION-0.5}:d=0.5"
         )
         cmd = ["ffmpeg", "-y", "-loop", "1", "-i", disclaimer,
-               "-vf", vf, "-t", str(OUTRO_DURATION),
-               "-r", "30",
+               "-vf", vf, "-t", str(OUTRO_DURATION), "-r", "30",
                "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
                "-an", output]
     else:
         cmd = ["ffmpeg", "-y", "-f", "lavfi",
                "-i", f"color=black:s=1080x1920:d={OUTRO_DURATION}",
-               "-r", "30",
-               "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
-               "-an", output]
+               "-r", "30", "-c:v", "libx264", "-preset", "fast",
+               "-pix_fmt", "yuv420p", "-an", output]
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
         print(f"❌ Erreur outro :\n{result.stderr[-300:]}")
@@ -204,8 +261,7 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
             "-i", "circle_mask.png", "-i", "circle_border.png",
             "-filter_complex", ";".join(filter_parts),
             "-map", "[out]", "-map", "1:a",
-            "-t", str(avatar_duration),
-            "-r", "30",
+            "-t", str(avatar_duration), "-r", "30",
             "-c:v", "libx264", "-preset", "fast", "-crf", "23",
             "-c:a", "aac", "-b:a", "128k", "-pix_fmt", "yuv420p",
             output
@@ -236,8 +292,7 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
             "-i", background, "-i", avatar,
             "-filter_complex", ";".join(filter_parts),
             "-map", "[out]", "-map", "1:a",
-            "-t", str(avatar_duration),
-            "-r", "30",
+            "-t", str(avatar_duration), "-r", "30",
             "-c:v", "libx264", "-preset", "fast", "-crf", "23",
             "-c:a", "aac", "-b:a", "128k", "-pix_fmt", "yuv420p",
             output
@@ -269,12 +324,10 @@ def concat_all(intro="intro.mp4", main="main.mp4", outro="outro.mp4",
         print("❌ Rien à assembler")
         return None
 
-    # Normaliser chaque partie : même codec, même fps, audio AAC uniforme
     normalized = []
     for f, label in parts:
         out_norm = f"norm_{label}.mp4"
         dur = get_duration(f)
-
         if label == "main":
             cmd = [
                 "ffmpeg", "-y", "-i", f,
@@ -284,30 +337,25 @@ def concat_all(intro="intro.mp4", main="main.mp4", outro="outro.mp4",
                 "-pix_fmt", "yuv420p", out_norm
             ]
         else:
-            # Ajouter silence pour intro/outro (pas d'audio natif)
             cmd = [
-                "ffmpeg", "-y",
-                "-i", f,
+                "ffmpeg", "-y", "-i", f,
                 "-f", "lavfi", "-i", f"aevalsrc=0:c=stereo:s=44100:d={dur}",
                 "-r", "30",
                 "-c:v", "libx264", "-preset", "fast", "-crf", "23",
                 "-c:a", "aac", "-b:a", "128k", "-ar", "44100", "-ac", "2",
-                "-pix_fmt", "yuv420p",
-                "-shortest", out_norm
+                "-pix_fmt", "yuv420p", "-shortest", out_norm
             ]
-
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
         if result.returncode == 0:
             normalized.append(out_norm)
             print(f"   ✓ {label} normalisé")
         else:
-            print(f"   ❌ Normalisation {label} échouée :\n{result.stderr[-300:]}")
+            print(f"   ❌ Normalisation {label} échouée :\n{result.stderr[-200:]}")
 
     if not normalized:
         print("❌ Aucune partie normalisée")
         return None
 
-    # Concat avec ré-encodage complet (plus fiable que -c copy)
     inputs = []
     filter_v = ""
     filter_a = ""
@@ -317,7 +365,10 @@ def concat_all(intro="intro.mp4", main="main.mp4", outro="outro.mp4",
         filter_a += f"[{i}:a]"
 
     n = len(normalized)
-    filter_complex = f"{filter_v}concat=n={n}:v=1:a=0[vout];{filter_a}concat=n={n}:v=0:a=1[aout]"
+    filter_complex = (
+        f"{filter_v}concat=n={n}:v=1:a=0[vout];"
+        f"{filter_a}concat=n={n}:v=0:a=1[aout]"
+    )
 
     cmd = [
         "ffmpeg", "-y",
