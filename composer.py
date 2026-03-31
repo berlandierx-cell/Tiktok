@@ -1,6 +1,7 @@
 import os
 import subprocess
 import json
+import math
 
 WIDTH  = 1080
 HEIGHT = 1920
@@ -18,7 +19,6 @@ POP_POSITIONS = [
     (WIDTH - AV_SIZE - 80, HEIGHT - AV_SIZE - 260),
 ]
 
-# Nombre de sous-titres par position (plus lent = plus naturel)
 SUBTITLES_PER_POP = 3
 
 
@@ -73,28 +73,28 @@ def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
     niveau_image = niveau_image_map.get(niveau, "assets/Debutant.png")
     print(f"🎬 Intro ({niveau})...")
 
+    # shadowradius non supporté → on utilise seulement shadowx/shadowy
     if not os.path.exists(niveau_image):
-        cmd = ["ffmpeg", "-y", "-f", "lavfi",
-               "-i", f"color=black:s=1080x1920:d={INTRO_DURATION}",
-               "-vf", f"drawtext=text='{titre}':fontcolor=white:fontsize=70:"
-                      f"x=(w-text_w)/2:y=(h-text_h)/2:"
-                      f"shadowcolor=black:shadowx=3:shadowy=3",
+        vf = (
+            f"color=black:s=1080x1920:d={INTRO_DURATION},"
+            f"drawtext=text='{titre}':fontcolor=white:fontsize=70:"
+            f"x=(w-text_w)/2:y=(h-text_h)/2:"
+            f"shadowcolor=black:shadowx=3:shadowy=3"
+        )
+        cmd = ["ffmpeg", "-y", "-f", "lavfi", "-i", vf,
+               "-t", str(INTRO_DURATION),
                "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
-               "-an", output]
+               "-r", "30", "-an", output]
     else:
-        # Titre gros + lisible : fond semi-transparent en bas + texte blanc avec ombre forte
         vf = (
             f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
-            # Bande noire semi-transparente sur toute la hauteur centrale
             f"drawbox=x=0:y=600:w=1080:h=720:color=black@0.60:t=fill,"
-            # Titre principal centré, très gros
             f"drawtext=text='{titre}':"
-            f"fontcolor=white:fontsize=80:font=bold:"
+            f"fontcolor=white:fontsize=80:"
             f"x=(w-text_w)/2:y=820:"
-            f"shadowcolor=black:shadowx=4:shadowy=4:shadowradius=8,"
-            # Sous-ligne niveau en dessous
+            f"shadowcolor=black:shadowx=4:shadowy=4,"
             f"drawtext=text='{niveau.upper()}':"
-            f"fontcolor=#00e5ff:fontsize=52:font=bold:"
+            f"fontcolor=#00e5ff:fontsize=52:"
             f"x=(w-text_w)/2:y=940:"
             f"shadowcolor=black:shadowx=3:shadowy=3"
         )
@@ -102,6 +102,7 @@ def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
                "-loop", "1", "-i", niveau_image,
                "-vf", vf,
                "-t", str(INTRO_DURATION),
+               "-r", "30",
                "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
                "-an", output]
 
@@ -116,15 +117,19 @@ def create_outro(output="outro.mp4"):
     print("🎬 Outro...")
     disclaimer = "assets/disclaimers.png"
     if os.path.exists(disclaimer):
-        vf = (f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
-              f"fade=t=in:st=0:d=0.5,fade=t=out:st={OUTRO_DURATION-0.5}:d=0.5")
+        vf = (
+            f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
+            f"fade=t=in:st=0:d=0.5,fade=t=out:st={OUTRO_DURATION-0.5}:d=0.5"
+        )
         cmd = ["ffmpeg", "-y", "-loop", "1", "-i", disclaimer,
                "-vf", vf, "-t", str(OUTRO_DURATION),
+               "-r", "30",
                "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
                "-an", output]
     else:
         cmd = ["ffmpeg", "-y", "-f", "lavfi",
                "-i", f"color=black:s=1080x1920:d={OUTRO_DURATION}",
+               "-r", "30",
                "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
                "-an", output]
     result = subprocess.run(cmd, capture_output=True, text=True)
@@ -149,15 +154,11 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
         data = json.load(f)
     sous_titres = data.get("sous_titres", [])
     n_subtitles = max(len(sous_titres), 1)
-
-    # Nombre de changements de position = ceil(n_subtitles / SUBTITLES_PER_POP)
-    import math
     n_pops = max(math.ceil(n_subtitles / SUBTITLES_PER_POP), 1)
     seg = avatar_duration / n_pops
 
-    print(f"   {n_subtitles} sous-titres → {n_pops} positions (1 pop / {SUBTITLES_PER_POP} phrases)")
+    print(f"   {n_subtitles} sous-titres → {n_pops} positions")
 
-    # Séquence de positions alternées
     positions = []
     last_idx = -1
     for i in range(n_pops):
@@ -167,7 +168,6 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
         last_idx = idx
 
     filter_parts = []
-
     filter_parts.append(
         "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
         "crop=1080:1920,setpts=PTS-STARTPTS[bg]"
@@ -183,7 +183,6 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
         filter_parts.append(f"[3:v]scale={AV_SIZE}:{AV_SIZE},format=rgba[border]")
         filter_parts.append("[av_raw][mask]alphamerge[av_circle]")
         filter_parts.append("[border][av_circle]overlay=0:0:format=auto[av_base]")
-
         split_outputs = "".join([f"[av{i}]" for i in range(n_pops)])
         filter_parts.append(f"[av_base]split={n_pops}{split_outputs}")
 
@@ -197,18 +196,16 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
                 f"enable='between(t,{t_start:.3f},{t_end:.3f})':shortest=0[{out_label}]"
             )
             current = out_label
-
         filter_parts.append(f"[{current}]copy[out]")
 
         cmd = [
             "ffmpeg", "-y",
-            "-i", background,
-            "-i", avatar,
-            "-i", "circle_mask.png",
-            "-i", "circle_border.png",
+            "-i", background, "-i", avatar,
+            "-i", "circle_mask.png", "-i", "circle_border.png",
             "-filter_complex", ";".join(filter_parts),
             "-map", "[out]", "-map", "1:a",
             "-t", str(avatar_duration),
+            "-r", "30",
             "-c:v", "libx264", "-preset", "fast", "-crf", "23",
             "-c:a", "aac", "-b:a", "128k", "-pix_fmt", "yuv420p",
             output
@@ -232,16 +229,15 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
                 f"enable='between(t,{t_start:.3f},{t_end:.3f})':shortest=0[{out_label}]"
             )
             current = out_label
-
         filter_parts.append(f"[{current}]copy[out]")
 
         cmd = [
             "ffmpeg", "-y",
-            "-i", background,
-            "-i", avatar,
+            "-i", background, "-i", avatar,
             "-filter_complex", ";".join(filter_parts),
             "-map", "[out]", "-map", "1:a",
             "-t", str(avatar_duration),
+            "-r", "30",
             "-c:v", "libx264", "-preset", "fast", "-crf", "23",
             "-c:a", "aac", "-b:a", "128k", "-pix_fmt", "yuv420p",
             output
@@ -261,9 +257,6 @@ def concat_all(intro="intro.mp4", main="main.mp4", outro="outro.mp4",
                output="final_video.mp4"):
     print("🔗 Assemblage final...")
 
-    # Durée main pour le silence intro/outro
-    main_duration = get_duration(main) if os.path.exists(main) else 0
-
     parts = []
     for f, label in [(intro, "intro"), (main, "main"), (outro, "outro")]:
         if os.path.exists(f) and os.path.getsize(f) > 1000:
@@ -276,58 +269,70 @@ def concat_all(intro="intro.mp4", main="main.mp4", outro="outro.mp4",
         print("❌ Rien à assembler")
         return None
 
-    # Ré-encoder toutes les parties avec audio (silence pour intro/outro)
-    # pour garantir la cohérence des streams audio au concat
+    # Normaliser chaque partie : même codec, même fps, audio AAC uniforme
     normalized = []
     for f, label in parts:
         out_norm = f"norm_{label}.mp4"
         dur = get_duration(f)
 
         if label == "main":
-            # main a déjà l'audio → juste normaliser
             cmd = [
                 "ffmpeg", "-y", "-i", f,
+                "-r", "30",
                 "-c:v", "libx264", "-preset", "fast", "-crf", "23",
-                "-c:a", "aac", "-b:a", "128k",
+                "-c:a", "aac", "-b:a", "128k", "-ar", "44100", "-ac", "2",
                 "-pix_fmt", "yuv420p", out_norm
             ]
         else:
-            # intro/outro sans audio → ajouter silence
+            # Ajouter silence pour intro/outro (pas d'audio natif)
             cmd = [
                 "ffmpeg", "-y",
                 "-i", f,
                 "-f", "lavfi", "-i", f"aevalsrc=0:c=stereo:s=44100:d={dur}",
+                "-r", "30",
                 "-c:v", "libx264", "-preset", "fast", "-crf", "23",
-                "-c:a", "aac", "-b:a", "128k",
+                "-c:a", "aac", "-b:a", "128k", "-ar", "44100", "-ac", "2",
                 "-pix_fmt", "yuv420p",
                 "-shortest", out_norm
             ]
 
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
-        if result.returncode != 0:
-            print(f"   ❌ Normalisation {label} échouée, ignoré")
-        else:
+        if result.returncode == 0:
             normalized.append(out_norm)
             print(f"   ✓ {label} normalisé")
+        else:
+            print(f"   ❌ Normalisation {label} échouée :\n{result.stderr[-300:]}")
 
     if not normalized:
         print("❌ Aucune partie normalisée")
         return None
 
-    with open("concat_list.txt", "w") as f:
-        for p in normalized:
-            f.write(f"file '{os.path.abspath(p)}'\n")
+    # Concat avec ré-encodage complet (plus fiable que -c copy)
+    inputs = []
+    filter_v = ""
+    filter_a = ""
+    for i, p in enumerate(normalized):
+        inputs += ["-i", p]
+        filter_v += f"[{i}:v]"
+        filter_a += f"[{i}:a]"
+
+    n = len(normalized)
+    filter_complex = f"{filter_v}concat=n={n}:v=1:a=0[vout];{filter_a}concat=n={n}:v=0:a=1[aout]"
 
     cmd = [
         "ffmpeg", "-y",
-        "-f", "concat", "-safe", "0",
-        "-i", "concat_list.txt",
-        "-c", "copy",
+        *inputs,
+        "-filter_complex", filter_complex,
+        "-map", "[vout]", "-map", "[aout]",
+        "-c:v", "libx264", "-preset", "fast", "-crf", "23",
+        "-c:a", "aac", "-b:a", "128k",
+        "-pix_fmt", "yuv420p",
         output
     ]
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
     if result.returncode != 0:
-        print(f"❌ Erreur concat :\n{result.stderr[-400:]}")
+        print(f"❌ Erreur concat :\n{result.stderr[-500:]}")
         return None
 
     size_mb = os.path.getsize(output) / (1024 * 1024)
