@@ -9,15 +9,6 @@ HEIGHT = 1920
 INTRO_DURATION = 3
 OUTRO_DURATION = 3
 
-# Zones où l’avatar peut apparaître
-ZONES = {
-    "bottom_left":  (60,  HEIGHT - 620),
-    "bottom_right": (WIDTH - 540, HEIGHT - 620),
-    "bottom_center":(WIDTH // 2 - 240, HEIGHT - 620),
-}
-
-SEGMENT_DURATION = 2.0   # Avatar bouge toutes les X secondes
-
 
 def get_duration(path):
     cmd = [
@@ -114,13 +105,13 @@ def create_outro(output="outro.mp4"):
 
 
 # ─────────────────────────────────────────────
-# COMPOSITION PRINCIPALE
+# COMPOSITION PRINCIPALE (AVATAR FIXE)
 # ─────────────────────────────────────────────
 
 def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
                  metadata_path="video_metadata.json", output="main.mp4"):
 
-    print("🎞️ Composition fond + avatar dynamique...")
+    print("🎞️ Composition fond + avatar fixe...")
 
     if not check_file(background, "background"):
         return None
@@ -135,36 +126,16 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
     av_w = 460
     av_h = 460
 
-    # Génération des segments dynamiques
-    positions = list(ZONES.values())
-    segments = []
-    t = 0.0
-    last_pos = None
+    # Position fixe bas droite
+    av_x = WIDTH - av_w - 60
+    av_y = HEIGHT - av_h - 100
 
-    while t < avatar_duration:
-        pos = random.choice(positions)
-        while pos == last_pos:
-            pos = random.choice(positions)
-
-        segments.append((t, min(t + SEGMENT_DURATION, avatar_duration), pos))
-        last_pos = pos
-        t += SEGMENT_DURATION
-
-    # Construction du filtre FFmpeg
     filter_complex = (
         f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
-        f"crop=1080:1920,setpts=PTS-STARTPTS[bg0];"
+        f"crop=1080:1920,setpts=PTS-STARTPTS[bg];"
         f"[1:v]scale={av_w}:{av_h},colorkey=0x000000:0.25:0.08,setpts=PTS-STARTPTS[av];"
+        f"[bg][av]overlay={av_x}:{av_y}:shortest=1[out]"
     )
-
-    current = "bg0"
-    for i, (start, end, (x, y)) in enumerate(segments):
-        filter_complex += (
-            f"[{current}][av]overlay={x}:{y}:enable='between(t,{start},{end})'[bg{i+1}];"
-        )
-        current = f"bg{i+1}"
-
-    filter_complex += f"[{current}]copy[out]"
 
     cmd = [
         "ffmpeg", "-y",
