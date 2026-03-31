@@ -1,31 +1,30 @@
 {
-  "titre": "Le Golden Cross : le signal Bitcoin ultime",
-  "sujet": "le golden cross",
-  "niveau": "débutant",
-  "actif": "BTC/USDT",
+  "titre": "Domine le Price Action sur l'Ethereum",
+  "sujet": "le price action",
+  "niveau": "intermédiaire",
+  "actif": "ETH/USDT",
   "categorie": "crypto",
-  "fond_type": "moyenne_mobile",
-  "voix_off": "Tu veux savoir quand Bitcoin va exploser ? Regarde bien ce qui se passe sur ton graphique. C'est ce qu'on appelle le Golden Cross, ou croisement doré, et c'est l'un des signaux les plus puissants pour les traders débutants. Imagine deux lignes qui suivent le prix : la moyenne mobile 50 jours, en bleu, et la 200 jours, en rouge. Le Golden Cross se produit quand la ligne bleue, plus rapide, passe au-dessus de la ligne rouge, plus lente. Pourquoi c’est important ? Parce que cela indique que la tendance à court terme devient plus forte que la tendance à long terme. Historiquement, sur le BTC/USDT, ce signal précède souvent d’énormes hausses de prix. C'est le moment où les investisseurs reprennent confiance. Mais attention, ce n'est pas une formule magique, il faut toujours gérer son risque financier avec sérieux. Abonne-toi dès maintenant pour maîtriser tes futurs trades !",
+  "fond_type": "chandeliers",
+  "voix_off": "Tu penses encore que les indicateurs techniques sont la clé ? Oublie le RSI et regarde bien ce graphique ETH/USDT. En trading intermédiaire, le Price Action est ton seul véritable allié. Analyse cette bougie de rejet sur cette zone de Supply majeure. Ce qu’on voit ici, ce n’est pas juste du rouge, c’est une chasse à la liquidité au-dessus des précédents sommets. Les institutionnels piègent les acheteurs impatients avant de renverser la tendance. Observe maintenant ce Break of Structure, le fameux BOS. La structure de marché vient de basculer en bearish. Plutôt que de deviner le point bas, on attend le retracement dans l'Order Block laissé par l'impulsion. C'est là que le risque-récompense devient imbattable. Le prix raconte une histoire de psychologie et de flux d'ordres, pas de mathématiques retardées par des moyennes mobiles. Maîtrise le Price Action, épure ton graphique et laisse les bougies te guider vers la rentabilité.",
   "sous_titres": [
-    "Bitcoin va exploser ?",
-    "Regarde bien ce graphique",
-    "C'est le Golden Cross",
-    "Signal ultra puissant",
-    "Deux lignes : MM50 et MM200",
-    "Le croisement doré",
-    "La ligne rapide dépasse la lente",
-    "La tendance s'inverse",
-    "Signe de hausse massive",
-    "Confiance des investisseurs",
-    "Gérez votre risque",
-    "Abonne-toi pour plus !"
+    "Oublie tes indicateurs classiques",
+    "Regarde le prix sur l'ETH",
+    "Le Price Action est ton allié",
+    "Analyse cette zone de Supply",
+    "C'est une chasse à la liquidité",
+    "Les institutionnels piègent le retail",
+    "Voici le Break of Structure",
+    "La structure devient bearish",
+    "Attend le retour dans l'Order Block",
+    "Le risque-récompense est imbattable",
+    "Épure ton graphique dès maintenant"
   ],
   "concepts_cles": [
-    "Golden Cross",
-    "Moyenne Mobile 50",
-    "Moyenne Mobile 200",
-    "Analyse technique",
-    "Tendance haussière"
+    "Supply & Demand",
+    "Liquidity Sweep",
+    "Break of Structure (BOS)",
+    "Order Block",
+    "Market Structure"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #crypto #priceaction #eth #bourse"
 }
