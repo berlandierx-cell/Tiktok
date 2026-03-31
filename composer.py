@@ -93,10 +93,10 @@ def create_outro(output="outro.mp4"):
 
 
 # ─────────────────────────────────────────────
-# POSITIONS DYNAMIQUES
+# POSITIONS DYNAMIQUES BASÉES SUR LES SOUS‑TITRES
 # ─────────────────────────────────────────────
 
-def generate_avatar_positions(metadata_path="video_metadata.json"):
+def generate_timeline(metadata_path="video_metadata.json"):
     with open(metadata_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
@@ -109,21 +109,21 @@ def generate_avatar_positions(metadata_path="video_metadata.json"):
             "top_left": 3, "top_right": 3,
             "bottom_left": 1, "bottom_right": 1
         }
-    elif fond_type == "texte_cles":
-        weights = {
-            "top_left": 2, "top_right": 2,
-            "bottom_left": 2, "bottom_right": 2
-        }
     else:
         weights = {
             "top_left": 2, "top_right": 2,
             "bottom_left": 2, "bottom_right": 2
         }
 
-    positions = []
+    timeline = []
     last_zone = None
 
-    for _ in sous_titres:
+    for st in sous_titres:
+        start = float(st["start"])
+        end = float(st["end"])
+        duration = max(0.1, end - start)
+
+        # Choisir une zone différente de la précédente
         zones = list(weights.keys())
         weights_list = list(weights.values())
 
@@ -132,47 +132,46 @@ def generate_avatar_positions(metadata_path="video_metadata.json"):
             if zone != last_zone:
                 break
 
-        positions.append(zone)
+        x, y = ZONES[zone]
+        size = random.choice([450, 480])
+        transition = random.choice(["fade", "pop"])
+
+        timeline.append({
+            "start": start,
+            "end": end,
+            "duration": duration,
+            "x": x,
+            "y": y,
+            "size": size,
+            "transition": transition
+        })
+
         last_zone = zone
 
-    return positions
+    return timeline
 
 
 # ─────────────────────────────────────────────
 # SCRIPT FFmpeg DYNAMIQUE
 # ─────────────────────────────────────────────
 
-def generate_ffscript():
-    script = r"""
-# FFmpeg dynamic avatar script
-
-[1:v]split=2[av0][av1];
-
-# Remove black background
-[av0]chromakey=0x000000:0.12:0.08,format=rgba[cut];
-
-# Scale dynamically
-[cut]scale='scale:scale'[scaled];
-
-# Fade transition
-[scaled]fade=t=in:st=0:d=0.25,fade=t=out:st=0.75:d=0.25[fade];
-
-# Pop transition
-[scaled]scale='scale*1.05:scale*1.05',fade=t=in:st=0:d=0.25[pop];
-
-# Choose transition
-[fade][pop]blend=all_expr='
-    posfile="avatar_positions.txt";
-    line=trunc(t/1);
-    tr=readfile(posfile, line, 4);
-    if(eq(tr,"fade"),A,B)
-'[avatar];
-
-# Overlay
-[0:v][avatar]overlay=x='xpos':y='ypos':shortest=1[out]
-"""
+def generate_ffscript(timeline):
     with open("avatar_dynamic.ffscript", "w") as f:
-        f.write(script)
+        f.write("# FFmpeg dynamic avatar script\n\n")
+
+        f.write("[1:v]chromakey=0x000000:0.12:0.08,format=rgba[av];\n")
+        f.write("[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920[bg];\n")
+
+        # Timeline
+        for i, seg in enumerate(timeline):
+            f.write(
+                f"[av]scale={seg['size']}:{seg['size']}[av{i}];\n"
+                f"[bg][av{i}]overlay=x={seg['x']}:y={seg['y']}:enable='between(t,{seg['start']},{seg['end']})'[bg{i}];\n"
+            )
+
+        # Dernier segment
+        last = f"[bg{len(timeline)-1}]"
+        f.write(f"{last}copy[out]\n")
 
 
 # ─────────────────────────────────────────────
@@ -184,20 +183,8 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
 
     print("🎞️ Composition fond + avatar dynamique...")
 
-    avatar_duration = get_video_duration(avatar)
-
-    positions = generate_avatar_positions(metadata_path)
-
-    # Génération du fichier positions
-    with open("avatar_positions.txt", "w") as f:
-        for i, zone in enumerate(positions):
-            x, y = ZONES[zone]
-            size = random.choice([450, 480])
-            transition = random.choice(["fade", "pop"])
-            f.write(f"{i} {x} {y} {size} {transition}\n")
-
-    # Génération du script FFmpeg
-    generate_ffscript()
+    timeline = generate_timeline(metadata_path)
+    generate_ffscript(timeline)
 
     cmd = [
         "ffmpeg", "-y",
@@ -206,7 +193,6 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
         "-filter_complex_script", "avatar_dynamic.ffscript",
         "-map", "[out]",
         "-map", "1:a",
-        "-t", str(avatar_duration),
         "-c:v", "libx264",
         "-preset", "fast",
         "-crf", "23",
