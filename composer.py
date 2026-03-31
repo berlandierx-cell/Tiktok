@@ -5,7 +5,7 @@ import json
 WIDTH  = 1080
 HEIGHT = 1920
 
-INTRO_DURATION = 3
+INTRO_DURATION = 5
 OUTRO_DURATION = 3
 
 
@@ -33,7 +33,7 @@ def check_file(path, label):
 
 
 # ─────────────────────────────────────────────
-# INTRO n
+# INTRO (5 secondes, image + titre, sans son)
 # ─────────────────────────────────────────────
 
 def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
@@ -43,7 +43,6 @@ def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
     titre  = data.get("titre", "TRADING").replace("'", "\\'")
     niveau = data.get("niveau", "débutant")
 
-    # NOMS EXACTS DANS assets/
     niveau_image_map = {
         "débutant":      "assets/Debutant.png",
         "intermédiaire": "assets/Intermediare.png",
@@ -107,13 +106,13 @@ def create_outro(output="outro.mp4"):
 
 
 # ─────────────────────────────────────────────
-# COMPOSITION PRINCIPALE (AVATAR FIXE)
+# AVATAR ROND + CONTOUR BLANC 3px
 # ─────────────────────────────────────────────
 
 def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
                  metadata_path="video_metadata.json", output="main.mp4"):
 
-    print("🎞️ Composition fond + avatar fixe...")
+    print("🎞️ Composition fond + avatar rond...")
 
     if not check_file(background, "background"):
         return None
@@ -124,21 +123,34 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
     bg_duration     = get_duration(background)
     print(f"   Durée avatar : {avatar_duration:.1f}s | Fond : {bg_duration:.1f}s")
 
-    # Taille avatar
     av_w = 460
     av_h = 460
 
-    # Position fixe bas droite
     av_x = WIDTH - av_w - 60
     av_y = HEIGHT - av_h - 100
 
-    # Pas de pad, colorkey plus doux
+    # Masque circulaire + contour blanc 3px
     filter_complex = (
+        # Fond
         "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
         "crop=1080:1920,setpts=PTS-STARTPTS[bg];"
-        f"[1:v]scale={av_w}:{av_h},"
-        "colorkey=0x000000:0.18:0.05,setpts=PTS-STARTPTS[av];"
-        f"[bg][av]overlay={av_x}:{av_y}:shortest=1[out]"
+
+        # Avatar → RGBA
+        f"[1:v]scale={av_w}:{av_h},format=rgba[av0];"
+
+        # Masque cercle
+        f"[av0]geq=r='r(X,Y)':g='g(X,Y)':b='b(X,Y)':"
+        f"a='if((X-{av_w/2})^2+(Y-{av_h/2})^2<{(av_w/2-3)**2},255,0)'[av_masked];"
+
+        # Contour blanc (3px)
+        f"[av0]geq=r='255':g='255':b='255':"
+        f"a='if((X-{av_w/2})^2+(Y-{av_h/2})^2<{(av_w/2)**2},255,0)'[av_border];"
+
+        # Fusion contour + avatar
+        "[av_border][av_masked]overlay=(W-w)/2:(H-h)/2:format=auto[av_final];"
+
+        # Overlay final
+        f"[bg][av_final]overlay={av_x}:{av_y}:shortest=1[out]"
     )
 
     cmd = [
