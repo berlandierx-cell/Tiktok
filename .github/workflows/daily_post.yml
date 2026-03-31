@@ -1,4 +1,4 @@
-name: TikTok Generator 2026
+name: TikTok Generator 2026 *
 
 on:
   workflow_dispatch:
