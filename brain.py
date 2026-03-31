@@ -62,7 +62,7 @@ Génère un script TikTok d'exactement 1 minute (130-150 mots) en français.
 Commence par un hook accrocheur (question ou affirmation forte).
 Adapte le vocabulaire au niveau {niveau}.
 
-Format JSON strict (respecte exactement ces clés) :
+Format JSON strict :
 {{
   "titre": "titre court TikTok max 8 mots",
   "sujet": "{sujet}",
@@ -74,11 +74,7 @@ Format JSON strict (respecte exactement ces clés) :
   "sous_titres": ["phrase courte 1", "phrase courte 2", "..."],
   "concepts_cles": ["concept 1", "concept 2", "concept 3", "concept 4", "concept 5"],
   "tags": "#trading #{categorie} #bourse #apprendre #finance"
-}}
-
-Règles :
-- sous_titres : 8 à 12 phrases de 5-7 mots maximum chacune, couvrant l'ensemble du script
-- concepts_cles : 5 termes clés du sujet, courts (1-3 mots), pertinents pour le fond visuel"""
+}}"""
 
     for model_name in MODELS_PRIORITY:
         try:
@@ -96,7 +92,7 @@ Règles :
             print(f"⚠️ {model_name} : {e}")
             continue
 
-    # Backup
+    print("⚠️ Brain : backup utilisé")
     backup = {
         "titre": "Le Risk/Reward expliqué",
         "sujet": "le risk/reward",
@@ -104,7 +100,7 @@ Règles :
         "actif": "BTC/USDT",
         "categorie": "crypto",
         "fond_type": "schema_risk_reward",
-        "voix_off": "Est-ce que tu sais vraiment ce qu'est le risk reward ? C'est le ratio entre ce que tu risques et ce que tu peux gagner sur un trade. Par exemple, si tu risques 100 euros pour en gagner 300, ton ratio est de 1 pour 3. Avec un tel ratio, tu peux perdre deux trades sur trois et rester quand même rentable. C'est mathématique. Beaucoup de débutants ignorent ce principe et c'est leur plus grosse erreur. Avant chaque trade, pose-toi cette question : combien je risque, combien je peux gagner ? Si le ratio est inférieur à 1 pour 2, passe ton chemin. Le money management, c'est la base du trading professionnel.",
+        "voix_off": "Est-ce que tu sais vraiment ce qu'est le risk reward ? ...",
         "sous_titres": [
             "Tu connais le risk/reward ?",
             "C'est ton ratio gain / perte",
@@ -120,7 +116,6 @@ Règles :
     }
     with open('video_metadata.json', 'w', encoding='utf-8') as f:
         json.dump(backup, f, ensure_ascii=False, indent=2)
-    print("⚠️ Brain : backup utilisé")
 
 
 if __name__ == "__main__":
