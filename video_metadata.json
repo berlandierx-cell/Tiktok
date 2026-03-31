@@ -1,33 +1,29 @@
 {
-  "titre": "Gérez vos pertes, pas seulement vos gains !",
-  "sujet": "la gestion des pertes",
-  "niveau": "intermédiaire",
-  "actif": "EUR/USD",
+  "titre": "Stop Loss : Ton bouclier anti-pertes !",
+  "sujet": "le stop loss",
+  "niveau": "débutant",
+  "actif": "GBP/USD",
   "categorie": "forex",
   "fond_type": "schema_risk_reward",
-  "voix_off": "Saviez-vous que la gestion de vos pertes est plus cruciale que vos gains en trading ? Absolument ! C'est la clé de votre survie sur les marchés. Sans ça, adieu votre capital !\n\nSur EUR/USD, ou tout actif, votre stratégie doit inclure des limites claires. Pensez \"Stop Loss\" et \"Take Profit\". Le Stop Loss est votre bouclier, protégeant d'une perte démesurée. Le Take Profit sécurise vos gains. L'objectif ? Un ratio \"Risk/Reward\" favorable, idéalement 1:2 ou 1:3. Cela signifie risquer 1€ pour en viser 2€ ou 3€.\n\nAdoptez la règle des 1% à 2% de risque maximum par trade, par rapport à votre capital total. Une discipline essentielle ! Regardez notre schéma Risk/Reward : chaque perte contrôlée vous rapproche d'une profitabilité durable. La gestion des pertes n'est pas une faiblesse, c'est la marque du trader pro. Maîtrisez-la !",
+  "voix_off": "Tu as peur de tout perdre en trading ? Ne t'inquiète plus ! Le stop loss est ton meilleur ami pour protéger ton argent. Imagine : tu achètes du GBP/USD en espérant qu'il monte. Mais que se passe-t-il si ça descend ? Sans protection, tu pourrais perdre beaucoup.\n\nC'est là qu'intervient le stop loss. C'est un ordre que tu places pour vendre automatiquement ton actif si son prix atteint un certain seuil de perte que tu as défini. En clair, tu dis à ta plateforme : 'Si le GBP/USD tombe à ce niveau, coupe mes pertes et vends.' Ça te permet de limiter précisément le montant maximum que tu es prêt à perdre sur une transaction.\n\nSur ce schéma de risque/rendement, tu vois bien où placer ton stop loss par rapport à ton objectif de profit. C'est crucial pour une gestion saine de ton capital. Ne trade jamais sans ! Le stop loss n'est pas une option, c'est une règle d'or. Protège tes gains futurs en limitant tes pertes dès maintenant. Essentiel pour tous les débutants.",
   "sous_titres": [
-    "Gérer vos pertes, c'est crucial !",
-    "La clé de votre survie.",
-    "Sans ça, adieu le capital !",
-    "Sur EUR/USD, fixez des limites.",
-    "Pensez Stop Loss et Take Profit.",
-    "Stop Loss: votre bouclier.",
-    "Take Profit: sécurise vos gains.",
-    "Ratio Risk/Reward 1:2 ou 1:3.",
-    "Risquer 1€ pour en viser 2-3€.",
-    "Règle 1-2% risque max/trade.",
-    "C'est une discipline essentielle !",
-    "Perte contrôlée = profit durable.",
-    "Pas une faiblesse, c'est pro.",
-    "Maîtrisez vos pertes !"
+    "Peur de tout perdre en trading ?",
+    "Le stop loss est ton ami !",
+    "Protège ton argent.",
+    "Si le prix descend trop bas...",
+    "Vends automatiquement l'actif.",
+    "Limite tes pertes précisément.",
+    "Gère ton capital sainement.",
+    "Jamais sans stop loss !",
+    "Règle d'or du trading.",
+    "Essentiel pour débutants."
   ],
   "concepts_cles": [
-    "Gestion des pertes",
-    "Stop Loss",
-    "Take Profit",
-    "Ratio Risk/Reward",
-    "Règle des 1-2% de risque"
+    "Stop loss",
+    "Gestion du risque",
+    "Protection du capital",
+    "Seuil de perte",
+    "Ordre automatique"
   ],
   "tags": "#trading #forex #bourse #apprendre #finance"
 }
