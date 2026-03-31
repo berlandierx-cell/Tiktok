@@ -9,7 +9,6 @@ HEIGHT = 1920
 INTRO_DURATION = 5
 OUTRO_DURATION = 5
 
-# Zones sûres (pondérées selon le fond)
 ZONES = {
     "top_left":    (80, 200),
     "top_right":   (WIDTH - 560, 200),
@@ -17,7 +16,7 @@ ZONES = {
     "bottom_right":(WIDTH - 560, HEIGHT - 700)
 }
 
-def get_video_duration(path):
+def get_duration(path):
     cmd = [
         "ffprobe", "-v", "error",
         "-show_entries", "format=duration",
@@ -93,42 +92,32 @@ def create_outro(output="outro.mp4"):
 
 
 # ─────────────────────────────────────────────
-# POSITIONS DYNAMIQUES BASÉES SUR LES SOUS‑TITRES
+# TIMELINE BASÉE SUR LA DURÉE DE LA VOIX
 # ─────────────────────────────────────────────
 
-def generate_timeline(metadata_path="video_metadata.json"):
+def generate_timeline(metadata_path="video_metadata.json", voice_path="voice.mp3"):
     with open(metadata_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    sous_titres = data.get("sous_titres", [])
-    fond_type = data.get("fond_type", "chandeliers")
+    phrases = data.get("sous_titres", [])
+    n = len(phrases)
 
-    # Pondération selon le fond
-    if fond_type in ["indicateur_rsi", "indicateur_macd"]:
-        weights = {
-            "top_left": 3, "top_right": 3,
-            "bottom_left": 1, "bottom_right": 1
-        }
-    else:
-        weights = {
-            "top_left": 2, "top_right": 2,
-            "bottom_left": 2, "bottom_right": 2
-        }
+    if n == 0:
+        raise ValueError("Aucun sous-titre trouvé dans video_metadata.json")
+
+    total_voice_duration = get_duration(voice_path)
+    segment = total_voice_duration / n
 
     timeline = []
     last_zone = None
 
-    for st in sous_titres:
-        start = float(st["start"])
-        end = float(st["end"])
-        duration = max(0.1, end - start)
+    for i, phrase in enumerate(phrases):
+        start = i * segment
+        end = (i + 1) * segment
 
-        # Choisir une zone différente de la précédente
-        zones = list(weights.keys())
-        weights_list = list(weights.values())
-
+        zones = list(ZONES.keys())
         while True:
-            zone = random.choices(zones, weights_list)[0]
+            zone = random.choice(zones)
             if zone != last_zone:
                 break
 
@@ -139,7 +128,6 @@ def generate_timeline(metadata_path="video_metadata.json"):
         timeline.append({
             "start": start,
             "end": end,
-            "duration": duration,
             "x": x,
             "y": y,
             "size": size,
@@ -160,18 +148,18 @@ def generate_ffscript(timeline):
         f.write("# FFmpeg dynamic avatar script\n\n")
 
         f.write("[1:v]chromakey=0x000000:0.12:0.08,format=rgba[av];\n")
-        f.write("[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920[bg];\n")
+        f.write("[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920[bg0];\n")
 
-        # Timeline
+        current = "bg0"
+
         for i, seg in enumerate(timeline):
             f.write(
                 f"[av]scale={seg['size']}:{seg['size']}[av{i}];\n"
-                f"[bg][av{i}]overlay=x={seg['x']}:y={seg['y']}:enable='between(t,{seg['start']},{seg['end']})'[bg{i}];\n"
+                f"[{current}][av{i}]overlay=x={seg['x']}:y={seg['y']}:enable='between(t,{seg['start']},{seg['end']})'[bg{i+1}];\n"
             )
+            current = f"bg{i+1}"
 
-        # Dernier segment
-        last = f"[bg{len(timeline)-1}]"
-        f.write(f"{last}copy[out]\n")
+        f.write(f"[{current}]copy[out]\n")
 
 
 # ─────────────────────────────────────────────
