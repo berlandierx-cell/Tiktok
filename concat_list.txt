@@ -1,3 +1,2 @@
-file 'intro.mp4'
-file 'main.mp4'
-file 'outro.mp4'
+file '/root/actions-runner-tiktok/_work/Tiktok/Tiktok/main.mp4'
+file '/root/actions-runner-tiktok/_work/Tiktok/Tiktok/outro.mp4'

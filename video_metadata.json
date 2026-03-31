@@ -1,29 +1,35 @@
 {
-  "titre": "Stop Loss : Ton bouclier anti-pertes !",
-  "sujet": "le stop loss",
-  "niveau": "débutant",
-  "actif": "GBP/USD",
-  "categorie": "forex",
-  "fond_type": "schema_risk_reward",
-  "voix_off": "Tu as peur de tout perdre en trading ? Ne t'inquiète plus ! Le stop loss est ton meilleur ami pour protéger ton argent. Imagine : tu achètes du GBP/USD en espérant qu'il monte. Mais que se passe-t-il si ça descend ? Sans protection, tu pourrais perdre beaucoup.\n\nC'est là qu'intervient le stop loss. C'est un ordre que tu places pour vendre automatiquement ton actif si son prix atteint un certain seuil de perte que tu as défini. En clair, tu dis à ta plateforme : 'Si le GBP/USD tombe à ce niveau, coupe mes pertes et vends.' Ça te permet de limiter précisément le montant maximum que tu es prêt à perdre sur une transaction.\n\nSur ce schéma de risque/rendement, tu vois bien où placer ton stop loss par rapport à ton objectif de profit. C'est crucial pour une gestion saine de ton capital. Ne trade jamais sans ! Le stop loss n'est pas une option, c'est une règle d'or. Protège tes gains futurs en limitant tes pertes dès maintenant. Essentiel pour tous les débutants.",
+  "titre": "Divergence MACD : Anticipe les retournements !",
+  "sujet": "la divergence MACD",
+  "niveau": "intermédiaire",
+  "actif": "BTC/USDT",
+  "categorie": "crypto",
+  "fond_type": "indicateur_macd",
+  "voix_off": "Marre de rater les retournements de marché ? Aujourd'hui, on décortique la divergence MACD, un signal puissant pour anticiper les changements de tendance, surtout sur le BTC/USDT.\n\nRegarde bien l'écran. Quand le prix du Bitcoin fait un plus bas, mais que l'indicateur MACD fait un plus haut (moins bas), c'est une divergence haussière. Cela indique que le momentum baissier s'essouffle et qu'un rebond est souvent imminent. C'est un signe que la pression acheteuse pourrait reprendre le dessus.\n\nÀ l'inverse, si le prix atteint un nouveau plus haut, et que la MACD fait un plus bas (moins haut), on parle de divergence baissière. Le momentum acheteur faiblit, signalant une potentielle correction ou une inversion de tendance à la baisse. Le marché est suracheté et une pression vendeuse se prépare.\n\nC'est un outil essentiel pour affiner tes points d'entrée et de sortie. Mais attention, la divergence n'est pas un signal unique ! Confirme toujours avec d'autres indicateurs techniques, comme le RSI ou des supports/résistances. Maîtrise la divergence MACD et donne un coup de boost à ton analyse technique. Abonne-toi pour plus d'astuces trading !",
   "sous_titres": [
-    "Peur de tout perdre en trading ?",
-    "Le stop loss est ton ami !",
-    "Protège ton argent.",
-    "Si le prix descend trop bas...",
-    "Vends automatiquement l'actif.",
-    "Limite tes pertes précisément.",
-    "Gère ton capital sainement.",
-    "Jamais sans stop loss !",
-    "Règle d'or du trading.",
-    "Essentiel pour débutants."
+    "Marre de rater les retournements ?",
+    "La divergence MACD est clé !",
+    "Anticipe les changements de tendance.",
+    "Sur l'écran, le BTC/USDT.",
+    "Prix plus bas, MACD plus haut :",
+    "C'est une divergence haussière.",
+    "Le momentum baissier s'essouffle.",
+    "Un rebond est imminent !",
+    "Prix plus haut, MACD plus bas :",
+    "C'est une divergence baissière.",
+    "Le momentum acheteur faiblit.",
+    "Une correction se prépare.",
+    "Affine tes points d'entrée/sortie.",
+    "Confirme toujours avec d'autres outils.",
+    "Maîtrise la divergence MACD !",
+    "Abonne-toi pour plus d'astuces !"
   ],
   "concepts_cles": [
-    "Stop loss",
-    "Gestion du risque",
-    "Protection du capital",
-    "Seuil de perte",
-    "Ordre automatique"
+    "Divergence haussière",
+    "Divergence baissière",
+    "MACD (Moving Average Convergence Divergence)",
+    "Momentum",
+    "Analyse technique"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
