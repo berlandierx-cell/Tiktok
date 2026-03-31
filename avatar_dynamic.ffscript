@@ -1,0 +1,59 @@
+# Chargement des variables depuis avatar_positions.txt
+# Format : index x y size transition
+
+# On lit la ligne correspondant au timestamp courant
+# et on extrait les valeurs
+[1:v]split=2[av0][av1];
+
+# Suppression du fond noir (chroma key propre)
+[av0]chromakey=0x000000:0.12:0.08,format=rgba[cut];
+
+# Animation dynamique
+# On utilise un script FFmpeg pour interpoler les valeurs
+# en fonction du temps et des transitions
+
+# Position X/Y dynamiques
+x='
+    posfile="avatar_positions.txt";
+    line=trunc(t/1);
+    xpos=readfile(posfile, line, 1);
+    xpos
+'
+
+y='
+    posfile="avatar_positions.txt";
+    line=trunc(t/1);
+    ypos=readfile(posfile, line, 2);
+    ypos
+'
+
+# Taille dynamique (450 ou 480)
+scale='
+    posfile="avatar_positions.txt";
+    line=trunc(t/1);
+    size=readfile(posfile, line, 3);
+    size
+'
+
+# Transition dynamique (fade ou pop)
+# fade = fade-in/out
+# pop = zoom + fade
+
+[cut]scale='scale:scale'[scaled];
+
+# Fade-in/out
+[scaled]fade=t=in:st=0:d=0.25,fade=t=out:st=0.75:d=0.25[fade];
+
+# Pop (zoom léger)
+[scaled]scale='scale*1.05:scale*1.05',fade=t=in:st=0:d=0.25[pop];
+
+# Choix transition
+[fade][pop]blend=all_expr='
+    posfile="avatar_positions.txt";
+    line=trunc(t/1);
+    tr=readfile(posfile, line, 4);
+    if(eq(tr,"fade"),A,B)
+'[avatar];
+
+# Overlay final
+[0:v][avatar]overlay=x='xpos':y='ypos':shortest=1[out]
