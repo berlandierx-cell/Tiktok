@@ -1,3 +1,3 @@
-file '/root/actions-runner-tiktok/_work/Tiktok/Tiktok/intro.mp4'
-file '/root/actions-runner-tiktok/_work/Tiktok/Tiktok/main.mp4'
-file '/root/actions-runner-tiktok/_work/Tiktok/Tiktok/outro.mp4'
+file '/root/actions-runner-tiktok/_work/Tiktok/Tiktok/norm_intro.mp4'
+file '/root/actions-runner-tiktok/_work/Tiktok/Tiktok/norm_main.mp4'
+file '/root/actions-runner-tiktok/_work/Tiktok/Tiktok/norm_outro.mp4'

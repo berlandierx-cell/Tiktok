@@ -1,33 +1,27 @@
 {
-  "titre": "Maîtrise ta taille de position sur l'USD/JPY",
-  "sujet": "la taille de position",
+  "titre": "Le Risk/Reward expliqué",
+  "sujet": "le risk/reward",
   "niveau": "débutant",
-  "actif": "USD/JPY",
-  "categorie": "forex",
+  "actif": "BTC/USDT",
+  "categorie": "crypto",
   "fond_type": "schema_risk_reward",
-  "voix_off": "Arrête de trader au hasard si tu ne veux pas cramer ton compte en une semaine ! La plupart des débutants font la même erreur : ils choisissent leur taille de position au feeling. Sur l'USD/JPY, par exemple, un lot n'est pas juste un chiffre, c'est ton risque réel. La règle d'or ? Ne risque jamais plus de 1 % de ton capital par trade. Si tu as 1000 euros, tu ne dois pas perdre plus de 10 euros si ton Stop Loss est touché. Pour calculer ta taille de position, regarde la distance entre ton entrée et ton Stop Loss. Plus ton Stop est loin, plus ta taille de lot doit être petite. C'est ce qu'on appelle le Risk/Reward. En maîtrisant cela, tu restes dans le jeu même après une série de pertes. Maîtrise ta taille de position et tu deviendras enfin un trader rentable. Abonne-toi pour plus d'astuces !",
+  "voix_off": "Est-ce que tu sais vraiment ce qu'est le risk reward ? ...",
   "sous_titres": [
-    "Arrête de trader au hasard !",
-    "Ne crame pas ton compte.",
-    "L'erreur fatale des débutants.",
-    "Choisir sa taille au feeling ?",
-    "Exemple sur l'USD/JPY.",
-    "Le lot est ton risque réel.",
-    "La règle d'or : le 1 %.",
-    "1000€ = 10€ de risque max.",
-    "Calcule selon ton Stop Loss.",
-    "Stop loin = petit lot.",
-    "Comprendre le Risk/Reward.",
-    "Reste dans le jeu.",
-    "Deviens un trader rentable.",
-    "Abonne-toi !"
+    "Tu connais le risk/reward ?",
+    "C'est ton ratio gain / perte",
+    "1 risqué pour 3 gagné",
+    "Tu peux perdre et rester rentable",
+    "C'est une question de maths",
+    "Calcule avant chaque trade",
+    "Ratio minimum : 1 pour 2",
+    "C'est la base du trading pro"
   ],
   "concepts_cles": [
-    "Gestion du risque",
+    "Risk/Reward",
     "Stop Loss",
-    "Taille de lot",
-    "Règle du 1%",
-    "Capital de trading"
+    "Take Profit",
+    "Ratio 1:2",
+    "Money Management"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #riskmanagement #crypto #apprendre #bourse"
 }
