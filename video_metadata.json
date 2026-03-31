@@ -1,27 +1,27 @@
 {
-  "titre": "Le Risk/Reward expliqué",
-  "sujet": "le risk/reward",
-  "niveau": "débutant",
+  "titre": "Maîtrise l'EMA pour dompter le BTC",
+  "sujet": "les moyennes mobiles exponentielles",
+  "niveau": "intermédiaire",
   "actif": "BTC/USDT",
   "categorie": "crypto",
-  "fond_type": "schema_risk_reward",
-  "voix_off": "Est-ce que tu sais vraiment ce qu'est le risk reward ? ...",
+  "fond_type": "moyenne_mobile",
+  "voix_off": "Arrête d'utiliser les moyennes mobiles simples si tu veux vraiment anticiper les mouvements du BTC. Contrairement à la SMA, la Moyenne Mobile Exponentielle, ou EMA, accorde un poids supérieur aux bougies les plus récentes. C'est l'outil indispensable pour réagir aux impulsions volatiles du marché crypto. Regarde ce graphique BTC/USDT. En tendance haussière, l’EMA 21 sert souvent de support dynamique. Si le prix rebondit dessus, ta tendance reste saine. Pour un signal plus robuste, utilise le croisement des EMA 50 et 200 : c'est le fameux Golden Cross. Attention cependant, l'EMA est un indicateur de suivi, pas de prédiction. Elle réduit le décalage temporel mais reste vulnérable aux phases de latéralisation où les faux signaux se multiplient. Maîtrise ces courbes pour filtrer le bruit et affiner tes entrées en scalping ou swing. Dis-moi en commentaire quelle période tu préfères configurer sur tes graphiques.",
   "sous_titres": [
-    "Tu connais le risk/reward ?",
-    "C'est ton ratio gain / perte",
-    "1 risqué pour 3 gagné",
-    "Tu peux perdre et rester rentable",
-    "C'est une question de maths",
-    "Calcule avant chaque trade",
-    "Ratio minimum : 1 pour 2",
-    "C'est la base du trading pro"
+    "Oublie la SMA classique",
+    "L'EMA privilégie le prix récent",
+    "Réagis vite à la volatilité crypto",
+    "EMA 21 : support dynamique crucial",
+    "Le signal du Golden Cross",
+    "Moins de décalage temporel",
+    "Attention aux marchés plats",
+    "Affine tes entrées maintenant"
   ],
   "concepts_cles": [
-    "Risk/Reward",
-    "Stop Loss",
-    "Take Profit",
-    "Ratio 1:2",
-    "Money Management"
+    "Pondération exponentielle",
+    "Support dynamique",
+    "Golden Cross",
+    "Réduction du lag",
+    "Filtre de tendance"
   ],
-  "tags": "#trading #riskmanagement #crypto #apprendre #bourse"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
