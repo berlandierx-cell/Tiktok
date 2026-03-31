@@ -21,15 +21,26 @@ jobs:
       - name: 📦 Install Python dependencies
         run: pip install -r requirements.txt --break-system-packages --ignore-installed typing-extensions
 
-      - name: 🧠 Step 1 - Brain
+      - name: 🧠 Step 1 - Brain (Gemini génère le script)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python brain.py
 
-      - name: 🎬 Step 2 - Video
+      - name: 🎙️ Step 2 - Video (voix + avatar Wav2Lip)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python video_gen.py
+
+      - name: 🎨 Step 3 - Background (fond boursier animé)
+        run: python background.py
+
+      - name: 🎬 Step 4 - Composer (assemblage final 9:16)
+        run: python composer.py
+
+      - name: 📲 Step 5 - Publish (TikTok)
+        env:
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+        run: python publisher.py
 
       - name: 📤 Push Results
         run: |
@@ -37,5 +48,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Update video: $(date)" || echo "No changes"
+          git commit -m "Video: $(date)" || echo "No changes"
           git push origin main
