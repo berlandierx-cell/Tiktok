@@ -10,7 +10,7 @@ WAV2LIP_DIR = os.path.expanduser("~/Wav2Lip")
 
 async def generate_audio(text):
     print("🎙️ Création audio...")
-    communicate = edge_tts.Communicate(text, "fr-FR-DeniseNeural")
+    communicate = edge_tts.Communicate(text, "fr-FR-HenriNeural")
     await communicate.save("voice.mp3")
     print("✅ Audio prêt.")
 
