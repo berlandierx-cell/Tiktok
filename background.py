@@ -464,20 +464,20 @@ def generate_background(metadata_path="video_metadata.json", output_path="backgr
 
     if fond_type in ["indicateur_rsi", "indicateur_macd"]:
         gs = gridspec.GridSpec(4, 1, figure=fig,
-                               height_ratios=[0.10, 0.30, 0.28, 0.32], hspace=0.03)
+                               height_ratios=[0.10, 0.25, 0.23, 0.42], hspace=0.03)
         ax_header   = fig.add_subplot(gs[0])
         ax_price    = fig.add_subplot(gs[1])
         ax_indicator = fig.add_subplot(gs[2])
         ax_subtitle = fig.add_subplot(gs[3])
     elif fond_type in ["chandeliers", "moyenne_mobile"]:
         gs = gridspec.GridSpec(3, 1, figure=fig,
-                               height_ratios=[0.10, 0.58, 0.32], hspace=0.03)
+                               height_ratios=[0.10, 0.48, 0.42], hspace=0.03)
         ax_header   = fig.add_subplot(gs[0])
         ax_chart    = fig.add_subplot(gs[1])
         ax_subtitle = fig.add_subplot(gs[2])
     else:  # texte_cles, schema_risk_reward
         gs = gridspec.GridSpec(3, 1, figure=fig,
-                               height_ratios=[0.10, 0.58, 0.32], hspace=0.03)
+                               height_ratios=[0.10, 0.48, 0.42], hspace=0.03)
         ax_header   = fig.add_subplot(gs[0])
         ax_main     = fig.add_subplot(gs[1])
         ax_subtitle = fig.add_subplot(gs[2])
