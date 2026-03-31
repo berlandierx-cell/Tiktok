@@ -2,6 +2,12 @@ import os
 import subprocess
 import json
 
+INTRO_DURATION = 5
+OUTRO_DURATION = 5
+
+WIDTH = 1080
+HEIGHT = 1920
+
 
 def get_video_duration(path):
     """Retourne la durée d'une vidéo en secondes."""
@@ -18,40 +24,97 @@ def get_video_duration(path):
         return 60.0
 
 
-def compose(
-    background_path="background.mp4",
-    avatar_path="avatar_talking.mp4",
-    output_path="final.mp4"
-):
-    print("🎬 Composition finale 9:16...")
+# ─────────────────────────────────────────────
+# INTRO
+# ─────────────────────────────────────────────
 
-    if not os.path.exists(background_path):
-        print(f"❌ Fond introuvable : {background_path}")
+def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
+    with open(metadata_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    titre = data.get("titre", "TITRE")
+    niveau = data.get("niveau", "débutant")
+
+    # Image du niveau
+    niveau_image = {
+        "débutant": "assets/debutant.png",
+        "intermédiaire": "assets/intermediaire.png",
+        "confirmé": "assets/confirme.png"
+    }.get(niveau, "assets/debutant.png")
+
+    print(f"🎬 Création intro ({niveau})...")
+
+    # Bandeau transparent premium (70%)
+    # Montserrat → nécessite que la police soit installée sur la machine runner
+    drawtext = (
+        "drawbox=x=0:y=H-260:w=W:h=220:color=black@0.30:t=fill,"
+        "drawbox=x=0:y=H-260:w=W:h=220:color=white@0.9:t=3,"
+        f"drawtext=text='{titre}':fontcolor=white:fontsize=72:"
+        "font='Montserrat':x=(w-text_w)/2:y=H-200"
+    )
+
+    cmd = [
+        "ffmpeg", "-y",
+        "-loop", "1",
+        "-i", niveau_image,
+        "-vf", drawtext,
+        "-t", str(INTRO_DURATION),
+        "-preset", "fast",
+        output
+    ]
+
+    subprocess.run(cmd, capture_output=True)
+    print(f"✅ Intro générée : {output}")
+
+
+# ─────────────────────────────────────────────
+# OUTRO
+# ─────────────────────────────────────────────
+
+def create_outro(output="outro.mp4"):
+    print("🎬 Création outro...")
+
+    cmd = [
+        "ffmpeg", "-y",
+        "-loop", "1",
+        "-i", "assets/disclaimers.png",
+        "-vf", "fade=t=in:st=0:d=0.5,fade=t=out:st=4.5:d=0.5",
+        "-t", str(OUTRO_DURATION),
+        "-preset", "fast",
+        output
+    ]
+
+    subprocess.run(cmd, capture_output=True)
+    print(f"✅ Outro générée : {output}")
+
+
+# ─────────────────────────────────────────────
+# FOND + AVATAR
+# ─────────────────────────────────────────────
+
+def compose_main(background="background.mp4", avatar="avatar_talking.mp4", output="main.mp4"):
+    print("🎞️ Composition fond + avatar...")
+
+    if not os.path.exists(background):
+        print(f"❌ Fond introuvable : {background}")
         return None
 
-    if not os.path.exists(avatar_path):
-        print(f"❌ Avatar introuvable : {avatar_path}")
+    if not os.path.exists(avatar):
+        print(f"❌ Avatar introuvable : {avatar}")
         return None
 
-    # Durée de référence = durée de la voix (avatar)
-    avatar_duration = get_video_duration(avatar_path)
+    avatar_duration = get_video_duration(avatar)
     print(f"   Durée avatar : {avatar_duration:.1f}s")
 
-    # Dimensions finales : 1080x1920 (9:16 TikTok)
-    # Avatar : 480x480, centré en bas (position y = 1920 - 500 = 1420)
+    # Placement avatar
     avatar_w = 480
     avatar_h = 480
-    avatar_x = (1080 - avatar_w) // 2   # centré horizontalement = 300
-    avatar_y = 1920 - avatar_h - 80      # en bas avec marge = 1360
+    avatar_x = (WIDTH - avatar_w) // 2
+    avatar_y = HEIGHT - avatar_h - 80
 
-    # Filtre FFmpeg :
-    # 1. Redimensionne le fond à 1080x1920
-    # 2. Redimensionne l'avatar
-    # 3. Overlay l'avatar en bas centré
-    # 4. Coupe à la durée de l'avatar
     filter_complex = (
-        f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
-        f"crop=1080:1920,setpts=PTS-STARTPTS[bg];"
+        f"[0:v]scale={WIDTH}:{HEIGHT}:force_original_aspect_ratio=increase,"
+        f"crop={WIDTH}:{HEIGHT},setpts=PTS-STARTPTS[bg];"
         f"[1:v]scale={avatar_w}:{avatar_h}:force_original_aspect_ratio=decrease,"
         f"pad={avatar_w}:{avatar_h}:(ow-iw)/2:(oh-ih)/2:color=black@0,"
         f"setpts=PTS-STARTPTS[av];"
@@ -60,11 +123,11 @@ def compose(
 
     cmd = [
         "ffmpeg", "-y",
-        "-i", background_path,
-        "-i", avatar_path,
+        "-i", background,
+        "-i", avatar,
         "-filter_complex", filter_complex,
         "-map", "[out]",
-        "-map", "1:a",           # audio de l'avatar (voix off)
+        "-map", "1:a",
         "-t", str(avatar_duration),
         "-c:v", "libx264",
         "-preset", "fast",
@@ -72,24 +135,48 @@ def compose(
         "-c:a", "aac",
         "-b:a", "128k",
         "-pix_fmt", "yuv420p",
-        output_path
+        output
     ]
 
-    try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
-        if result.returncode == 0:
-            size_mb = os.path.getsize(output_path) / (1024 * 1024)
-            print(f"✅ Vidéo finale : {output_path} ({size_mb:.1f} MB)")
-            return output_path
-        else:
-            print(f"❌ Erreur FFmpeg :\n{result.stderr[-1000:]}")
-            return None
-    except subprocess.TimeoutExpired:
-        print("❌ Timeout FFmpeg.")
-        return None
-    except Exception as e:
-        print(f"❌ Erreur inattendue : {e}")
-        return None
+    subprocess.run(cmd, capture_output=True)
+    print(f"✅ Fond + avatar : {output}")
+    return output
+
+
+# ─────────────────────────────────────────────
+# CONCAT FINAL
+# ─────────────────────────────────────────────
+
+def concat_all(intro="intro.mp4", main="main.mp4", outro="outro.mp4", output="final.mp4"):
+    print("🔗 Concat final...")
+
+    with open("concat_list.txt", "w") as f:
+        f.write(f"file '{intro}'\n")
+        f.write(f"file '{main}'\n")
+        f.write(f"file '{outro}'\n")
+
+    cmd = [
+        "ffmpeg", "-y",
+        "-f", "concat",
+        "-safe", "0",
+        "-i", "concat_list.txt",
+        "-c", "copy",
+        output
+    ]
+
+    subprocess.run(cmd, capture_output=True)
+    print(f"🎉 Vidéo finale prête : {output}")
+
+
+# ─────────────────────────────────────────────
+# PIPELINE COMPLET
+# ─────────────────────────────────────────────
+
+def compose():
+    create_intro()
+    create_outro()
+    compose_main()
+    concat_all()
 
 
 if __name__ == "__main__":
