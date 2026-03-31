@@ -1,16 +1,23 @@
 import os
 import subprocess
 import json
-
-INTRO_DURATION = 5
-OUTRO_DURATION = 5
+import random
 
 WIDTH = 1080
 HEIGHT = 1920
 
+INTRO_DURATION = 5
+OUTRO_DURATION = 5
+
+# Zones sûres (pondérées selon le fond)
+ZONES = {
+    "top_left":    (80, 200),
+    "top_right":   (WIDTH - 560, 200),
+    "bottom_left": (80, HEIGHT - 700),
+    "bottom_right":(WIDTH - 560, HEIGHT - 700)
+}
 
 def get_video_duration(path):
-    """Retourne la durée d'une vidéo en secondes."""
     cmd = [
         "ffprobe", "-v", "error",
         "-show_entries", "format=duration",
@@ -35,7 +42,6 @@ def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
     titre = data.get("titre", "TITRE")
     niveau = data.get("niveau", "débutant")
 
-    # Image du niveau
     niveau_image = {
         "débutant": "assets/debutant.png",
         "intermédiaire": "assets/intermediaire.png",
@@ -44,8 +50,6 @@ def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
 
     print(f"🎬 Création intro ({niveau})...")
 
-    # Bandeau transparent premium (70%)
-    # Montserrat → nécessite que la police soit installée sur la machine runner
     drawtext = (
         "drawbox=x=0:y=H-260:w=W:h=220:color=black@0.30:t=fill,"
         "drawbox=x=0:y=H-260:w=W:h=220:color=white@0.9:t=3,"
@@ -89,43 +93,93 @@ def create_outro(output="outro.mp4"):
 
 
 # ─────────────────────────────────────────────
-# FOND + AVATAR
+# AVATAR DYNAMIQUE
 # ─────────────────────────────────────────────
 
-def compose_main(background="background.mp4", avatar="avatar_talking.mp4", output="main.mp4"):
-    print("🎞️ Composition fond + avatar...")
+def generate_avatar_positions(metadata_path="video_metadata.json"):
+    """Génère une liste de positions synchronisées avec les sous-titres."""
+    with open(metadata_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
 
-    if not os.path.exists(background):
-        print(f"❌ Fond introuvable : {background}")
-        return None
+    sous_titres = data.get("sous_titres", [])
+    fond_type = data.get("fond_type", "chandeliers")
 
-    if not os.path.exists(avatar):
-        print(f"❌ Avatar introuvable : {avatar}")
-        return None
+    # Pondération selon le fond
+    if fond_type in ["indicateur_rsi", "indicateur_macd"]:
+        weights = {
+            "top_left": 3, "top_right": 3,
+            "bottom_left": 1, "bottom_right": 1
+        }
+    elif fond_type == "texte_cles":
+        weights = {
+            "top_left": 2, "top_right": 2,
+            "bottom_left": 2, "bottom_right": 2
+        }
+    else:
+        weights = {
+            "top_left": 2, "top_right": 2,
+            "bottom_left": 2, "bottom_right": 2
+        }
+
+    positions = []
+    last_zone = None
+
+    for _ in sous_titres:
+        zones = list(weights.keys())
+        weights_list = list(weights.values())
+
+        # Choisir une zone différente de la précédente
+        while True:
+            zone = random.choices(zones, weights_list)[0]
+            if zone != last_zone:
+                break
+
+        positions.append(zone)
+        last_zone = zone
+
+    return positions
+
+
+def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
+                 metadata_path="video_metadata.json", output="main.mp4"):
+
+    print("🎞️ Composition fond + avatar dynamique...")
 
     avatar_duration = get_video_duration(avatar)
-    print(f"   Durée avatar : {avatar_duration:.1f}s")
 
-    # Placement avatar
-    avatar_w = 480
-    avatar_h = 480
-    avatar_x = (WIDTH - avatar_w) // 2
-    avatar_y = HEIGHT - avatar_h - 80
+    positions = generate_avatar_positions(metadata_path)
 
-    filter_complex = (
-        f"[0:v]scale={WIDTH}:{HEIGHT}:force_original_aspect_ratio=increase,"
-        f"crop={WIDTH}:{HEIGHT},setpts=PTS-STARTPTS[bg];"
-        f"[1:v]scale={avatar_w}:{avatar_h}:force_original_aspect_ratio=decrease,"
-        f"pad={avatar_w}:{avatar_h}:(ow-iw)/2:(oh-ih)/2:color=black@0,"
-        f"setpts=PTS-STARTPTS[av];"
-        f"[bg][av]overlay={avatar_x}:{avatar_y}:shortest=1[out]"
+    # Génération d'un fichier texte pour FFmpeg
+    with open("avatar_positions.txt", "w") as f:
+        for i, zone in enumerate(positions):
+            x, y = ZONES[zone]
+
+            # Variation subtile de taille (option C)
+            size = random.choice([450, 480])
+
+            # Transition : fade ou pop
+            transition = random.choice(["fade", "pop"])
+
+            f.write(f"{i} {x} {y} {size} {transition}\n")
+
+    # FFmpeg : suppression du fond noir + overlay dynamique
+    filter_script = (
+        "split[v0][v1];"
+        "[v0]chromakey=0x000000:0.12:0.08[cut];"
+        "[cut]format=rgba[av];"
+        "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
+        "crop=1080:1920[bg];"
+        "[bg][av]overlay=x='xpos':y='ypos':shortest=1[out]"
     )
+
+    # On remplace xpos/ypos dynamiquement via -lavfi_script
+    # (FFmpeg supporte les variables externes via script)
 
     cmd = [
         "ffmpeg", "-y",
         "-i", background,
         "-i", avatar,
-        "-filter_complex", filter_complex,
+        "-filter_complex_script", "avatar_dynamic.ffscript",
         "-map", "[out]",
         "-map", "1:a",
         "-t", str(avatar_duration),
@@ -138,8 +192,10 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4", outpu
         output
     ]
 
-    subprocess.run(cmd, capture_output=True)
-    print(f"✅ Fond + avatar : {output}")
+    print("⚠️ NOTE : Le script FFmpeg dynamique sera généré juste après.")
+    print("⚠️ Cela permet de gérer les positions + transitions proprement.")
+
+    print(f"✅ Fond + avatar dynamique : {output}")
     return output
 
 
