@@ -1,28 +1,30 @@
 {
-  "titre": "MME : Votre Outil Ultime sur EUR/USD",
-  "sujet": "les moyennes mobiles exponentielles",
-  "niveau": "confirmé",
-  "actif": "EUR/USD",
+  "titre": "Décrypte les bougies : Doji & Marubozu !",
+  "sujet": "les patterns de chandeliers",
+  "niveau": "débutant",
+  "actif": "GBP/USD",
   "categorie": "forex",
-  "fond_type": "moyenne_mobile",
-  "voix_off": "Marre des signaux lagging de vos moyennes mobiles simples sur l'EUR/USD ? Les Moyennes Mobiles Exponentielles, ou MME, sont votre allié pour capter la dynamique du marché avec plus de précision. Contrairement aux SMA qui traitent toutes les données de manière égale, la MME pondère exponentiellement les prix récents. Cela lui confère une réactivité accrue aux changements de sentiment, essentielle sur des paires volatiles comme l'EUR/USD. Sur votre graphique, une MME courte, par exemple une 9 ou 21 périodes, peut servir de support ou résistance dynamique. Observez comment le prix interagit avec elle : un rebond en tendance haussière confirme l'élan, tandis qu'une cassure peut signaler un point d'inflexion. Les croisements de MME, comme une 9 MME passant au-dessus d'une 21 MME, peuvent générer des signaux d'entrée et de sortie plus rapides. Cependant, n'oubliez pas que les MME sont des indicateurs suiveurs de tendance. Ne les utilisez jamais isolément. Confirmez toujours vos lectures avec d'autres outils, comme le volume ou les divergences RSI, pour filtrer le bruit et valider vos setups. Maîtrisez la MME pour affiner vos décisions sur le Forex !",
+  "fond_type": "chandeliers",
+  "voix_off": "Marre de voir ces bougies sans comprendre ? Je te révèle leur secret en 60 secondes ! Chaque bougie raconte l'histoire du prix sur le GBP/USD. Le corps indique si ça monte (vert) ou baisse (rouge). Les mèches, c'est les extrêmes. On va décrypter des 'patterns'. Regarde cette petite bougie avec mèches égales : c'est un 'Doji'. Il signale une indécision du marché, souvent une pause. Maintenant, vois cette grande bougie verte sans mèches ? C'est un 'Marubozu'. Elle indique une forte pression acheteuse. Ces patterns sont des indices précieux pour anticiper les mouvements. C'est la base pour lire le marché comme un pro. Abonne-toi pour plus d'astuces !",
   "sous_titres": [
-    "Marre des signaux lagging ?",
-    "La MME : réactivité accrue !",
-    "Pondération exponentielle des prix.",
-    "EUR/USD : Captez la dynamique.",
-    "MME 9/21 : Support/Résistance dynamique.",
-    "Croisements MME : signaux rapides.",
-    "Ne jamais l'utiliser isolément.",
-    "Confirmez avec d'autres outils.",
-    "Affinez vos décisions Forex !"
+    "Marre de voir ces bougies sans comprendre ?",
+    "Je te révèle leur secret en 60s !",
+    "Chaque bougie raconte l'histoire du prix",
+    "Corps: monte (vert) ou baisse (rouge)",
+    "Mèches: les extrêmes du prix",
+    "On décrypte des 'patterns' !",
+    "Le 'Doji': indécision du marché",
+    "Le 'Marubozu': forte pression acheteuse",
+    "Des indices précieux pour anticiper",
+    "La base pour lire le marché !",
+    "Abonne-toi pour plus d'astuces !"
   ],
   "concepts_cles": [
-    "Moyenne Mobile Exponentielle",
-    "Pondération exponentielle",
-    "Réactivité",
-    "Support/Résistance Dynamique",
-    "Croisement de MME"
+    "Chandeliers japonais",
+    "Pattern de trading",
+    "Doji",
+    "Marubozu",
+    "Analyse technique"
   ],
   "tags": "#trading #forex #bourse #apprendre #finance"
 }
