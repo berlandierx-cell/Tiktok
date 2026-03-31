@@ -3,18 +3,18 @@ import subprocess
 import json
 import random
 
-WIDTH = 1080
+WIDTH  = 1080
 HEIGHT = 1920
 
-INTRO_DURATION = 5
-OUTRO_DURATION = 5
+INTRO_DURATION = 3
+OUTRO_DURATION = 3
 
 ZONES = {
-    "top_left":    (80, 200),
-    "top_right":   (WIDTH - 560, 200),
-    "bottom_left": (80, HEIGHT - 700),
-    "bottom_right":(WIDTH - 560, HEIGHT - 700)
+    "bottom_left":  (60,  HEIGHT - 620),
+    "bottom_right": (WIDTH - 540, HEIGHT - 620),
+    "bottom_center":(WIDTH // 2 - 240, HEIGHT - 620),
 }
+
 
 def get_duration(path):
     cmd = [
@@ -30,6 +30,15 @@ def get_duration(path):
         return 60.0
 
 
+def check_file(path, label):
+    if not os.path.exists(path):
+        print(f"❌ Fichier manquant [{label}] : {path}")
+        return False
+    size = os.path.getsize(path)
+    print(f"   ✓ {label} : {path} ({size // 1024} KB)")
+    return True
+
+
 # ─────────────────────────────────────────────
 # INTRO
 # ─────────────────────────────────────────────
@@ -38,36 +47,57 @@ def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
     with open(metadata_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    titre = data.get("titre", "TITRE")
+    titre  = data.get("titre", "TRADING").replace("'", "\\'")
     niveau = data.get("niveau", "débutant")
 
-    niveau_image = {
-        "débutant": "assets/debutant.png",
-        "intermédiaire": "assets/intermediaire.png",
-        "confirmé": "assets/confirme.png"
-    }.get(niveau, "assets/debutant.png")
+    # Noms réels dans assets/
+    niveau_image_map = {
+        "débutant":      "assets/Debutant.png",
+        "intermédiaire": "assets/Intermediare.png",
+        "confirmé":      "assets/confirme.png"
+    }
+    niveau_image = niveau_image_map.get(niveau, "assets/Debutant.png")
+
+    if not os.path.exists(niveau_image):
+        print(f"⚠️ Image niveau introuvable ({niveau_image}), fallback fond noir")
+        niveau_image = None
 
     print(f"🎬 Création intro ({niveau})...")
 
-    drawtext = (
-        "drawbox=x=0:y=H-260:w=W:h=220:color=black@0.30:t=fill,"
-        "drawbox=x=0:y=H-260:w=W:h=220:color=white@0.9:t=3,"
-        f"drawtext=text='{titre}':fontcolor=white:fontsize=72:"
-        "font='Montserrat':x=(w-text_w)/2:y=H-200"
-    )
+    if niveau_image:
+        vf = (
+            f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
+            f"drawbox=x=0:y=H-280:w=W:h=240:color=black@0.55:t=fill,"
+            f"drawtext=text='{titre}':fontcolor=white:fontsize=60:"
+            f"x=(w-text_w)/2:y=H-220:shadowcolor=black:shadowx=2:shadowy=2"
+        )
+        cmd = [
+            "ffmpeg", "-y",
+            "-loop", "1", "-i", niveau_image,
+            "-vf", vf,
+            "-t", str(INTRO_DURATION),
+            "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
+            output
+        ]
+    else:
+        vf = (
+            f"color=black:s=1080x1920:d={INTRO_DURATION},"
+            f"drawtext=text='{titre}':fontcolor=white:fontsize=60:"
+            f"x=(w-text_w)/2:y=(h-text_h)/2"
+        )
+        cmd = [
+            "ffmpeg", "-y",
+            "-f", "lavfi", "-i", vf,
+            "-t", str(INTRO_DURATION),
+            "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
+            output
+        ]
 
-    cmd = [
-        "ffmpeg", "-y",
-        "-loop", "1",
-        "-i", niveau_image,
-        "-vf", drawtext,
-        "-t", str(INTRO_DURATION),
-        "-preset", "fast",
-        output
-    ]
-
-    subprocess.run(cmd, capture_output=True)
-    print(f"✅ Intro générée : {output}")
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(f"❌ Erreur intro FFmpeg :\n{result.stderr[-500:]}")
+    else:
+        print(f"✅ Intro : {output}")
 
 
 # ─────────────────────────────────────────────
@@ -76,122 +106,95 @@ def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
 
 def create_outro(output="outro.mp4"):
     print("🎬 Création outro...")
+    disclaimer = "assets/disclaimers.png"
 
-    cmd = [
-        "ffmpeg", "-y",
-        "-loop", "1",
-        "-i", "assets/disclaimers.png",
-        "-vf", "fade=t=in:st=0:d=0.5,fade=t=out:st=4.5:d=0.5",
-        "-t", str(OUTRO_DURATION),
-        "-preset", "fast",
-        output
-    ]
+    if os.path.exists(disclaimer):
+        cmd = [
+            "ffmpeg", "-y",
+            "-loop", "1", "-i", disclaimer,
+            "-vf", (
+                "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
+                f"fade=t=in:st=0:d=0.5,fade=t=out:st={OUTRO_DURATION - 0.5}:d=0.5"
+            ),
+            "-t", str(OUTRO_DURATION),
+            "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
+            output
+        ]
+    else:
+        print("⚠️ disclaimers.png introuvable, outro fond noir")
+        cmd = [
+            "ffmpeg", "-y",
+            "-f", "lavfi",
+            "-i", f"color=black:s=1080x1920:d={OUTRO_DURATION}",
+            "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
+            output
+        ]
 
-    subprocess.run(cmd, capture_output=True)
-    print(f"✅ Outro générée : {output}")
-
-
-# ─────────────────────────────────────────────
-# TIMELINE BASÉE SUR LA DURÉE DE LA VOIX
-# ─────────────────────────────────────────────
-
-def generate_timeline(metadata_path="video_metadata.json", voice_path="voice.mp3"):
-    with open(metadata_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-
-    phrases = data.get("sous_titres", [])
-    n = len(phrases)
-
-    if n == 0:
-        raise ValueError("Aucun sous-titre trouvé dans video_metadata.json")
-
-    total_voice_duration = get_duration(voice_path)
-    segment = total_voice_duration / n
-
-    timeline = []
-    last_zone = None
-
-    for i, phrase in enumerate(phrases):
-        start = i * segment
-        end = (i + 1) * segment
-
-        zones = list(ZONES.keys())
-        while True:
-            zone = random.choice(zones)
-            if zone != last_zone:
-                break
-
-        x, y = ZONES[zone]
-        size = random.choice([450, 480])
-        transition = random.choice(["fade", "pop"])
-
-        timeline.append({
-            "start": start,
-            "end": end,
-            "x": x,
-            "y": y,
-            "size": size,
-            "transition": transition
-        })
-
-        last_zone = zone
-
-    return timeline
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(f"❌ Erreur outro :\n{result.stderr[-300:]}")
+    else:
+        print(f"✅ Outro : {output}")
 
 
 # ─────────────────────────────────────────────
-# SCRIPT FFmpeg DYNAMIQUE (ROBUSTE)
-# ─────────────────────────────────────────────
-
-def generate_ffscript(timeline):
-    with open("avatar_dynamic.ffscript", "w") as f:
-        f.write("# FFmpeg dynamic avatar script\n\n")
-
-        f.write("[1:v]chromakey=0x000000:0.12:0.08,format=rgba[av];\n")
-        f.write("[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920[bg0];\n")
-
-        current = "bg0"
-
-        for i, seg in enumerate(timeline):
-            f.write(
-                f"[av]scale={seg['size']}:{seg['size']}[av{i}];\n"
-                f"[{current}][av{i}]overlay=x={seg['x']}:y={seg['y']}:enable='between(t,{seg['start']},{seg['end']})'[bg{i+1}];\n"
-            )
-            current = f"bg{i+1}"
-
-        f.write(f"[{current}]copy[out]\n")
-
-
-# ─────────────────────────────────────────────
-# MAIN COMPOSITION
+# COMPOSITION PRINCIPALE
 # ─────────────────────────────────────────────
 
 def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
                  metadata_path="video_metadata.json", output="main.mp4"):
 
-    print("🎞️ Composition fond + avatar dynamique...")
+    print("🎞️ Composition fond + avatar...")
 
-    timeline = generate_timeline(metadata_path)
-    generate_ffscript(timeline)
+    if not check_file(background, "background"):
+        return None
+    if not check_file(avatar, "avatar"):
+        return None
+
+    avatar_duration = get_duration(avatar)
+    bg_duration     = get_duration(background)
+    print(f"   Durée avatar : {avatar_duration:.1f}s | Fond : {bg_duration:.1f}s")
+
+    # Avatar : 460x460, positionné en bas centré
+    av_w = 460
+    av_h = 460
+    av_x = (WIDTH - av_w) // 2   # 310
+    av_y = HEIGHT - av_h - 100   # 1360
+
+    # Filter complex :
+    # - Fond : scale + crop pour être exactement 1080x1920
+    # - Avatar : scale, puis on retire le fond noir avec colorkey
+    #   (colorkey plus doux que chromakey pour fond noir)
+    # - Overlay avatar sur fond
+    filter_complex = (
+        f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
+        f"crop=1080:1920,setpts=PTS-STARTPTS[bg];"
+        f"[1:v]scale={av_w}:{av_h}:force_original_aspect_ratio=decrease,"
+        f"pad={av_w}:{av_h}:(ow-iw)/2:(oh-ih)/2:color=black,"
+        f"colorkey=0x000000:0.25:0.08,setpts=PTS-STARTPTS[av];"
+        f"[bg][av]overlay={av_x}:{av_y}:shortest=1[out]"
+    )
 
     cmd = [
         "ffmpeg", "-y",
         "-i", background,
         "-i", avatar,
-        "-filter_complex_script", "avatar_dynamic.ffscript",
+        "-filter_complex", filter_complex,
         "-map", "[out]",
         "-map", "1:a",
-        "-c:v", "libx264",
-        "-preset", "fast",
-        "-crf", "23",
-        "-c:a", "aac",
-        "-b:a", "128k",
+        "-t", str(avatar_duration),
+        "-c:v", "libx264", "-preset", "fast", "-crf", "23",
+        "-c:a", "aac", "-b:a", "128k",
         "-pix_fmt", "yuv420p",
         output
     ]
 
-    subprocess.run(cmd, capture_output=True)
-    print(f"✅ Fond + avatar dynamique : {output}")
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+    if result.returncode != 0:
+        print(f"❌ Erreur composition :\n{result.stderr[-800:]}")
+        return None
+
+    print(f"✅ Composition : {output} ({os.path.getsize(output) // (1024*1024)} MB)")
     return output
 
 
@@ -199,25 +202,43 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
 # CONCAT FINAL
 # ─────────────────────────────────────────────
 
-def concat_all(intro="intro.mp4", main="main.mp4", outro="outro.mp4", output="final.mp4"):
-    print("🔗 Concat final...")
+def concat_all(intro="intro.mp4", main="main.mp4", outro="outro.mp4",
+               output="final_video.mp4"):
+    print("🔗 Assemblage final...")
+
+    # Vérifier que les fichiers existent et ne sont pas vides
+    parts = []
+    for f, label in [(intro, "intro"), (main, "main"), (outro, "outro")]:
+        if os.path.exists(f) and os.path.getsize(f) > 1000:
+            parts.append(f)
+            print(f"   ✓ {label} inclus")
+        else:
+            print(f"   ⚠️ {label} ignoré (manquant ou vide)")
+
+    if not parts:
+        print("❌ Aucune partie valide pour le concat")
+        return None
 
     with open("concat_list.txt", "w") as f:
-        f.write(f"file '{intro}'\n")
-        f.write(f"file '{main}'\n")
-        f.write(f"file '{outro}'\n")
+        for p in parts:
+            f.write(f"file '{os.path.abspath(p)}'\n")
 
     cmd = [
         "ffmpeg", "-y",
-        "-f", "concat",
-        "-safe", "0",
+        "-f", "concat", "-safe", "0",
         "-i", "concat_list.txt",
         "-c", "copy",
         output
     ]
 
-    subprocess.run(cmd, capture_output=True)
-    print(f"🎉 Vidéo finale prête : {output}")
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+    if result.returncode != 0:
+        print(f"❌ Erreur concat :\n{result.stderr[-500:]}")
+        return None
+
+    size_mb = os.path.getsize(output) / (1024 * 1024)
+    print(f"🎉 Vidéo finale : {output} ({size_mb:.1f} MB)")
+    return output
 
 
 # ─────────────────────────────────────────────
@@ -227,8 +248,11 @@ def concat_all(intro="intro.mp4", main="main.mp4", outro="outro.mp4", output="fi
 def compose():
     create_intro()
     create_outro()
-    compose_main()
-    concat_all()
+    main = compose_main()
+    if main:
+        concat_all()
+    else:
+        print("❌ Composition principale échouée, final_video.mp4 non créé")
 
 
 if __name__ == "__main__":
