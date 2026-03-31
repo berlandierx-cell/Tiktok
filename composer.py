@@ -1,7 +1,6 @@
 import os
 import subprocess
 import json
-import random
 
 WIDTH  = 1080
 HEIGHT = 1920
@@ -44,37 +43,49 @@ def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
     titre  = data.get("titre", "TRADING").replace("'", "\\'")
     niveau = data.get("niveau", "débutant")
 
-    # Correction des noms (Linux = sensible à la casse)
+    # NOMS EXACTS DES FICHIERS DANS assets/
     niveau_image_map = {
         "débutant":      "assets/debutant.png",
         "intermédiaire": "assets/intermediaire.png",
         "confirmé":      "assets/confirme.png"
     }
+
     niveau_image = niveau_image_map.get(niveau, "assets/debutant.png")
 
     print(f"🎬 Création intro ({niveau})...")
 
-    vf = (
-        f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
-        f"drawbox=x=0:y=H-280:w=W:h=240:color=black@0.55:t=fill,"
-        f"drawtext=text='{titre}':fontcolor=white:fontsize=60:"
-        f"x=(w-text_w)/2:y=H-220:shadowcolor=black:shadowx=2:shadowy=2"
-    )
-
-    cmd = [
-        "ffmpeg", "-y",
-        "-loop", "1", "-i", niveau_image,
-        "-vf", vf,
-        "-t", str(INTRO_DURATION),
-        "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
-        output
-    ]
+    if not os.path.exists(niveau_image):
+        print(f"❌ Image introuvable : {niveau_image}")
+        print("⚠️ Intro générée en fond noir")
+        cmd = [
+            "ffmpeg", "-y",
+            "-f", "lavfi",
+            "-i", f"color=black:s=1080x1920:d={INTRO_DURATION}",
+            "-vf", f"drawtext=text='{titre}':fontcolor=white:fontsize=60:x=(w-text_w)/2:y=(h-text_h)/2",
+            "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
+            output
+        ]
+    else:
+        vf = (
+            f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
+            f"drawbox=x=0:y=H-280:w=W:h=240:color=black@0.55:t=fill,"
+            f"drawtext=text='{titre}':fontcolor=white:fontsize=60:"
+            f"x=(w-text_w)/2:y=H-220:shadowcolor=black:shadowx=2:shadowy=2"
+        )
+        cmd = [
+            "ffmpeg", "-y",
+            "-loop", "1", "-i", niveau_image,
+            "-vf", vf,
+            "-t", str(INTRO_DURATION),
+            "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
+            output
+        ]
 
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
         print(f"❌ Erreur intro FFmpeg :\n{result.stderr[-500:]}")
     else:
-        print(f"✅ Intro : {output}")
+        print(f"✅ Intro générée : {output}")
 
 
 # ─────────────────────────────────────────────
@@ -101,7 +112,7 @@ def create_outro(output="outro.mp4"):
     if result.returncode != 0:
         print(f"❌ Erreur outro :\n{result.stderr[-300:]}")
     else:
-        print(f"✅ Outro : {output}")
+        print(f"✅ Outro générée : {output}")
 
 
 # ─────────────────────────────────────────────
@@ -130,6 +141,7 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
     av_x = WIDTH - av_w - 60
     av_y = HEIGHT - av_h - 100
 
+    # Correction : suppression du pad (carré moche)
     filter_complex = (
         f"[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
         f"crop=1080:1920,setpts=PTS-STARTPTS[bg];"
