@@ -42,11 +42,22 @@ jobs:
           TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
         run: python publisher.py
 
+      - name: 🧹 Cleanup wrong file
+        run: |
+          # Supprime le fichier fantôme qui pollue le repo
+          rm -f final_video.mp4
+
       - name: 📤 Push Results
         run: |
           export HOME=/root
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
+
+          # On ajoute uniquement les fichiers utiles
+          git add final.mp4 intro.mp4 outro.mp4 main.mp4 video_metadata.json avatar_positions.txt avatar_dynamic.ffscript || true
+
+          # On ajoute aussi les fichiers modifiés (scripts, assets…)
+          git add *.py assets || true
+
           git commit -m "Video: $(date)" || echo "No changes"
           git push origin main
