@@ -93,11 +93,10 @@ def create_outro(output="outro.mp4"):
 
 
 # ─────────────────────────────────────────────
-# AVATAR DYNAMIQUE
+# POSITIONS DYNAMIQUES
 # ─────────────────────────────────────────────
 
 def generate_avatar_positions(metadata_path="video_metadata.json"):
-    """Génère une liste de positions synchronisées avec les sous-titres."""
     with open(metadata_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
@@ -128,7 +127,6 @@ def generate_avatar_positions(metadata_path="video_metadata.json"):
         zones = list(weights.keys())
         weights_list = list(weights.values())
 
-        # Choisir une zone différente de la précédente
         while True:
             zone = random.choices(zones, weights_list)[0]
             if zone != last_zone:
@@ -140,6 +138,47 @@ def generate_avatar_positions(metadata_path="video_metadata.json"):
     return positions
 
 
+# ─────────────────────────────────────────────
+# SCRIPT FFmpeg DYNAMIQUE
+# ─────────────────────────────────────────────
+
+def generate_ffscript():
+    script = r"""
+# FFmpeg dynamic avatar script
+
+[1:v]split=2[av0][av1];
+
+# Remove black background
+[av0]chromakey=0x000000:0.12:0.08,format=rgba[cut];
+
+# Scale dynamically
+[cut]scale='scale:scale'[scaled];
+
+# Fade transition
+[scaled]fade=t=in:st=0:d=0.25,fade=t=out:st=0.75:d=0.25[fade];
+
+# Pop transition
+[scaled]scale='scale*1.05:scale*1.05',fade=t=in:st=0:d=0.25[pop];
+
+# Choose transition
+[fade][pop]blend=all_expr='
+    posfile="avatar_positions.txt";
+    line=trunc(t/1);
+    tr=readfile(posfile, line, 4);
+    if(eq(tr,"fade"),A,B)
+'[avatar];
+
+# Overlay
+[0:v][avatar]overlay=x='xpos':y='ypos':shortest=1[out]
+"""
+    with open("avatar_dynamic.ffscript", "w") as f:
+        f.write(script)
+
+
+# ─────────────────────────────────────────────
+# MAIN COMPOSITION
+# ─────────────────────────────────────────────
+
 def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
                  metadata_path="video_metadata.json", output="main.mp4"):
 
@@ -149,31 +188,16 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
 
     positions = generate_avatar_positions(metadata_path)
 
-    # Génération d'un fichier texte pour FFmpeg
+    # Génération du fichier positions
     with open("avatar_positions.txt", "w") as f:
         for i, zone in enumerate(positions):
             x, y = ZONES[zone]
-
-            # Variation subtile de taille (option C)
             size = random.choice([450, 480])
-
-            # Transition : fade ou pop
             transition = random.choice(["fade", "pop"])
-
             f.write(f"{i} {x} {y} {size} {transition}\n")
 
-    # FFmpeg : suppression du fond noir + overlay dynamique
-    filter_script = (
-        "split[v0][v1];"
-        "[v0]chromakey=0x000000:0.12:0.08[cut];"
-        "[cut]format=rgba[av];"
-        "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
-        "crop=1080:1920[bg];"
-        "[bg][av]overlay=x='xpos':y='ypos':shortest=1[out]"
-    )
-
-    # On remplace xpos/ypos dynamiquement via -lavfi_script
-    # (FFmpeg supporte les variables externes via script)
+    # Génération du script FFmpeg
+    generate_ffscript()
 
     cmd = [
         "ffmpeg", "-y",
@@ -192,9 +216,7 @@ def compose_main(background="background.mp4", avatar="avatar_talking.mp4",
         output
     ]
 
-    print("⚠️ NOTE : Le script FFmpeg dynamique sera généré juste après.")
-    print("⚠️ Cela permet de gérer les positions + transitions proprement.")
-
+    subprocess.run(cmd, capture_output=True)
     print(f"✅ Fond + avatar dynamique : {output}")
     return output
 
