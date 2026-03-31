@@ -2,40 +2,32 @@ name: TikTok Generator 2026
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 8 * * *'  # Tous les jours à 8h UTC
 
 permissions:
   contents: write
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+
     steps:
       - name: 📂 Checkout repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: 🐍 Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: 📦 Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
+      - name: 📦 Install Python dependencies
+        run: pip install -r requirements.txt --break-system-packages
 
       - name: 🧠 Step 1 - Brain
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python brain.py
 
-      - name: 🎙️ Step 2 - Video
+      - name: 🎬 Step 2 - Video
         env:
-          FAL_KEY: ${{ secrets.FAL_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python video_gen.py
 
