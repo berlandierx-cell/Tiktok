@@ -1,32 +1,31 @@
 {
-  "titre": "Comprendre les Chandeliers Japonais en 60 secondes",
-  "sujet": "les chandeliers japonais",
+  "titre": "Le Golden Cross : le signal Bitcoin ultime",
+  "sujet": "le golden cross",
   "niveau": "débutant",
-  "actif": "EUR/USD",
-  "categorie": "forex",
-  "fond_type": "chandeliers",
-  "voix_off": "Arrête de regarder tes graphiques sans rien comprendre ! Tu vois ces bâtons rouges et verts sur l'EUR/USD ? Ce sont des chandeliers japonais, et c'est la base absolue pour tout trader débutant. Chaque bougie raconte une bataille entre acheteurs et vendeurs sur une période précise. Une bougie verte ? Le prix a grimpé. Une bougie rouge ? Il a chuté. Le rectangle épais, c’est le corps : il montre le prix d'ouverture et de clôture. Les petits traits fins au-dessus et en-dessous ? Ce sont les mèches. Elles indiquent les prix les plus hauts et les plus bas atteints. Par exemple, une longue mèche vers le bas montre que les acheteurs reprennent la main. Comprendre ces formes, c’est comme apprendre à lire une nouvelle langue. C'est ainsi que tu anticipes les futurs mouvements du marché. Abonne-toi pour ne pas rater la suite et enfin maîtriser tes analyses !",
+  "actif": "BTC/USDT",
+  "categorie": "crypto",
+  "fond_type": "moyenne_mobile",
+  "voix_off": "Tu veux savoir quand Bitcoin va exploser ? Regarde bien ce qui se passe sur ton graphique. C'est ce qu'on appelle le Golden Cross, ou croisement doré, et c'est l'un des signaux les plus puissants pour les traders débutants. Imagine deux lignes qui suivent le prix : la moyenne mobile 50 jours, en bleu, et la 200 jours, en rouge. Le Golden Cross se produit quand la ligne bleue, plus rapide, passe au-dessus de la ligne rouge, plus lente. Pourquoi c’est important ? Parce que cela indique que la tendance à court terme devient plus forte que la tendance à long terme. Historiquement, sur le BTC/USDT, ce signal précède souvent d’énormes hausses de prix. C'est le moment où les investisseurs reprennent confiance. Mais attention, ce n'est pas une formule magique, il faut toujours gérer son risque financier avec sérieux. Abonne-toi dès maintenant pour maîtriser tes futurs trades !",
   "sous_titres": [
-    "Arrête de regarder tes graphiques au hasard !",
-    "Voici les chandeliers japonais sur l'EUR/USD.",
-    "C'est la base pour tout trader débutant.",
-    "Chaque bougie est une bataille acheteurs vs vendeurs.",
-    "Vert = le prix grimpe, Rouge = le prix chute.",
-    "Le rectangle épais est le corps de la bougie.",
-    "Il montre l'ouverture et la clôture du prix.",
-    "Les traits fins sont les mèches.",
-    "Elles indiquent les plus hauts et les plus bas.",
-    "Une mèche basse montre que les acheteurs poussent.",
-    "Apprendre ces formes, c'est lire le marché.",
-    "Anticipe les mouvements pour mieux trader.",
-    "Abonne-toi pour la partie 2 !"
+    "Bitcoin va exploser ?",
+    "Regarde bien ce graphique",
+    "C'est le Golden Cross",
+    "Signal ultra puissant",
+    "Deux lignes : MM50 et MM200",
+    "Le croisement doré",
+    "La ligne rapide dépasse la lente",
+    "La tendance s'inverse",
+    "Signe de hausse massive",
+    "Confiance des investisseurs",
+    "Gérez votre risque",
+    "Abonne-toi pour plus !"
   ],
   "concepts_cles": [
-    "Corps de la bougie",
-    "Mèches hautes et basses",
-    "Prix d'ouverture",
-    "Prix de clôture",
-    "Psychologie de marché"
+    "Golden Cross",
+    "Moyenne Mobile 50",
+    "Moyenne Mobile 200",
+    "Analyse technique",
+    "Tendance haussière"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
