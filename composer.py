@@ -33,7 +33,7 @@ def check_file(path, label):
 
 
 # ─────────────────────────────────────────────
-# INTRO
+# INTRO n
 # ─────────────────────────────────────────────
 
 def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
