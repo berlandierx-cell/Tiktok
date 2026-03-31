@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: 📦 Install Python dependencies
-        run: pip install -r requirements.txt --break-system-packages
+        run: pip install -r requirements.txt --break-system-packages --ignore-installed typing-extensions
 
       - name: 🧠 Step 1 - Brain
         env:
