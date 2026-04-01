@@ -1,29 +1,31 @@
 {
-  "titre": "Infos Macro: Le Secret de l'AUD/USD",
-  "sujet": "les actualités macro en trading",
-  "niveau": "débutant",
-  "actif": "AUD/USD",
-  "categorie": "forex",
-  "fond_type": "texte_cles",
-  "voix_off": "Pourquoi l'AUD/USD bouge tant ? La réponse est souvent macro !\n\nLes 'infos macro' sont les grandes nouvelles économiques d'un pays : taux d'intérêt, inflation, chômage. Elles sont vitales car elles influencent directement la force des monnaies.\n\nPour l'AUD/USD, imagine : si la Banque d'Australie monte ses taux, l'AUD devient plus fort, donc AUD/USD peut monter. Si l'économie US ralentit, le dollar US s'affaiblit, et AUD/USD peut aussi grimper.\n\nUn bon trader consulte le calendrier économique. C'est ton guide ! Regarde les annonces importantes d'Australie et des États-Unis. Ça t'aide à comprendre les mouvements potentiels de l'AUD/USD et à prendre de meilleures décisions. Ne trade pas à l'aveugle, informe-toi !",
+  "titre": "Croisements de Moyennes : L'Avantage EMA en Crypto",
+  "sujet": "les croisements de moyennes",
+  "niveau": "confirmé",
+  "actif": "SOL/USDT",
+  "categorie": "crypto",
+  "fond_type": "indicateur_macd",
+  "voix_off": "Marre des signaux de trading qui arrivent toujours trop tard ? Oubliez la simple moyenne mobile ! Sur ce graphique SOL/USDT, je vous montre comment exploiter les croisements de moyennes pour une meilleure réactivité. Le secret ? Utiliser des moyennes exponentielles (EMA) plutôt que des SMA. Leur pondération récente réduit le lag, offrant des signaux plus pertinents, surtout sur des actifs volatils comme les cryptos. Un croisement haussier, ou 'golden cross', d'une EMA 50 sur une EMA 200 peut indiquer un shift de momentum majeur. Mais attention, ce n'est pas une boule de cristal. La confluence est clé. Vérifiez toujours le volume et l'environnement macro. Sur le fond, on voit le MACD : un croisement de ses propres moyennes couplé à celui des EMA peut valider une entrée ou une sortie. Ne tradez jamais un seul indicateur isolé. Votre plan de trading doit intégrer la gestion du risque et une stratégie de money management rigoureuse. Testez différentes périodes d'EMA selon le timeframe et l'actif. C'est en combinant les approches que vous optimiserez votre edge. Affinez vos setups !",
   "sous_titres": [
-    "Pourquoi l'AUD/USD bouge ?",
-    "La réponse est souvent macro !",
-    "Infos macro = grandes nouvelles économiques.",
-    "Taux, inflation, chômage influencent les monnaies.",
-    "Banque d'Australie monte ses taux ? AUD monte !",
-    "Économie US ralentit ? USD baisse !",
-    "Consulte le calendrier économique.",
-    "Ton guide pour l'AUD/USD.",
-    "Prends de meilleures décisions.",
-    "Informe-toi avant de trader !"
+    "Marre des signaux tardifs ?",
+    "Exploitez les croisements avancés.",
+    "Préférez les EMA aux SMA.",
+    "Moins de lag, plus de pertinence.",
+    "Le 'golden cross' en crypto.",
+    "Attention à la volatilité !",
+    "La confluence est essentielle.",
+    "Volume et MACD pour validation.",
+    "Ne tradez jamais un seul indicateur.",
+    "Intégrez gestion du risque.",
+    "Testez différentes périodes.",
+    "Affinez vos setups !"
   ],
   "concepts_cles": [
-    "Actualités macroéconomiques",
-    "Taux d'intérêt",
-    "Inflation",
-    "Calendrier économique",
-    "AUD/USD"
+    "Croisements de moyennes",
+    "Moyennes exponentielles (EMA)",
+    "Golden Cross / Death Cross",
+    "Confluence d'indicateurs",
+    "Gestion du risque"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
