@@ -1,27 +1,29 @@
 {
-  "titre": "Le Risk/Reward expliqué",
-  "sujet": "le risk/reward",
+  "titre": "Infos Macro: Le Secret de l'AUD/USD",
+  "sujet": "les actualités macro en trading",
   "niveau": "débutant",
-  "actif": "BTC/USDT",
-  "categorie": "crypto",
-  "fond_type": "schema_risk_reward",
-  "voix_off": "Est-ce que tu sais vraiment ce qu'est le risk reward ? ...",
+  "actif": "AUD/USD",
+  "categorie": "forex",
+  "fond_type": "texte_cles",
+  "voix_off": "Pourquoi l'AUD/USD bouge tant ? La réponse est souvent macro !\n\nLes 'infos macro' sont les grandes nouvelles économiques d'un pays : taux d'intérêt, inflation, chômage. Elles sont vitales car elles influencent directement la force des monnaies.\n\nPour l'AUD/USD, imagine : si la Banque d'Australie monte ses taux, l'AUD devient plus fort, donc AUD/USD peut monter. Si l'économie US ralentit, le dollar US s'affaiblit, et AUD/USD peut aussi grimper.\n\nUn bon trader consulte le calendrier économique. C'est ton guide ! Regarde les annonces importantes d'Australie et des États-Unis. Ça t'aide à comprendre les mouvements potentiels de l'AUD/USD et à prendre de meilleures décisions. Ne trade pas à l'aveugle, informe-toi !",
   "sous_titres": [
-    "Tu connais le risk/reward ?",
-    "C'est ton ratio gain / perte",
-    "1 risqué pour 3 gagné",
-    "Tu peux perdre et rester rentable",
-    "C'est une question de maths",
-    "Calcule avant chaque trade",
-    "Ratio minimum : 1 pour 2",
-    "C'est la base du trading pro"
+    "Pourquoi l'AUD/USD bouge ?",
+    "La réponse est souvent macro !",
+    "Infos macro = grandes nouvelles économiques.",
+    "Taux, inflation, chômage influencent les monnaies.",
+    "Banque d'Australie monte ses taux ? AUD monte !",
+    "Économie US ralentit ? USD baisse !",
+    "Consulte le calendrier économique.",
+    "Ton guide pour l'AUD/USD.",
+    "Prends de meilleures décisions.",
+    "Informe-toi avant de trader !"
   ],
   "concepts_cles": [
-    "Risk/Reward",
-    "Stop Loss",
-    "Take Profit",
-    "Ratio 1:2",
-    "Money Management"
+    "Actualités macroéconomiques",
+    "Taux d'intérêt",
+    "Inflation",
+    "Calendrier économique",
+    "AUD/USD"
   ],
-  "tags": "#trading #riskmanagement #crypto #apprendre #bourse"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
