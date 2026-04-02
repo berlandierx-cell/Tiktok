@@ -20,7 +20,7 @@ NIVEAU_TO_IMAGE = {
 
 async def generate_audio(text):
     print("🎙️ Création audio...")
-    communicate = edge_tts.Communicate(text, "fr-FR-HenriNeural")
+    communicate = edge_tts.Communicate(text, "fr-FR-RemyNeural")
     await communicate.save("voice.mp3")
     print("✅ Audio prêt.")
 

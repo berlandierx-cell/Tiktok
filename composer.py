@@ -107,55 +107,64 @@ def create_intro(metadata_path="video_metadata.json", output="intro.mp4"):
     print(f"🎬 Intro ({niveau})...")
 
     line1, line2 = wrap_title(titre, max_chars=20)
-    print(f"   Titre ligne 1 : '{line1}'")
-    if line2:
-        print(f"   Titre ligne 2 : '{line2}'")
+    fontsize = 72 if len(line1) <= 14 else 58
 
-    # Taille de fonte adaptée à la longueur
-    fontsize = 75 if len(line1) <= 15 else 60
+    # Positions : titre en bas de l'écran (y=1480-1600)
+    # Bande noire en bas uniquement
+    box_y  = 1420
+    box_h  = 420
+    y1     = 1460
+    y2     = y1 + fontsize + 18
+    y_niv  = y2 + fontsize + 22 if line2 else y1 + fontsize + 22
+
+    niveau_colors = {
+        "débutant":      "#00e676",
+        "intermédiaire": "#ff9800",
+        "confirmé":      "#f44336"
+    }
+    niv_color = niveau_colors.get(niveau, "#00e5ff")
 
     if not os.path.exists(niveau_image):
-        vf_parts = [
-            f"color=black:s=1080x1920:d={INTRO_DURATION}",
+        vf = (
+            f"color=black:s=1080x1920:d={INTRO_DURATION},"
             f"drawtext=text='{line1}':fontcolor=white:fontsize={fontsize}:"
-            f"x=(w-text_w)/2:y=860:shadowcolor=black:shadowx=3:shadowy=3"
-        ]
+            f"x=(w-text_w)/2:y={y1}:shadowcolor=black:shadowx=3:shadowy=3"
+        )
         if line2:
-            vf_parts.append(
-                f"drawtext=text='{line2}':fontcolor=white:fontsize={fontsize}:"
-                f"x=(w-text_w)/2:y={860 + fontsize + 10}:shadowcolor=black:shadowx=3:shadowy=3"
+            vf += (
+                f",drawtext=text='{line2}':fontcolor=white:fontsize={fontsize}:"
+                f"x=(w-text_w)/2:y={y2}:shadowcolor=black:shadowx=3:shadowy=3"
             )
-        cmd = ["ffmpeg", "-y", "-f", "lavfi", "-i", ",".join(vf_parts[:1]),
-               "-vf", ",".join(vf_parts[1:]),
+        vf += (
+            f",drawtext=text='● {niveau.upper()}':fontcolor={niv_color}:fontsize=42:"
+            f"x=(w-text_w)/2:y={y_niv}:shadowcolor=black:shadowx=2:shadowy=2"
+        )
+        cmd = ["ffmpeg", "-y", "-f", "lavfi",
+               "-i", f"color=black:s=1080x1920:d={INTRO_DURATION}",
+               "-vf", vf,
                "-t", str(INTRO_DURATION), "-r", "30",
                "-c:v", "libx264", "-preset", "fast", "-pix_fmt", "yuv420p",
                "-an", output]
     else:
-        # Bande noire au centre + titre sur 1 ou 2 lignes + niveau en cyan
-        y1 = 820
-        y2 = y1 + fontsize + 15
-        y_niveau = y2 + fontsize + 20 if line2 else y1 + fontsize + 20
-
         vf = (
             f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
-            f"drawbox=x=0:y=750:w=1080:h=400:color=black@0.65:t=fill,"
-            f"drawtext=text='{line1}':"
-            f"fontcolor=white:fontsize={fontsize}:"
-            f"x=(w-text_w)/2:y={y1}:"
-            f"shadowcolor=black:shadowx=4:shadowy=4"
+            # Bande noire en bas seulement
+            f"drawbox=x=0:y={box_y}:w=1080:h={box_h}:color=black@0.75:t=fill,"
+            # Ligne décorative cyan au-dessus de la bande
+            f"drawbox=x=0:y={box_y}:w=1080:h=4:color=#00e5ff@0.9:t=fill,"
+            # Ligne 1 du titre
+            f"drawtext=text='{line1}':fontcolor=white:fontsize={fontsize}:"
+            f"x=(w-text_w)/2:y={y1}:shadowcolor=black:shadowx=4:shadowy=4"
         )
         if line2:
             vf += (
-                f",drawtext=text='{line2}':"
-                f"fontcolor=white:fontsize={fontsize}:"
-                f"x=(w-text_w)/2:y={y2}:"
-                f"shadowcolor=black:shadowx=4:shadowy=4"
+                f",drawtext=text='{line2}':fontcolor=white:fontsize={fontsize}:"
+                f"x=(w-text_w)/2:y={y2}:shadowcolor=black:shadowx=4:shadowy=4"
             )
+        # Badge niveau coloré
         vf += (
-            f",drawtext=text='{niveau.upper()}':"
-            f"fontcolor=#00e5ff:fontsize=46:"
-            f"x=(w-text_w)/2:y={y_niveau}:"
-            f"shadowcolor=black:shadowx=3:shadowy=3"
+            f",drawtext=text='● {niveau.upper()}':fontcolor={niv_color}:fontsize=40:"
+            f"x=(w-text_w)/2:y={y_niv}:shadowcolor=black:shadowx=2:shadowy=2"
         )
 
         cmd = ["ffmpeg", "-y",

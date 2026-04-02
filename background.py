@@ -119,9 +119,11 @@ def draw_subtitle(ax, frame, sous_titres, tags):
 # ─────────────────────────────────────────────
 
 def render_chandeliers(ax, candles_full, frame):
-    progress = frame / TOTAL_FRAMES
-    window = 35
-    start = min(int(progress * (len(candles_full) - window)), len(candles_full) - window)
+    # Ticker continu : scroll de 1 bougie toutes les 7 frames
+    window = 25
+    scroll_speed = 7  # frames par bougie
+    max_start = len(candles_full) - window
+    start = min(frame // scroll_speed, max_start)
     visible = candles_full[start:start + window]
 
     ax.clear()
@@ -159,9 +161,10 @@ def render_chandeliers(ax, candles_full, frame):
 # ─────────────────────────────────────────────
 
 def render_rsi(ax_price, ax_rsi, candles_full, frame):
-    progress = frame / TOTAL_FRAMES
-    window = 50
-    start = min(int(progress * (len(candles_full) - window)), len(candles_full) - window)
+    window = 40
+    scroll_speed = 5
+    max_start = len(candles_full) - window
+    start = min(frame // scroll_speed, max_start)
     visible = candles_full[start:start + window]
     closes = candles_to_closes(candles_full)
     rsi_full = compute_rsi(closes)
@@ -213,9 +216,10 @@ def render_rsi(ax_price, ax_rsi, candles_full, frame):
 # ─────────────────────────────────────────────
 
 def render_macd(ax_price, ax_macd, candles_full, frame):
-    progress = frame / TOTAL_FRAMES
-    window = 50
-    start = min(int(progress * (len(candles_full) - window)), len(candles_full) - window)
+    window = 40
+    scroll_speed = 5
+    max_start = len(candles_full) - window
+    start = min(frame // scroll_speed, max_start)
     visible = candles_full[start:start + window]
     closes = candles_to_closes(candles_full)
     macd_line, signal_line, histogram = compute_macd(closes)
@@ -263,9 +267,10 @@ def render_macd(ax_price, ax_macd, candles_full, frame):
 # ─────────────────────────────────────────────
 
 def render_moyenne_mobile(ax, candles_full, frame):
-    progress = frame / TOTAL_FRAMES
-    window = 50
-    start = min(int(progress * (len(candles_full) - window)), len(candles_full) - window)
+    window = 40
+    scroll_speed = 5
+    max_start = len(candles_full) - window
+    start = min(frame // scroll_speed, max_start)
     visible = candles_full[start:start + window]
     closes_full = candles_to_closes(candles_full)
     ma20_full = compute_ma(closes_full, 20)
@@ -457,7 +462,7 @@ def generate_background(metadata_path="video_metadata.json", output_path="backgr
     base_map = {"BTC": 65000, "ETH": 3500, "SOL": 180, "BNB": 600,
                 "XRP": 0.55, "EUR": 1.08, "GBP": 1.27, "AUD": 0.65}
     base = next((v for k, v in base_map.items() if k in actif), 100.0)
-    candles_full = generate_candles(n=100, base=base, volatility=volatility)
+    candles_full = generate_candles(n=300, base=base, volatility=volatility)
 
     # Setup figure selon le type
     fig = plt.figure(figsize=(FIG_W, FIG_H), dpi=DPI, facecolor=BG_COLOR)
