@@ -1,31 +1,29 @@
 {
-  "titre": "EMA et Stop-Loss Dynamique sur SOL",
-  "sujet": "MA et gestion de position",
-  "niveau": "confirmé",
-  "actif": "SOL/USDT",
-  "categorie": "crypto",
-  "fond_type": "moyenne_mobile",
-  "voix_off": "Votre stop-loss est-il réellement optimisé face à la volatilité crypto ? Beaucoup placent leurs stop-loss mécaniquement. Mais sur SOL/USDT, la volatilité exige plus de finesse. Intégrer les Moyennes Mobiles exponentielles (EMA) est crucial. Une EMA courte, comme la 21, peut servir de ligne de flottaison dynamique. Lorsque SOL retrace vers cette EMA en tendance haussière, c'est souvent un point d'inflexion. Plutôt que de fixer un SL rigide, utilisez l'EMA comme guide. Une clôture horaire ou 4h sous la 21 EMA peut signaler une rupture de momentum et justifier une sortie ou un allègement. Inversement, une réintégration rapide valide le maintien. Cette approche dynamique réduit les sorties prématurées et optimise votre ratio risque/rendement. Testez-le sur SOL, adaptez la période de l'EMA à votre horizon de trading. Ne soyez pas un trader figé, soyez adaptatif. Maîtrisez l'art de la gestion dynamique pour préserver votre capital.",
+  "titre": "MACD + Volume: Signaux plus fiables",
+  "sujet": "MACD et volume",
+  "niveau": "débutant",
+  "actif": "AUD/USD",
+  "categorie": "forex",
+  "fond_type": "indicateur_macd",
+  "voix_off": "Ton MACD te donne des faux signaux ? Découvre comment le volume peut transformer tes trades sur l'AUD/USD ! Le MACD repère les tendances et le momentum. Un croisement haussier peut signifier un achat. Un croisement baissier, une vente. La force d'un mouvement est validée par le volume. Un volume élevé montre un fort intérêt des traders. Imagine : ton MACD signale un achat. Si le volume est faible, sois prudent. Mais si le volume monte en flèche, c'est une confirmation très forte ! Le signal est fiable. Combine toujours ces deux outils. Le MACD te dit QUOI, le volume te dit AVEC QUELLE FORCE. C'est la clé pour éviter les pièges et prendre de meilleures décisions. À toi de jouer !",
   "sous_titres": [
-    "Stop-loss optimisé pour volatilité crypto ?",
-    "SOL/USDT exige finesse de gestion.",
-    "Intégrez les moyennes mobiles exponentielles.",
-    "EMA 21 : ligne de flottaison dynamique.",
-    "SOL retrace vers EMA courte.",
-    "Point d'inflexion clé sur le graphique.",
-    "Stop-loss non rigide, utilisez EMA.",
-    "Clôture sous EMA 21 : signal.",
-    "Rupture momentum, sortie partielle.",
-    "Réintégration : maintien position validé.",
-    "Gestion dynamique optimise risque/rendement.",
-    "Soyez adaptatif, pas un trader figé."
+    "MACD seul, c'est risqué.",
+    "Ajoute le volume à l'équation.",
+    "MACD indique la tendance.",
+    "Volume montre la force.",
+    "Croisement MACD + volume fort.",
+    "Signal fiable, prends ta décision.",
+    "Volume faible = prudence.",
+    "Filtre tes faux signaux.",
+    "MACD dit quoi, volume la force.",
+    "Combine ces deux outils puissants."
   ],
   "concepts_cles": [
-    "Moyennes Mobiles",
-    "EMA 21",
-    "Gestion Position",
-    "Stop-loss Dynamique",
-    "Volatilité Crypto"
+    "MACD",
+    "Volume",
+    "Tendance",
+    "Signal",
+    "Confirmation"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
