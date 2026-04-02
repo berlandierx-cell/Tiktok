@@ -1,31 +1,31 @@
 {
-  "titre": "Croisements de Moyennes : L'Avantage EMA en Crypto",
-  "sujet": "les croisements de moyennes",
-  "niveau": "confirmé",
-  "actif": "SOL/USDT",
-  "categorie": "crypto",
+  "titre": "MACD et Breakouts : le combo gagnant !",
+  "sujet": "MACD et les breakouts",
+  "niveau": "débutant",
+  "actif": "NZD/USD",
+  "categorie": "forex",
   "fond_type": "indicateur_macd",
-  "voix_off": "Marre des signaux de trading qui arrivent toujours trop tard ? Oubliez la simple moyenne mobile ! Sur ce graphique SOL/USDT, je vous montre comment exploiter les croisements de moyennes pour une meilleure réactivité. Le secret ? Utiliser des moyennes exponentielles (EMA) plutôt que des SMA. Leur pondération récente réduit le lag, offrant des signaux plus pertinents, surtout sur des actifs volatils comme les cryptos. Un croisement haussier, ou 'golden cross', d'une EMA 50 sur une EMA 200 peut indiquer un shift de momentum majeur. Mais attention, ce n'est pas une boule de cristal. La confluence est clé. Vérifiez toujours le volume et l'environnement macro. Sur le fond, on voit le MACD : un croisement de ses propres moyennes couplé à celui des EMA peut valider une entrée ou une sortie. Ne tradez jamais un seul indicateur isolé. Votre plan de trading doit intégrer la gestion du risque et une stratégie de money management rigoureuse. Testez différentes périodes d'EMA selon le timeframe et l'actif. C'est en combinant les approches que vous optimiserez votre edge. Affinez vos setups !",
+  "voix_off": "Tu veux capter les gros mouvements du marché ? Le MACD peut t'aider à voir les breakouts ! Regarde le NZD/USD. Le MACD, cet indicateur utile, mesure la force d'une tendance. Il a deux lignes et son histogramme. C'est simple.\n\nUn breakout, c'est quand le prix franchit un niveau clé, comme une résistance. Souvent, c'est le début d'un gros mouvement. Comment le MACD t'aide à confirmer ?\n\nQuand le prix casse un niveau, observe le MACD. Si ses lignes croisent la ligne zéro ET que l'histogramme grossit, c'est un signal puissant ! Ça confirme l'élan du mouvement. Cette double validation prix et MACD est précieuse. Entraîne-toi à les repérer. Abonne-toi pour plus de conseils trading !",
   "sous_titres": [
-    "Marre des signaux tardifs ?",
-    "Exploitez les croisements avancés.",
-    "Préférez les EMA aux SMA.",
-    "Moins de lag, plus de pertinence.",
-    "Le 'golden cross' en crypto.",
-    "Attention à la volatilité !",
-    "La confluence est essentielle.",
-    "Volume et MACD pour validation.",
-    "Ne tradez jamais un seul indicateur.",
-    "Intégrez gestion du risque.",
-    "Testez différentes périodes.",
-    "Affinez vos setups !"
+    "Tu veux capter les mouvements ?",
+    "Le MACD aide aux breakouts !",
+    "Regarde le NZD/USD.",
+    "MACD : force et direction.",
+    "Deux lignes, un histogramme. Simple.",
+    "Breakout : prix franchit niveau clé.",
+    "Début d'un gros mouvement.",
+    "MACD confirme ce breakout ?",
+    "Lignes croisent ligne zéro.",
+    "L'histogramme grossit ? Signal puissant !",
+    "Double validation précieuse.",
+    "Abonne-toi pour les astuces !"
   ],
   "concepts_cles": [
-    "Croisements de moyennes",
-    "Moyennes exponentielles (EMA)",
-    "Golden Cross / Death Cross",
-    "Confluence d'indicateurs",
-    "Gestion du risque"
+    "MACD",
+    "Breakout",
+    "Ligne zéro",
+    "Histogramme",
+    "Tendance"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
