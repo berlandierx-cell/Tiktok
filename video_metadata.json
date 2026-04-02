@@ -1,31 +1,31 @@
 {
-  "titre": "MACD et Breakouts : le combo gagnant !",
-  "sujet": "MACD et les breakouts",
-  "niveau": "débutant",
-  "actif": "NZD/USD",
-  "categorie": "forex",
-  "fond_type": "indicateur_macd",
-  "voix_off": "Tu veux capter les gros mouvements du marché ? Le MACD peut t'aider à voir les breakouts ! Regarde le NZD/USD. Le MACD, cet indicateur utile, mesure la force d'une tendance. Il a deux lignes et son histogramme. C'est simple.\n\nUn breakout, c'est quand le prix franchit un niveau clé, comme une résistance. Souvent, c'est le début d'un gros mouvement. Comment le MACD t'aide à confirmer ?\n\nQuand le prix casse un niveau, observe le MACD. Si ses lignes croisent la ligne zéro ET que l'histogramme grossit, c'est un signal puissant ! Ça confirme l'élan du mouvement. Cette double validation prix et MACD est précieuse. Entraîne-toi à les repérer. Abonne-toi pour plus de conseils trading !",
+  "titre": "EMA et Stop-Loss Dynamique sur SOL",
+  "sujet": "MA et gestion de position",
+  "niveau": "confirmé",
+  "actif": "SOL/USDT",
+  "categorie": "crypto",
+  "fond_type": "moyenne_mobile",
+  "voix_off": "Votre stop-loss est-il réellement optimisé face à la volatilité crypto ? Beaucoup placent leurs stop-loss mécaniquement. Mais sur SOL/USDT, la volatilité exige plus de finesse. Intégrer les Moyennes Mobiles exponentielles (EMA) est crucial. Une EMA courte, comme la 21, peut servir de ligne de flottaison dynamique. Lorsque SOL retrace vers cette EMA en tendance haussière, c'est souvent un point d'inflexion. Plutôt que de fixer un SL rigide, utilisez l'EMA comme guide. Une clôture horaire ou 4h sous la 21 EMA peut signaler une rupture de momentum et justifier une sortie ou un allègement. Inversement, une réintégration rapide valide le maintien. Cette approche dynamique réduit les sorties prématurées et optimise votre ratio risque/rendement. Testez-le sur SOL, adaptez la période de l'EMA à votre horizon de trading. Ne soyez pas un trader figé, soyez adaptatif. Maîtrisez l'art de la gestion dynamique pour préserver votre capital.",
   "sous_titres": [
-    "Tu veux capter les mouvements ?",
-    "Le MACD aide aux breakouts !",
-    "Regarde le NZD/USD.",
-    "MACD : force et direction.",
-    "Deux lignes, un histogramme. Simple.",
-    "Breakout : prix franchit niveau clé.",
-    "Début d'un gros mouvement.",
-    "MACD confirme ce breakout ?",
-    "Lignes croisent ligne zéro.",
-    "L'histogramme grossit ? Signal puissant !",
-    "Double validation précieuse.",
-    "Abonne-toi pour les astuces !"
+    "Stop-loss optimisé pour volatilité crypto ?",
+    "SOL/USDT exige finesse de gestion.",
+    "Intégrez les moyennes mobiles exponentielles.",
+    "EMA 21 : ligne de flottaison dynamique.",
+    "SOL retrace vers EMA courte.",
+    "Point d'inflexion clé sur le graphique.",
+    "Stop-loss non rigide, utilisez EMA.",
+    "Clôture sous EMA 21 : signal.",
+    "Rupture momentum, sortie partielle.",
+    "Réintégration : maintien position validé.",
+    "Gestion dynamique optimise risque/rendement.",
+    "Soyez adaptatif, pas un trader figé."
   ],
   "concepts_cles": [
-    "MACD",
-    "Breakout",
-    "Ligne zéro",
-    "Histogramme",
-    "Tendance"
+    "Moyennes Mobiles",
+    "EMA 21",
+    "Gestion Position",
+    "Stop-loss Dynamique",
+    "Volatilité Crypto"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
