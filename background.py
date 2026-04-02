@@ -121,7 +121,7 @@ def draw_subtitle(ax, frame, sous_titres, tags):
 def render_chandeliers(ax, candles_full, frame):
     # Ticker continu : scroll de 1 bougie toutes les 7 frames
     window = 25
-    scroll_speed = 7  # frames par bougie
+    scroll_speed = 36  # frames par bougie (1.5 sec par bougie a 24fps)
     max_start = len(candles_full) - window
     start = min(frame // scroll_speed, max_start)
     visible = candles_full[start:start + window]
@@ -162,7 +162,7 @@ def render_chandeliers(ax, candles_full, frame):
 
 def render_rsi(ax_price, ax_rsi, candles_full, frame):
     window = 40
-    scroll_speed = 5
+    scroll_speed = 30
     max_start = len(candles_full) - window
     start = min(frame // scroll_speed, max_start)
     visible = candles_full[start:start + window]
@@ -217,7 +217,7 @@ def render_rsi(ax_price, ax_rsi, candles_full, frame):
 
 def render_macd(ax_price, ax_macd, candles_full, frame):
     window = 40
-    scroll_speed = 5
+    scroll_speed = 30
     max_start = len(candles_full) - window
     start = min(frame // scroll_speed, max_start)
     visible = candles_full[start:start + window]
@@ -268,7 +268,7 @@ def render_macd(ax_price, ax_macd, candles_full, frame):
 
 def render_moyenne_mobile(ax, candles_full, frame):
     window = 40
-    scroll_speed = 5
+    scroll_speed = 30
     max_start = len(candles_full) - window
     start = min(frame // scroll_speed, max_start)
     visible = candles_full[start:start + window]
