@@ -1,29 +1,30 @@
 {
-  "titre": "MACD + Volume: Signaux plus fiables",
-  "sujet": "MACD et volume",
+  "titre": "Drawdown: gérer la baisse crypto",
+  "sujet": "le drawdown : comprendre et gérer",
   "niveau": "débutant",
-  "actif": "AUD/USD",
-  "categorie": "forex",
-  "fond_type": "indicateur_macd",
-  "voix_off": "Ton MACD te donne des faux signaux ? Découvre comment le volume peut transformer tes trades sur l'AUD/USD ! Le MACD repère les tendances et le momentum. Un croisement haussier peut signifier un achat. Un croisement baissier, une vente. La force d'un mouvement est validée par le volume. Un volume élevé montre un fort intérêt des traders. Imagine : ton MACD signale un achat. Si le volume est faible, sois prudent. Mais si le volume monte en flèche, c'est une confirmation très forte ! Le signal est fiable. Combine toujours ces deux outils. Le MACD te dit QUOI, le volume te dit AVEC QUELLE FORCE. C'est la clé pour éviter les pièges et prendre de meilleures décisions. À toi de jouer !",
+  "actif": "ADA/USDT",
+  "categorie": "crypto",
+  "fond_type": "schema_risk_reward",
+  "voix_off": "Ton portefeuille crypto a déjà plongé ? C'est le drawdown ! Non, pas une perte définitive, mais une baisse temporaire de ton capital après avoir atteint un sommet. Par exemple : 1000€ sur ADA/USDT, ça tombe à 800€. Ton drawdown est de 20%. C'est un phénomène normal, qui indique le risque réel.\n\nComment le gérer efficacement ?\n1.  **Stop-loss :** Un ordre automatique pour limiter tes pertes. Crucial !\n2.  **Diversification :** Ne mets pas tout sur une seule crypto. Répartis tes risques.\n3.  **Taille de position :** Ne risque pas trop sur une seule transaction.\n4.  **Psychologie :** Gère tes émotions. La panique est souvent une mauvaise conseillère.\n\nComprendre et gérer le drawdown te rend plus serein et plus performant. Abonne-toi pour trader malin !",
   "sous_titres": [
-    "MACD seul, c'est risqué.",
-    "Ajoute le volume à l'équation.",
-    "MACD indique la tendance.",
-    "Volume montre la force.",
-    "Croisement MACD + volume fort.",
-    "Signal fiable, prends ta décision.",
-    "Volume faible = prudence.",
-    "Filtre tes faux signaux.",
-    "MACD dit quoi, volume la force.",
-    "Combine ces deux outils puissants."
+    "Ton portefeuille a déjà plongé ?",
+    "C'est le drawdown !",
+    "Baisse temporaire de capital.",
+    "ADA/USDT : exemple 20%.",
+    "Indique le risque réel.",
+    "Gère-le avec stop-loss.",
+    "Diversifie tes cryptos.",
+    "Contrôle la taille de tes positions.",
+    "Gère tes émotions en trading.",
+    "Sois un trader serein.",
+    "Abonne-toi pour trader malin !"
   ],
   "concepts_cles": [
-    "MACD",
-    "Volume",
-    "Tendance",
-    "Signal",
-    "Confirmation"
+    "Drawdown",
+    "Stop-loss",
+    "Diversification",
+    "Gestion risque",
+    "Psychologie trading"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
