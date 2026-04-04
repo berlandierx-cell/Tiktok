@@ -1,31 +1,29 @@
 {
-  "titre": "MACD : Maîtrisez le Momentum Forex",
-  "sujet": "MACD et le momentum",
+  "titre": "Maîtrise la règle des 2 % en trading",
+  "sujet": "la règle des 2%",
   "niveau": "intermédiaire",
-  "actif": "GBP/JPY",
-  "categorie": "forex",
-  "fond_type": "indicateur_macd",
-  "voix_off": "Le MACD : votre secret du momentum Forex sur GBP/JPY ?\nOubliez les croisements ! Le MACD est un puissant détecteur de momentum. Sa clé ? L'histogramme.\nL'histogramme visualise la force directionnelle. Il grandit, momentum s'accélère. Il diminue, momentum ralentit. Le signal ultime : la divergence !\nSi le prix GBP/JPY fait un nouveau sommet mais l'histogramme MACD non, c'est une divergence baissière. Avertissement : le momentum d'achat faiblit.\nCela anticipe un retournement de tendance avant les croisements classiques. Maîtrisez ces divergences. Le MACD vous donne un avantage sur le marché des devises. Devenez un pro du momentum !",
+  "actif": "DOT/USDT",
+  "categorie": "crypto",
+  "fond_type": "schema_risk_reward",
+  "voix_off": "Tu penses que ton problème c'est ta stratégie ? Faux, c'est ta gestion du risque. La règle des 2 %, c'est la base absolue pour durer sur les marchés. Regarde ce setup sur DOT/USDT. Si tu disposes d'un capital de 10 000 euros, perdre 200 euros par trade ne doit jamais te paralyser. Mais attention, 2 % ce n'est pas ton levier, c'est la perte maximale autorisée si ton stop loss est déclenché. Pour calculer ta taille de position, divise ce montant par la distance entre ton entrée et ton stop. Si ton stop est placé à 5 % sur DOT, ta position engagée sera de 40 % de ton capital global. C'est mathématique. En respectant un ratio Risk/Reward de 1 pour 2 minimum, tu peux avoir tort plus de la moitié du temps et rester largement rentable. C'est la différence fondamentale entre un joueur de casino et un trader pro. Maîtrise tes pertes, et tes gains viendront seuls.",
   "sous_titres": [
-    "MACD : secret du momentum ?",
-    "Oubliez les croisements classiques !",
-    "L'histogramme est la clé.",
-    "Il visualise la force directionnelle.",
-    "Grandit : momentum s'accélère.",
-    "Diminue : momentum ralentit.",
-    "Le signal ultime : la divergence.",
-    "Prix monte, histogramme non ?",
-    "Divergence baissière : attention !",
-    "Momentum d'achat faiblit.",
-    "Anticipez les retournements.",
-    "Devenez pro du momentum !"
+    "Arrête de cramer ton compte trading",
+    "La règle des 2 % explique tout",
+    "C'est ta perte maximale autorisée",
+    "Regarde ce setup sur DOT/USDT",
+    "Calcule ta taille de position exacte",
+    "Divise le risque par le stop",
+    "Respecte un ratio Risk/Reward positif",
+    "Sois rentable malgré tes erreurs",
+    "Deviens un trader pro maintenant",
+    "Maîtrise tes pertes pour gagner"
   ],
   "concepts_cles": [
-    "MACD",
-    "Momentum",
-    "Histogramme",
-    "Divergence",
-    "Forex"
+    "Gestion du risque",
+    "Taille de position",
+    "Stop Loss",
+    "Ratio Risk/Reward",
+    "Protection du capital"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
