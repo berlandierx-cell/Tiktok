@@ -5,7 +5,7 @@ from tiktok_uploader.upload import upload_video
 def publish():
     # 1. Chargement des métadonnées pour la description
     metadata_path = "video_metadata.json"
-    video_path = "final.mp4" # Vérifie bien que c'est le nom généré par composer.py
+    video_path = "final_video.mp4" # Vérifie bien que c'est le nom généré par composer.py
 
     if not os.path.exists(metadata_path):
         print("❌ Erreur : video_metadata.json introuvable.")
