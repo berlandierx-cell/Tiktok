@@ -3,3 +3,4 @@ edge-tts
 matplotlib
 numpy
 requests
+tiktok-uploader
