@@ -16,32 +16,47 @@ def publish():
     
     description = f"{data.get('titre', 'Trading Tips')} 🚀 {data.get('tags', '#trading')}"
 
-    # On crée une structure de cookie que Playwright va comprendre
-    auth_cookies = [
+    if not session_id:
+        print("❌ Erreur : TIKTOK_SESSIONID est vide.")
+        return
+
+    # Construction du fichier de cookies au format attendu par la lib
+    cookies_data = [
         {
-            'name': 'sessionid',
-            'value': session_id,
-            'domain': '.tiktok.com',
-            'path': '/',
-            'secure': True,
-            'httpOnly': True
+            "name": "sessionid",
+            "value": session_id,
+            "domain": ".tiktok.com",
+            "path": "/",
+            "secure": True,
+            "httpOnly": True,
+            "sameSite": "None"
         }
     ]
 
-    print(f"📤 Tentative d'upload forcée pour Cypher...")
+    # On écrit physiquement le fichier sur le disque
+    cookie_file = "formatted_cookies.json"
+    with open(cookie_file, 'w') as f:
+        json.dump(cookies_data, f)
 
+    print(f"📤 Tentative d'upload avec cookie formaté...")
+
+    # On repasse le CHEMIN du fichier à la fonction
     failed_videos = upload_video(
         video_path,
         description=description,
-        cookies=auth_cookies, # On passe la liste d'objets au lieu de la chaîne
+        cookies=cookie_file, 
         browser='chromium',
         headless=True
     )
 
+    # Nettoyage après tentative
+    if os.path.exists(cookie_file):
+        os.remove(cookie_file)
+
     if not failed_videos:
         print("✅ SUCCESS : Cypher est enfin en ligne !")
     else:
-        print(f"❌ FAILED : TikTok a encore bloqué la session.")
+        print(f"❌ FAILED : L'upload a échoué (vérifie si ton compte n'est pas restreint).")
 
 if __name__ == "__main__":
     publish()
