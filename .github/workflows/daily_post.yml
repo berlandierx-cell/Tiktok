@@ -19,7 +19,9 @@ jobs:
           fetch-depth: 0
 
       - name: 📦 Install Python dependencies
-        run: pip install -r requirements.txt --break-system-packages --ignore-installed typing-extensions
+        run: |
+          pip install -r requirements.txt --break-system-packages --ignore-installed typing-extensions
+          pip install tiktok-uploader --break-system-packages
 
       - name: 🧠 Step 1 - Brain (Gemini génère le script)
         env:
@@ -37,16 +39,21 @@ jobs:
       - name: 🎬 Step 4 - Composer (assemblage final 9:16)
         run: python composer.py
 
-      - name: 📲 Step 5 - Publish (TikTok)
+      - name: 📲 Step 5 - Publish (TikTok via Cookie Mode)
         env:
-          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
-        run: python publisher.py
+          # On crée le fichier cookies.txt à partir du secret GitHub
+          TIKTOK_COOKIES_JSON: ${{ secrets.TIKTOK_COOKIES }}
+        run: |
+          echo "$TIKTOK_COOKIES_JSON" > cookies.txt
+          python uploader.py
 
       - name: 📤 Push Results
         run: |
           export HOME=/root
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Video: $(date)" || echo "No changes"
+          # On ne veut pas sauvegarder les cookies ou la vidéo finale sur Git pour ne pas alourdir
+          rm cookies.txt
+          git add video_metadata.json
+          git commit -m "Video Meta Update: $(date)" || echo "No changes"
           git push origin main
