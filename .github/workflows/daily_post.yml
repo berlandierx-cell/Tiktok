@@ -41,19 +41,24 @@ jobs:
 
       - name: 📲 Step 5 - Publish (TikTok via Cookie Mode)
         env:
-          # On crée le fichier cookies.txt à partir du secret GitHub
           TIKTOK_COOKIES_JSON: ${{ secrets.TIKTOK_COOKIES }}
         run: |
           echo "$TIKTOK_COOKIES_JSON" > cookies.txt
           python uploader.py
 
-      - name: 📤 Push Results
+      - name: 📤 Push Results & Cleanup
         run: |
           export HOME=/root
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          # On ne veut pas sauvegarder les cookies ou la vidéo finale sur Git pour ne pas alourdir
-          rm cookies.txt
+          
+          # Nettoyage des fichiers sensibles et lourds
+          rm -f cookies.txt
+          
+          # On sauvegarde les métadonnées pour l'historique
           git add video_metadata.json
           git commit -m "Video Meta Update: $(date)" || echo "No changes"
           git push origin main
+          
+          # Optionnel : supprimer la vidéo après l'upload pour gagner de la place
+          # rm -f final_video.mp4
