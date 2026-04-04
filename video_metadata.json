@@ -1,29 +1,31 @@
 {
-  "titre": "Maîtrise la règle des 2 % en trading",
-  "sujet": "la règle des 2%",
+  "titre": "RSI ou Stochastique : le guide ultime BNB",
+  "sujet": "RSI vs Stochastique",
   "niveau": "intermédiaire",
-  "actif": "DOT/USDT",
+  "actif": "BNB/USDT",
   "categorie": "crypto",
-  "fond_type": "schema_risk_reward",
-  "voix_off": "Tu penses que ton problème c'est ta stratégie ? Faux, c'est ta gestion du risque. La règle des 2 %, c'est la base absolue pour durer sur les marchés. Regarde ce setup sur DOT/USDT. Si tu disposes d'un capital de 10 000 euros, perdre 200 euros par trade ne doit jamais te paralyser. Mais attention, 2 % ce n'est pas ton levier, c'est la perte maximale autorisée si ton stop loss est déclenché. Pour calculer ta taille de position, divise ce montant par la distance entre ton entrée et ton stop. Si ton stop est placé à 5 % sur DOT, ta position engagée sera de 40 % de ton capital global. C'est mathématique. En respectant un ratio Risk/Reward de 1 pour 2 minimum, tu peux avoir tort plus de la moitié du temps et rester largement rentable. C'est la différence fondamentale entre un joueur de casino et un trader pro. Maîtrise tes pertes, et tes gains viendront seuls.",
+  "fond_type": "indicateur_rsi",
+  "voix_off": "Tu utilises le RSI ou le Stochastique ? La plupart des traders se trompent de contexte. Le RSI est un oscillateur de force relative. Il mesure la vitesse des mouvements de prix sur le BNB. En marché tendanciel, il évite les faux signaux de surachat. À l'inverse, le Stochastique est bien plus nerveux. Il compare le cours de clôture à la plage de prix sur une période donnée. Il excelle dans les marchés latéraux, les fameux ranges, pour capter les retournements rapides. Regarde sur le BNB/USDT : quand le RSI stagne en zone neutre, le Stochastique donne déjà des points d'entrée précis. Mais attention, en forte tendance, le Stochastique reste collé au plafond, alors que le RSI montre la puissance de l'impulsion. Pour un setup efficace, utilise le RSI pour la structure et le Stochastique pour ton timing. C'est le combo idéal pour arrêter de trader à l'aveugle. Abonne-toi !",
   "sous_titres": [
-    "Arrête de cramer ton compte trading",
-    "La règle des 2 % explique tout",
-    "C'est ta perte maximale autorisée",
-    "Regarde ce setup sur DOT/USDT",
-    "Calcule ta taille de position exacte",
-    "Divise le risque par le stop",
-    "Respecte un ratio Risk/Reward positif",
-    "Sois rentable malgré tes erreurs",
-    "Deviens un trader pro maintenant",
-    "Maîtrise tes pertes pour gagner"
+    "RSI ou Stochastique ? Choisis bien.",
+    "Le RSI mesure la force relative.",
+    "Idéal pour éviter les faux signaux.",
+    "Le Stochastique est bien plus nerveux.",
+    "Il compare clôture et plage haute.",
+    "Parfait pour les marchés en range.",
+    "Analyse ce cas sur le BNB.",
+    "Le Stochastique anticipe les rebonds.",
+    "Attention aux fortes tendances !",
+    "Combine les deux indicateurs.",
+    "RSI pour structure, Stochastique pour timing.",
+    "Maîtrise enfin tes indicateurs techniques."
   ],
   "concepts_cles": [
-    "Gestion du risque",
-    "Taille de position",
-    "Stop Loss",
-    "Ratio Risk/Reward",
-    "Protection du capital"
+    "Oscillateur de momentum",
+    "Zone de surachat",
+    "Marché en range",
+    "Timing d'exécution",
+    "Structure de prix"
   ],
   "tags": "#trading #crypto #bourse #apprendre #finance"
 }
