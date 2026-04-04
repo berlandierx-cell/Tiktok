@@ -22,49 +22,37 @@ jobs:
         run: |
           pip install -r requirements.txt --break-system-packages --ignore-installed typing-extensions
           pip install tiktok-uploader playwright --break-system-packages
-          # Installation des navigateurs pour Playwright
           python3 -m playwright install chromium
           python3 -m playwright install-deps
 
-      - name: 🧠 Step 1 - Brain (Gemini génère le script)
+      - name: 🧠 Step 1 - Brain
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python3 brain.py
 
-      - name: 🎙️ Step 2 - Video (voix + avatar Wav2Lip)
+      - name: 🎙️ Step 2 - Video
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python3 video_gen.py
 
-      - name: 🎨 Step 3 - Background (fond boursier animé)
+      - name: 🎨 Step 3 - Background
         run: python3 background.py
 
-      - name: 🎬 Step 4 - Composer (assemblage final 9:16)
+      - name: 🎬 Step 4 - Composer
         run: python3 composer.py
 
-      - name: 📲 Step 5 - Publish (TikTok via Cookie Mode)
+      - name: 📲 Step 5 - Publish (TikTok via SessionID)
         env:
-          TIKTOK_COOKIES_JSON: ${{ secrets.TIKTOK_COOKIES }}
-        run: |
-          # Utilisation de EOF pour écrire le JSON brut sans erreur de parsing
-          cat << 'EOF' > cookies.txt
-          ${{ secrets.TIKTOK_COOKIES }}
-          EOF
-          python3 uploader.py
+          # C'est ICI qu'on donne l'autorisation d'accès au secret
+          TIKTOK_SESSIONID: ${{ secrets.TIKTOK_SESSIONID }}
+        run: python3 uploader.py
 
       - name: 📤 Push Results & Cleanup
         run: |
           export HOME=/root
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # On supprime les cookies du serveur par sécurité
-          rm -f cookies.txt
-          
-          # Sauvegarde des métadonnées sur le repo
           git add video_metadata.json
           git commit -m "Video Meta Update: $(date)" || echo "No changes"
           git push origin main
-          
-          # Nettoyage de la vidéo pour ne pas saturer le disque du runner
           rm -f final_video.mp4
