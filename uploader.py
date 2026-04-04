@@ -6,7 +6,6 @@ def publish():
     metadata_path = "video_metadata.json"
     video_path = "final_video.mp4"
 
-    # 🔐 Récupération des cookies depuis GitHub Secrets
     cookies = os.getenv("TIKTOK_COOKIES")
 
     if not cookies:
@@ -21,7 +20,6 @@ def publish():
         print(f"❌ Erreur : {video_path} introuvable.")
         return
 
-    # 📖 Lecture du metadata
     with open(metadata_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
@@ -31,11 +29,11 @@ def publish():
 
     try:
         failed_videos = upload_video(
-            filename=video_path,       # ✅ CORRECTION ICI
+            filename=video_path,
             description=description,
-            cookies=cookies,          # ✅ cookies complets
+            cookies=cookies,
             browser='chromium',
-            headless=False            # 🔥 IMPORTANT (évite blocage TikTok)
+            headless=True   # ✅ OBLIGATOIRE SUR SERVEUR
         )
 
         if not failed_videos:
