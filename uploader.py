@@ -6,7 +6,7 @@ def publish():
     metadata_path = "video_metadata.json"
     video_path = "final_video.mp4"
 
-    # 🔐 Nouveau secret (IMPORTANT)
+    # 🔐 Récupération des cookies depuis GitHub Secrets
     cookies = os.getenv("TIKTOK_COOKIES")
 
     if not cookies:
@@ -17,6 +17,11 @@ def publish():
         print(f"❌ Erreur : {metadata_path} introuvable.")
         return
 
+    if not os.path.exists(video_path):
+        print(f"❌ Erreur : {video_path} introuvable.")
+        return
+
+    # 📖 Lecture du metadata
     with open(metadata_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
@@ -26,15 +31,15 @@ def publish():
 
     try:
         failed_videos = upload_video(
-            video=video_path,
+            filename=video_path,       # ✅ CORRECTION ICI
             description=description,
-            cookies=cookies,        # 🔥 LA CLÉ
+            cookies=cookies,          # ✅ cookies complets
             browser='chromium',
-            headless=False          # 🔥 ULTRA IMPORTANT
+            headless=False            # 🔥 IMPORTANT (évite blocage TikTok)
         )
 
         if not failed_videos:
-            print("✅ SUCCESS : Cypher est en ligne !")
+            print("✅ SUCCESS : Vidéo upload sur TikTok ! 🚀")
         else:
             print(f"❌ FAILED : {failed_videos}")
 
