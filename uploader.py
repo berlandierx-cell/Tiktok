@@ -5,8 +5,6 @@ from tiktok_uploader.upload import upload_video
 def publish():
     metadata_path = "video_metadata.json"
     video_path = "final_video.mp4" 
-    
-    # On récupère le SessionID depuis les variables d'environnement GitHub
     session_id = os.environ.get('TIKTOK_SESSIONID')
 
     if not os.path.exists(metadata_path):
@@ -18,29 +16,32 @@ def publish():
     
     description = f"{data.get('titre', 'Trading Tips')} 🚀 {data.get('tags', '#trading')}"
 
-    if not video_path or not os.path.exists(video_path):
-        print(f"❌ Erreur : La vidéo {video_path} est introuvable.")
-        return
+    # On crée une structure de cookie que Playwright va comprendre
+    auth_cookies = [
+        {
+            'name': 'sessionid',
+            'value': session_id,
+            'domain': '.tiktok.com',
+            'path': '/',
+            'secure': True,
+            'httpOnly': True
+        }
+    ]
 
-    if not session_id:
-        print("❌ Erreur : TIKTOK_SESSIONID est vide. Vérifie tes secrets GitHub.")
-        return
+    print(f"📤 Tentative d'upload forcée pour Cypher...")
 
-    print(f"📤 Tentative d'upload via SessionID...")
-    
-    # On utilise l'argument 'sessionid' au lieu de 'cookies'
     failed_videos = upload_video(
         video_path,
         description=description,
-        sessionid=session_id,
+        cookies=auth_cookies, # On passe la liste d'objets au lieu de la chaîne
         browser='chromium',
         headless=True
     )
 
     if not failed_videos:
-        print("✅ SUCCESS : Cypher est en ligne sur TikTok !")
+        print("✅ SUCCESS : Cypher est enfin en ligne !")
     else:
-        print(f"❌ FAILED : L'upload a échoué.")
+        print(f"❌ FAILED : TikTok a encore bloqué la session.")
 
 if __name__ == "__main__":
     publish()
