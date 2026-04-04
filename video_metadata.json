@@ -1,31 +1,31 @@
 {
-  "titre": "Mindset Trading: Évite ces 4 Erreurs Communes",
-  "sujet": "les erreurs de mindset",
+  "titre": "MACD : Maîtrisez le Momentum Forex",
+  "sujet": "MACD et le momentum",
   "niveau": "intermédiaire",
-  "actif": "SOL/USDT",
-  "categorie": "crypto",
-  "fond_type": "texte_cles",
-  "voix_off": "Tu gâches tes trades à cause de ton cerveau ? On parle souvent de stratégies, d'indicateurs, mais le vrai ennemi, c'est souvent nous-mêmes. Aujourd'hui, on décortique les erreurs de mindset qui torpillent vos performances sur des actifs comme le SOL/USDT. La première ? L'overtrading. Vous tradez trop, par peur de manquer une opportunité, ou pire, pour récupérer vos pertes. Résultat : des commissions qui s'accumulent et des décisions impulsives. Stop ! Ensuite, la vengeance trading. Vous avez un mauvais trade, et au lieu d'analyser froidement, vous foncez tête baissée pour 'vous refaire'. C'est le chemin le plus court vers la liquidation. Troisième erreur cruciale : l'absence de plan. Trader sans un objectif clair, sans stop loss défini, c'est comme conduire les yeux bandés. Vous êtes à la merci du marché. Enfin, la peur et l'avidité. Ces deux émotions sont les pires conseillères. La peur vous fait vendre trop tôt, l'avidité vous pousse à rester trop longtemps sur un trade gagnant, qui finit par se retourner. Pour dompter ces démons, discipline, patience et un journal de trading sont vos meilleurs alliés. Apprenez de chaque erreur, même les petites. Votre mindset, c'est 80% de votre succès en trading. Pensez-y !",
+  "actif": "GBP/JPY",
+  "categorie": "forex",
+  "fond_type": "indicateur_macd",
+  "voix_off": "Le MACD : votre secret du momentum Forex sur GBP/JPY ?\nOubliez les croisements ! Le MACD est un puissant détecteur de momentum. Sa clé ? L'histogramme.\nL'histogramme visualise la force directionnelle. Il grandit, momentum s'accélère. Il diminue, momentum ralentit. Le signal ultime : la divergence !\nSi le prix GBP/JPY fait un nouveau sommet mais l'histogramme MACD non, c'est une divergence baissière. Avertissement : le momentum d'achat faiblit.\nCela anticipe un retournement de tendance avant les croisements classiques. Maîtrisez ces divergences. Le MACD vous donne un avantage sur le marché des devises. Devenez un pro du momentum !",
   "sous_titres": [
-    "Ton mindset te coûte cher ?",
-    "L'ennemi, c'est souvent soi-même.",
-    "Erreurs qui torpillent tes gains.",
-    "Première : l'overtrading excessif.",
-    "Décisions impulsives, commissions salées.",
-    "Vengeance trading ? Non merci !",
-    "Analyses froides, pas de rage.",
-    "Pas de plan = trading aveugle.",
-    "Stop loss défini, objectif clair.",
-    "Peur et avidité : pires alliées.",
-    "Discipline, patience, journal trading.",
-    "80% du succès : ton mindset."
+    "MACD : secret du momentum ?",
+    "Oubliez les croisements classiques !",
+    "L'histogramme est la clé.",
+    "Il visualise la force directionnelle.",
+    "Grandit : momentum s'accélère.",
+    "Diminue : momentum ralentit.",
+    "Le signal ultime : la divergence.",
+    "Prix monte, histogramme non ?",
+    "Divergence baissière : attention !",
+    "Momentum d'achat faiblit.",
+    "Anticipez les retournements.",
+    "Devenez pro du momentum !"
   ],
   "concepts_cles": [
-    "Overtrading",
-    "Vengeance trading",
-    "Plan de trading",
-    "Peur",
-    "Avidité"
+    "MACD",
+    "Momentum",
+    "Histogramme",
+    "Divergence",
+    "Forex"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
