@@ -1,30 +1,31 @@
 {
-  "titre": "Faux Croisements MA: Piège à Éviter",
-  "sujet": "les faux croisements de MA",
-  "niveau": "confirmé",
-  "actif": "EUR/GBP",
-  "categorie": "forex",
-  "fond_type": "moyenne_mobile",
-  "voix_off": "Combien de fois un signal prometteur de moyenne mobile vous a-t-il trahi ? Parlons des faux croisements de MA, ces pièges subtils qui déciment les comptes des traders non avertis. Sur des actifs comme l'EUR/GBP en période de volatilité latérale, un croisement apparent peut rapidement se révéler être une simple oscillation au sein d'un range. Il ne s'agit pas d'un changement de tendance, mais d'un bruit de marché. Pour les identifier, observez le manque de divergence avec d'autres indicateurs techniques comme le MACD ou le RSI. Un croisement sans suivi de momentum est suspect. Privilégiez toujours la confluence : attendez une confirmation par la cassure d'une zone de support/résistance pertinente, ou un signal de volume significatif. L'intégration de filtres de volatilité ou l'analyse sur une unité de temps supérieure peut également décourager ces signaux trompeurs. Ne vous laissez pas duper par ces illusions : la patience et la confirmation sont vos meilleures armes contre les faux signaux. Tradez malin, pas aveuglément.",
+  "titre": "Mindset Trading: Évite ces 4 Erreurs Communes",
+  "sujet": "les erreurs de mindset",
+  "niveau": "intermédiaire",
+  "actif": "SOL/USDT",
+  "categorie": "crypto",
+  "fond_type": "texte_cles",
+  "voix_off": "Tu gâches tes trades à cause de ton cerveau ? On parle souvent de stratégies, d'indicateurs, mais le vrai ennemi, c'est souvent nous-mêmes. Aujourd'hui, on décortique les erreurs de mindset qui torpillent vos performances sur des actifs comme le SOL/USDT. La première ? L'overtrading. Vous tradez trop, par peur de manquer une opportunité, ou pire, pour récupérer vos pertes. Résultat : des commissions qui s'accumulent et des décisions impulsives. Stop ! Ensuite, la vengeance trading. Vous avez un mauvais trade, et au lieu d'analyser froidement, vous foncez tête baissée pour 'vous refaire'. C'est le chemin le plus court vers la liquidation. Troisième erreur cruciale : l'absence de plan. Trader sans un objectif clair, sans stop loss défini, c'est comme conduire les yeux bandés. Vous êtes à la merci du marché. Enfin, la peur et l'avidité. Ces deux émotions sont les pires conseillères. La peur vous fait vendre trop tôt, l'avidité vous pousse à rester trop longtemps sur un trade gagnant, qui finit par se retourner. Pour dompter ces démons, discipline, patience et un journal de trading sont vos meilleurs alliés. Apprenez de chaque erreur, même les petites. Votre mindset, c'est 80% de votre succès en trading. Pensez-y !",
   "sous_titres": [
-    "Signaux MA : parfois une trahison ?",
-    "Faux croisements : pièges subtils.",
-    "EUR/GBP en volatilité latérale.",
-    "Simple oscillation, pas changement de tendance.",
-    "Observez le manque de divergence.",
-    "Croisement sans momentum est suspect.",
-    "Privilégiez toujours la confluence.",
-    "Attendez confirmation support/résistance.",
-    "Filtres volatilité ou unités supérieures.",
-    "Patience et confirmation : vos armes.",
-    "Tradez malin, pas aveuglément."
+    "Ton mindset te coûte cher ?",
+    "L'ennemi, c'est souvent soi-même.",
+    "Erreurs qui torpillent tes gains.",
+    "Première : l'overtrading excessif.",
+    "Décisions impulsives, commissions salées.",
+    "Vengeance trading ? Non merci !",
+    "Analyses froides, pas de rage.",
+    "Pas de plan = trading aveugle.",
+    "Stop loss défini, objectif clair.",
+    "Peur et avidité : pires alliées.",
+    "Discipline, patience, journal trading.",
+    "80% du succès : ton mindset."
   ],
   "concepts_cles": [
-    "Faux Croisement",
-    "Moyenne Mobile",
-    "Volatilité Latérale",
-    "Confluence",
-    "Confirmation"
+    "Overtrading",
+    "Vengeance trading",
+    "Plan de trading",
+    "Peur",
+    "Avidité"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
