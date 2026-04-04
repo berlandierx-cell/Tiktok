@@ -41,10 +41,9 @@ jobs:
       - name: 🎬 Step 4 - Composer
         run: python3 composer.py
 
-      - name: 📲 Step 5 - Publish (TikTok via SessionID)
+      - name: 📲 Step 5 - Publish (TikTok via Cookies)
         env:
-          # C'est ICI qu'on donne l'autorisation d'accès au secret
-          TIKTOK_SESSIONID: ${{ secrets.TIKTOK_SESSIONID }}
+          TIKTOK_COOKIES: ${{ secrets.TIKTOK_COOKIES }}
         run: python3 uploader.py
 
       - name: 📤 Push Results & Cleanup
