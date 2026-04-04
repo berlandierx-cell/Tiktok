@@ -21,30 +21,36 @@ jobs:
       - name: 📦 Install Python dependencies
         run: |
           pip install -r requirements.txt --break-system-packages --ignore-installed typing-extensions
-          pip install tiktok-uploader --break-system-packages
+          pip install tiktok-uploader playwright --break-system-packages
+          # Installation des navigateurs pour Playwright
+          python3 -m playwright install chromium
+          python3 -m playwright install-deps
 
       - name: 🧠 Step 1 - Brain (Gemini génère le script)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python brain.py
+        run: python3 brain.py
 
       - name: 🎙️ Step 2 - Video (voix + avatar Wav2Lip)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python video_gen.py
+        run: python3 video_gen.py
 
       - name: 🎨 Step 3 - Background (fond boursier animé)
-        run: python background.py
+        run: python3 background.py
 
       - name: 🎬 Step 4 - Composer (assemblage final 9:16)
-        run: python composer.py
+        run: python3 composer.py
 
       - name: 📲 Step 5 - Publish (TikTok via Cookie Mode)
         env:
           TIKTOK_COOKIES_JSON: ${{ secrets.TIKTOK_COOKIES }}
         run: |
-          echo "$TIKTOK_COOKIES_JSON" > cookies.txt
-          python uploader.py
+          # Utilisation de EOF pour écrire le JSON brut sans erreur de parsing
+          cat << 'EOF' > cookies.txt
+          ${{ secrets.TIKTOK_COOKIES }}
+          EOF
+          python3 uploader.py
 
       - name: 📤 Push Results & Cleanup
         run: |
@@ -52,13 +58,13 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Nettoyage des fichiers sensibles et lourds
+          # On supprime les cookies du serveur par sécurité
           rm -f cookies.txt
           
-          # On sauvegarde les métadonnées pour l'historique
+          # Sauvegarde des métadonnées sur le repo
           git add video_metadata.json
           git commit -m "Video Meta Update: $(date)" || echo "No changes"
           git push origin main
           
-          # Optionnel : supprimer la vidéo après l'upload pour gagner de la place
-          # rm -f final_video.mp4
+          # Nettoyage de la vidéo pour ne pas saturer le disque du runner
+          rm -f final_video.mp4
