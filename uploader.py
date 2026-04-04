@@ -3,12 +3,12 @@ import json
 from tiktok_uploader.upload import upload_video
 
 def publish():
-    # 1. Chargement des métadonnées pour la description
+    # Configuration des noms de fichiers
     metadata_path = "video_metadata.json"
-    video_path = "final_video.mp4" # Vérifie bien que c'est le nom généré par composer.py
+    video_path = "final_video.mp4" 
 
     if not os.path.exists(metadata_path):
-        print("❌ Erreur : video_metadata.json introuvable.")
+        print(f"❌ Erreur : {metadata_path} introuvable.")
         return
     
     with open(metadata_path, 'r', encoding='utf-8') as f:
@@ -17,16 +17,19 @@ def publish():
     # Construction de la légende TikTok
     description = f"{data.get('titre', 'Trading Tips')} 🚀 {data.get('tags', '#trading')}"
 
-    # 2. Vérification des cookies
+    # Vérification des fichiers nécessaires
+    if not os.path.exists(video_path):
+        print(f"❌ Erreur : La vidéo {video_path} n'a pas été générée par le composer.")
+        return
+
     if not os.path.exists('cookies.txt'):
-        print("❌ Erreur : Le fichier cookies.txt est absent.")
+        print("❌ Erreur : Le fichier cookies.txt est absent (vérifie ton secret GitHub).")
         return
 
     print(f"📤 Tentative d'upload de {video_path}...")
     print(f"📝 Description : {description}")
 
-    # 3. Upload via tiktok-uploader
-    # On utilise headless=True car on est sur un serveur (GitHub Action)
+    # Upload via tiktok-uploader
     failed_videos = upload_video(
         video_path,
         description=description,
