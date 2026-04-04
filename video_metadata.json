@@ -1,30 +1,30 @@
 {
-  "titre": "Drawdown: gérer la baisse crypto",
-  "sujet": "le drawdown : comprendre et gérer",
-  "niveau": "débutant",
-  "actif": "ADA/USDT",
-  "categorie": "crypto",
-  "fond_type": "schema_risk_reward",
-  "voix_off": "Ton portefeuille crypto a déjà plongé ? C'est le drawdown ! Non, pas une perte définitive, mais une baisse temporaire de ton capital après avoir atteint un sommet. Par exemple : 1000€ sur ADA/USDT, ça tombe à 800€. Ton drawdown est de 20%. C'est un phénomène normal, qui indique le risque réel.\n\nComment le gérer efficacement ?\n1.  **Stop-loss :** Un ordre automatique pour limiter tes pertes. Crucial !\n2.  **Diversification :** Ne mets pas tout sur une seule crypto. Répartis tes risques.\n3.  **Taille de position :** Ne risque pas trop sur une seule transaction.\n4.  **Psychologie :** Gère tes émotions. La panique est souvent une mauvaise conseillère.\n\nComprendre et gérer le drawdown te rend plus serein et plus performant. Abonne-toi pour trader malin !",
+  "titre": "Faux Croisements MA: Piège à Éviter",
+  "sujet": "les faux croisements de MA",
+  "niveau": "confirmé",
+  "actif": "EUR/GBP",
+  "categorie": "forex",
+  "fond_type": "moyenne_mobile",
+  "voix_off": "Combien de fois un signal prometteur de moyenne mobile vous a-t-il trahi ? Parlons des faux croisements de MA, ces pièges subtils qui déciment les comptes des traders non avertis. Sur des actifs comme l'EUR/GBP en période de volatilité latérale, un croisement apparent peut rapidement se révéler être une simple oscillation au sein d'un range. Il ne s'agit pas d'un changement de tendance, mais d'un bruit de marché. Pour les identifier, observez le manque de divergence avec d'autres indicateurs techniques comme le MACD ou le RSI. Un croisement sans suivi de momentum est suspect. Privilégiez toujours la confluence : attendez une confirmation par la cassure d'une zone de support/résistance pertinente, ou un signal de volume significatif. L'intégration de filtres de volatilité ou l'analyse sur une unité de temps supérieure peut également décourager ces signaux trompeurs. Ne vous laissez pas duper par ces illusions : la patience et la confirmation sont vos meilleures armes contre les faux signaux. Tradez malin, pas aveuglément.",
   "sous_titres": [
-    "Ton portefeuille a déjà plongé ?",
-    "C'est le drawdown !",
-    "Baisse temporaire de capital.",
-    "ADA/USDT : exemple 20%.",
-    "Indique le risque réel.",
-    "Gère-le avec stop-loss.",
-    "Diversifie tes cryptos.",
-    "Contrôle la taille de tes positions.",
-    "Gère tes émotions en trading.",
-    "Sois un trader serein.",
-    "Abonne-toi pour trader malin !"
+    "Signaux MA : parfois une trahison ?",
+    "Faux croisements : pièges subtils.",
+    "EUR/GBP en volatilité latérale.",
+    "Simple oscillation, pas changement de tendance.",
+    "Observez le manque de divergence.",
+    "Croisement sans momentum est suspect.",
+    "Privilégiez toujours la confluence.",
+    "Attendez confirmation support/résistance.",
+    "Filtres volatilité ou unités supérieures.",
+    "Patience et confirmation : vos armes.",
+    "Tradez malin, pas aveuglément."
   ],
   "concepts_cles": [
-    "Drawdown",
-    "Stop-loss",
-    "Diversification",
-    "Gestion risque",
-    "Psychologie trading"
+    "Faux Croisement",
+    "Moyenne Mobile",
+    "Volatilité Latérale",
+    "Confluence",
+    "Confirmation"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
