@@ -1,93 +1,44 @@
 import os
 import json
-import requests
+from tiktok_uploader.upload import upload_video
 
+def publish():
+    # 1. Chargement des métadonnées pour la description
+    metadata_path = "video_metadata.json"
+    video_path = "final.mp4" # Vérifie bien que c'est le nom généré par composer.py
 
-TIKTOK_ACCESS_TOKEN = os.environ.get("TIKTOK_ACCESS_TOKEN", "")
-
-
-def publish(video_path="final.mp4", metadata_path="video_metadata.json"):
-    """
-    Publie la vidéo sur TikTok via l'API Content Posting.
-    Nécessite TIKTOK_ACCESS_TOKEN dans les secrets GitHub.
-
-    Doc : https://developers.tiktok.com/doc/content-posting-api-get-started
-    """
-
-    if not os.path.exists(video_path):
-        print(f"❌ Vidéo introuvable : {video_path}")
-        return False
-
-    if not TIKTOK_ACCESS_TOKEN:
-        print("⚠️ TIKTOK_ACCESS_TOKEN non défini — publication ignorée.")
-        print("   → Crée un compte TikTok Developer et ajoute le token dans les secrets GitHub.")
-        return False
-
+    if not os.path.exists(metadata_path):
+        print("❌ Erreur : video_metadata.json introuvable.")
+        return
+    
     with open(metadata_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
+    
+    # Construction de la légende TikTok
+    description = f"{data.get('titre', 'Trading Tips')} 🚀 {data.get('tags', '#trading')}"
 
-    titre = data.get("titre", "Trading Tips")
-    tags = data.get("tags", "#trading")
-    description = f"{titre}\n\n{tags}"
+    # 2. Vérification des cookies
+    if not os.path.exists('cookies.txt'):
+        print("❌ Erreur : Le fichier cookies.txt est absent.")
+        return
 
-    file_size = os.path.getsize(video_path)
+    print(f"📤 Tentative d'upload de {video_path}...")
+    print(f"📝 Description : {description}")
 
-    # Étape 1 : Initialiser l'upload
-    print("📤 Initialisation upload TikTok...")
-    init_url = "https://open.tiktokapis.com/v2/post/publish/video/init/"
-    headers = {
-        "Authorization": f"Bearer {TIKTOK_ACCESS_TOKEN}",
-        "Content-Type": "application/json; charset=UTF-8"
-    }
-    payload = {
-        "post_info": {
-            "title": description[:150],
-            "privacy_level": "PUBLIC_TO_EVERYONE",
-            "disable_duet": False,
-            "disable_comment": False,
-            "disable_stitch": False,
-            "video_cover_timestamp_ms": 1000
-        },
-        "source_info": {
-            "source": "FILE_UPLOAD",
-            "video_size": file_size,
-            "chunk_size": file_size,
-            "total_chunk_count": 1
-        }
-    }
+    # 3. Upload via tiktok-uploader
+    # On utilise headless=True car on est sur un serveur (GitHub Action)
+    failed_videos = upload_video(
+        video_path,
+        description=description,
+        cookies='cookies.txt',
+        browser='chromium',
+        headless=True
+    )
 
-    resp = requests.post(init_url, headers=headers, json=payload)
-    if resp.status_code != 200:
-        print(f"❌ Erreur init TikTok : {resp.status_code} - {resp.text}")
-        return False
-
-    resp_data = resp.json()
-    publish_id = resp_data.get("data", {}).get("publish_id")
-    upload_url = resp_data.get("data", {}).get("upload_url")
-
-    if not upload_url:
-        print(f"❌ Pas d'upload_url reçu : {resp_data}")
-        return False
-
-    # Étape 2 : Upload du fichier
-    print("📤 Upload de la vidéo...")
-    with open(video_path, 'rb') as f:
-        video_data = f.read()
-
-    upload_headers = {
-        "Content-Type": "video/mp4",
-        "Content-Range": f"bytes 0-{file_size - 1}/{file_size}",
-        "Content-Length": str(file_size)
-    }
-    upload_resp = requests.put(upload_url, headers=upload_headers, data=video_data)
-
-    if upload_resp.status_code in [200, 201, 204]:
-        print(f"✅ Vidéo publiée sur TikTok ! publish_id : {publish_id}")
-        return True
+    if not failed_videos:
+        print("✅ SUCCESS : Cypher est en ligne sur TikTok !")
     else:
-        print(f"❌ Erreur upload : {upload_resp.status_code} - {upload_resp.text}")
-        return False
-
+        print(f"❌ FAILED : L'upload a échoué pour {video_path}")
 
 if __name__ == "__main__":
     publish()
