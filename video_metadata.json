@@ -1,31 +1,31 @@
 {
-  "titre": "Death Cross : Signal baisse des prix !",
-  "sujet": "le death cross",
-  "niveau": "débutant",
+  "titre": "RSI vs Stochastique : Le duel !",
+  "sujet": "RSI vs Stochastique",
+  "niveau": "intermédiaire",
   "actif": "USD/CHF",
   "categorie": "forex",
-  "fond_type": "moyenne_mobile",
-  "voix_off": "Débutants, écoutez bien ! Envie d'anticiper une chute des prix en bourse ? Découvrez le 'Death Cross', la 'Croix de la Mort'. Sur l'USD/CHF à l'écran, voyez les moyennes mobiles. La ligne rapide (50 périodes) représente la tendance courte. La ligne lente (200 périodes) montre la tendance longue. Le Death Cross apparaît quand la ligne rapide croise et passe SOUS la ligne lente. C'est un signal fort : la tendance courte s'affaiblit face à la longue. Les traders y voient un signe baissier, suggérant une potentielle baisse des prix. Attention ! Ce n'est qu'un indicateur. Ne tradez jamais uniquement là-dessus. Confirmez avec d'autres analyses. Soyez prudents, apprenez ! À bientôt pour plus de conseils trading !",
+  "fond_type": "indicateur_rsi",
+  "voix_off": "Tu ne sais pas choisir entre RSI et Stochastique pour le trading sur USD/CHF ? C'est une question fréquente. Le Relative Strength Index, ou RSI, est un oscillateur qui mesure la vitesse et le changement des mouvements de prix. Il varie entre 0 et 100. Un RSI > 70 indique surachat, potentielle correction. < 30, survente, potentiel rebond. Il est super pour identifier la force d'une tendance et les divergences. Le Stochastique, lui, compare le prix de clôture à sa fourchette sur une période donnée. Il a deux lignes, %K et %D, et oscille aussi entre 0 et 100. > 80, surachat ; < 20, survente. Le Stochastique est plus réactif, excellent pour capter les points d'inflexion rapides, idéal pour l'USD/CHF volatil. Ses croisements donnent des signaux clairs. Alors, lequel choisir ? Le RSI est plus stable, meilleur pour confirmer la tendance. Le Stochastique, plus rapide, pour les retournements. L'idéal : les utiliser ensemble. Le RSI pour le fond, le Stochastique pour le timing. Toujours contextualiser avec ta stratégie !",
   "sous_titres": [
-    "Débutants, anticipez la baisse !",
-    "Qu'est-ce que le Death Cross ?",
-    "Voyez l'USD/CHF et ses moyennes.",
-    "Ligne rapide : tendance courte.",
-    "Ligne lente : tendance longue.",
-    "Rapide croise SOUS la lente.",
-    "Signal fort de faiblesse.",
-    "Prédiction de baisse des prix.",
-    "Ce n'est qu'un indicateur.",
-    "Confirmez avec d'autres analyses.",
-    "Restez prudents, apprenez bien !",
-    "À bientôt pour nos tips !"
+    "RSI ou Stochastique ?",
+    "Le duel des oscillateurs !",
+    "RSI : Vitesse des prix.",
+    ">70 surachat, <30 survente.",
+    "Idéal pour force tendance.",
+    "Stochastique : Fourchette de prix.",
+    ">80 surachat, <20 survente.",
+    "Très réactif, signaux rapides.",
+    "RSI : Tendance de fond.",
+    "Stochastique : Timing précis.",
+    "Combine-les pour trader mieux.",
+    "Contexte marché essentiel !"
   ],
   "concepts_cles": [
-    "Death Cross",
-    "Moyenne mobile",
-    "Tendance baissière",
-    "USD/CHF",
-    "Signal de vente"
+    "RSI",
+    "Stochastique",
+    "Surachat",
+    "Survente",
+    "Divergence"
   ],
   "tags": "#trading #forex #bourse #apprendre #finance"
 }
