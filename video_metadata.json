@@ -1,30 +1,29 @@
 {
-  "titre": "Risque journalier : calibrez votre limite",
-  "sujet": "comment définir son risque maximum journalier",
-  "niveau": "confirmé",
-  "actif": "SOL/USDT",
-  "categorie": "crypto",
+  "titre": "Gère ton risque: secret des pros!",
+  "sujet": "le ratio risque bénéfice en pratique",
+  "niveau": "débutant",
+  "actif": "USD/CHF",
+  "categorie": "forex",
   "fond_type": "schema_risk_reward",
-  "voix_off": "Combien êtes-vous réellement prêt à perdre par jour sur SOL/USDT ? Ne vous contentez pas d'un pourcentage arbitraire de votre capital. Pour un trader confirmé, définir son risque maximum journalier est une calibration chirurgicale, pas une estimation. Premièrement, fixez un pourcentage de votre capital trading total que vous ne voulez ABSOLUMENT pas dépasser sur une série de trades perdants. Généralement, 1 à 2% est une norme. Mais convertissez ça en valeur monétaire absolue. C'est crucial pour visualiser l'impact réel. Deuxièmement, considérez votre historique de drawdown maximum et la volatilité intrinsèque de l'actif, comme le SOL. Une journée avec plusieurs stops successifs peut rapidement éroder votre capital si cette limite n'est pas rigoureuse. Intégrez-la à votre plan de trading : si atteinte, la session s'arrête. C'est votre ligne rouge psychologique et financière. Ajustez-la en fonction de votre performance et de la conjoncture de marché. Maîtrisez cette métrique pour une gestion de risque robuste et durable.",
+  "voix_off": "Tu veux savoir le secret pour gagner en trading, même en perdant? C'est le ratio risque-bénéfice! Imagine : tu trades l'USD/CHF, comme ici sur ce schéma. Chaque fois que tu prends une position, tu définis d'abord combien tu es prêt à perdre. C'est ton risque. Puis, tu définis combien tu espères gagner. C'est ton bénéfice potentiel. Par exemple, un ratio de 1:2 signifie que pour chaque euro que tu risques, tu vises à en gagner deux. Si tu places un stop loss de 20 pips, ton take profit devrait être de 40 pips. C'est simple, non? Même si tu gagnes seulement une fois sur trois, avec un ratio de 1:2, tu peux quand même être profitable! C'est ça la magie. Ça te permet de protéger ton capital et de viser des gains bien supérieurs à tes pertes. Toujours définir ton stop loss et ton take profit avant d'entrer sur le marché. C'est la base d'une bonne gestion de risque. Alors, prêt à appliquer cette stratégie essentielle?",
   "sous_titres": [
-    "Prêt à perdre sur SOL/USDT ?",
-    "Pas un pourcentage arbitraire du capital.",
-    "Définir risque est une calibration.",
-    "Fixez pourcentage du capital total.",
-    "Convertissez en valeur monétaire absolue.",
-    "Considérez drawdown et volatilité SOL.",
-    "Stops successifs peuvent éroder capital.",
-    "Limite atteinte, session trading s'arrête.",
-    "C'est votre ligne rouge financière.",
-    "Ajustez selon performance du marché.",
-    "Maîtrisez cette métrique robuste."
+    "Secret des traders pro ?",
+    "Le ratio risque-bénéfice !",
+    "Définis risque et bénéfice.",
+    "Exemple : ratio 1 pour 2.",
+    "Risque 1€, vise 2€ de gain.",
+    "Même avec peu de gains,",
+    "Tu peux être profitable !",
+    "Protège ton capital toujours.",
+    "Stop loss, take profit essentiels.",
+    "Gère ton risque !"
   ],
   "concepts_cles": [
-    "Risque journalier",
-    "Capital trading",
-    "Drawdown maximum",
-    "Volatilité actif",
-    "Gestion risque"
+    "Ratio Risque-Bénéfice",
+    "Stop Loss",
+    "Take Profit",
+    "Gestion Risque",
+    "Capital"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
