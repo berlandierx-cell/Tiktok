@@ -45,6 +45,8 @@ jobs:
         env:
           TIKTOK_COOKIES: ${{ secrets.TIKTOK_COOKIES }}
         run: python3 uploader.py
+          TIKTOK_SESSION_ID: ${{ secrets.TIKTOK_SESSION_ID }}
+  run: python3 uploader.py
 
       - name: 📤 Push Results & Cleanup
         run: |
