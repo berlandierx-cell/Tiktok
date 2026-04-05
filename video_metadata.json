@@ -1,31 +1,29 @@
 {
-  "titre": "RSI ou Stochastique : le guide ultime BNB",
-  "sujet": "RSI vs Stochastique",
+  "titre": "Gérer son temps, booster son trading !",
+  "sujet": "trading et gestion du temps",
   "niveau": "intermédiaire",
   "actif": "BNB/USDT",
   "categorie": "crypto",
-  "fond_type": "indicateur_rsi",
-  "voix_off": "Tu utilises le RSI ou le Stochastique ? La plupart des traders se trompent de contexte. Le RSI est un oscillateur de force relative. Il mesure la vitesse des mouvements de prix sur le BNB. En marché tendanciel, il évite les faux signaux de surachat. À l'inverse, le Stochastique est bien plus nerveux. Il compare le cours de clôture à la plage de prix sur une période donnée. Il excelle dans les marchés latéraux, les fameux ranges, pour capter les retournements rapides. Regarde sur le BNB/USDT : quand le RSI stagne en zone neutre, le Stochastique donne déjà des points d'entrée précis. Mais attention, en forte tendance, le Stochastique reste collé au plafond, alors que le RSI montre la puissance de l'impulsion. Pour un setup efficace, utilise le RSI pour la structure et le Stochastique pour ton timing. C'est le combo idéal pour arrêter de trader à l'aveugle. Abonne-toi !",
+  "fond_type": "texte_cles",
+  "voix_off": "Ton trading te bouffe tout ton temps ? C'est une erreur classique qui mène au burnout et aux mauvaises décisions. En tant qu'expert, je vais te donner mes astuces pour maîtriser le temps, même sur des actifs volatils comme le BNB/USDT.\n\nPremièrement, définis des heures de trading strictes. Traite ça comme un emploi. Pas de scrutation constante des graphiques en dehors de ces créneaux. C'est essentiel pour éviter l'overtrading impulsif.\n\nDeuxièmement, utilise des horizons de temps plus élevés. Si tu passes ta vie sur du 5 minutes, normal que ça prenne tout ton temps ! Vise plutôt du 1H, 4H, voire daily. Moins de bruit, des signaux plus clairs, moins de stress.\n\nTroisièmement, automatise avec des alertes. Configure tes points d'entrée ou de sortie potentiels sur ta plateforme. Tu n'as pas besoin de fixer l'écran en permanence. Laisse la technologie travailler pour toi.\n\nEnfin, planifie ta session d'analyse. Au lieu d'analyser non-stop, dédie un bloc de temps spécifique par jour ou semaine. Checke tes stratégies, ajuste tes stops, et ensuite, déconnecte.\n\nMaîtriser le temps, c'est maîtriser tes émotions et tes résultats. Teste ces techniques et tu verras la différence. Abonne-toi pour plus de conseils trading !",
   "sous_titres": [
-    "RSI ou Stochastique ? Choisis bien.",
-    "Le RSI mesure la force relative.",
-    "Idéal pour éviter les faux signaux.",
-    "Le Stochastique est bien plus nerveux.",
-    "Il compare clôture et plage haute.",
-    "Parfait pour les marchés en range.",
-    "Analyse ce cas sur le BNB.",
-    "Le Stochastique anticipe les rebonds.",
-    "Attention aux fortes tendances !",
-    "Combine les deux indicateurs.",
-    "RSI pour structure, Stochastique pour timing.",
-    "Maîtrise enfin tes indicateurs techniques."
+    "Ton trading t'épuise ?",
+    "Définis tes heures de trading.",
+    "Évite la scrutation constante.",
+    "Trade sur des horizons plus longs.",
+    "Moins de stress, signaux plus clairs.",
+    "Utilise des alertes efficaces.",
+    "La technologie est ton alliée.",
+    "Planifie ton analyse quotidienne.",
+    "Gagne en temps et sérénité.",
+    "Maîtrise ton temps, tes trades."
   ],
   "concepts_cles": [
-    "Oscillateur de momentum",
-    "Zone de surachat",
-    "Marché en range",
-    "Timing d'exécution",
-    "Structure de prix"
+    "Gestion temps",
+    "Overtrading",
+    "Alertes trading",
+    "Horizon temps",
+    "Discipline"
   ],
   "tags": "#trading #crypto #bourse #apprendre #finance"
 }
