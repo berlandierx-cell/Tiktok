@@ -1,29 +1,31 @@
 {
-  "titre": "Ton Système Trading : Profitable !",
-  "sujet": "construire un système de trading rentable",
+  "titre": "Trading : Un Business, Pas Un Jeu",
+  "sujet": "le trading comme business",
   "niveau": "confirmé",
-  "actif": "ADA/USDT",
-  "categorie": "crypto",
-  "fond_type": "schema_risk_reward",
-  "voix_off": "Votre système de trading actuel est-il réellement profitable et robuste sur le long terme ? Trop souvent, les traders expérimentés sous-estiment l'importance d'un cadre méthodologique rigoureux. Sur ADA/USDT ou tout autre actif, une approche disciplinée est votre seul rempart contre l'aléatoire. Pour construire un système rentable, commencez par définir votre edge : quelle est votre asymétrie d'information ou d'exécution ? Quel est le facteur qui vous donne un avantage statistique ?\n\nEnsuite, l'élaboration de règles d'entrée et de sortie précises est capitale. Mais cela ne suffit pas ! La gestion du risque, notamment le position sizing et la protection contre les drawdowns, est le pilier de votre survie. Intégrez une stratégie de money management qui limite la perte par trade à un pourcentage fixe de votre capital. Le backtesting est non négociable. Validez statistiquement votre approche sur des données historiques. Affinez vos paramètres. Enfin, n'oubliez jamais l'impact de la psychologie. Un plan sans exécution émotionnellement stable est voué à l'échec. La discipline est votre plus grand atout. Alors, êtes-vous prêt à solidifier votre fondation ?",
+  "actif": "USD/CAD",
+  "categorie": "forex",
+  "fond_type": "texte_cles",
+  "voix_off": "Le trading est-il un jeu ou votre entreprise ? Si vous le traitez comme un hobby, vous perdez d'entrée. Le trading est un business exigeant : capital initial, business plan solide, gestion des risques implacable. Pensez structure, non spéculation éphémère. Votre plan de trading est votre feuille de route entrepreneuriale. Il détaille votre edge, sizing de position, et règles d'engagement. La psychologie est fondamentale : discipline et maîtrise émotionnelle sont vos atouts compétitifs. C'est la marque des pros.\n\nAnalysez vos métriques : profit factor, drawdown, ratio R:R. L'optimisation est perpétuelle. Chaque trade sur USD/CAD est une décision d'affaires calculée. Adoptez la mentalité d'un PDG. Structurez vos processus, visez des revenus pérennes. Le trading est votre entreprise la plus sérieuse.",
   "sous_titres": [
-    "Système trading : vraiment robuste ?",
-    "Cadre méthodologique rigoureux essentiel.",
-    "Définissez votre edge statistique.",
-    "Règles entrée-sortie précises.",
-    "Gestion du risque capitale.",
-    "Position sizing protège capital.",
-    "Backtesting non négociable.",
-    "Validez votre approche statistiquement.",
-    "Psychologie : facteur clé succès.",
-    "Discipline est votre plus grand atout."
+    "Trading : un business exigeant.",
+    "Pas un hobby. Pas un jeu.",
+    "Capital, plan, risques.",
+    "Votre plan de trading.",
+    "Edge, sizing, règles d'engagement.",
+    "Psychologie fondamentale.",
+    "Discipline, maîtrise émotionnelle.",
+    "Analysez vos métriques.",
+    "Profit factor, drawdown, R:R.",
+    "Optimisation perpétuelle.",
+    "Mentalité de PDG.",
+    "Visez des revenus pérennes."
   ],
   "concepts_cles": [
-    "Edge Trading",
-    "Gestion Risque",
-    "Position Sizing",
-    "Backtesting",
-    "Psychologie Trading"
+    "Business plan",
+    "Gestion risques",
+    "Profit factor",
+    "Drawdown",
+    "Psychologie trading"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
