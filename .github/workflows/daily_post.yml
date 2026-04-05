@@ -41,12 +41,11 @@ jobs:
       - name: 🎬 Step 4 - Composer
         run: python3 composer.py
 
-      - name: 📲 Step 5 - Publish (TikTok via Cookies)
+      - name: 📲 Step 5 - Publish (TikTok)
         env:
           TIKTOK_COOKIES: ${{ secrets.TIKTOK_COOKIES }}
-        run: python3 uploader.py
           TIKTOK_SESSION_ID: ${{ secrets.TIKTOK_SESSION_ID }}
-  run: python3 uploader.py
+        run: python3 uploader.py
 
       - name: 📤 Push Results & Cleanup
         run: |
