@@ -1,29 +1,30 @@
 {
-  "titre": "Gérer son temps, booster son trading !",
-  "sujet": "trading et gestion du temps",
-  "niveau": "intermédiaire",
-  "actif": "BNB/USDT",
-  "categorie": "crypto",
-  "fond_type": "texte_cles",
-  "voix_off": "Ton trading te bouffe tout ton temps ? C'est une erreur classique qui mène au burnout et aux mauvaises décisions. En tant qu'expert, je vais te donner mes astuces pour maîtriser le temps, même sur des actifs volatils comme le BNB/USDT.\n\nPremièrement, définis des heures de trading strictes. Traite ça comme un emploi. Pas de scrutation constante des graphiques en dehors de ces créneaux. C'est essentiel pour éviter l'overtrading impulsif.\n\nDeuxièmement, utilise des horizons de temps plus élevés. Si tu passes ta vie sur du 5 minutes, normal que ça prenne tout ton temps ! Vise plutôt du 1H, 4H, voire daily. Moins de bruit, des signaux plus clairs, moins de stress.\n\nTroisièmement, automatise avec des alertes. Configure tes points d'entrée ou de sortie potentiels sur ta plateforme. Tu n'as pas besoin de fixer l'écran en permanence. Laisse la technologie travailler pour toi.\n\nEnfin, planifie ta session d'analyse. Au lieu d'analyser non-stop, dédie un bloc de temps spécifique par jour ou semaine. Checke tes stratégies, ajuste tes stops, et ensuite, déconnecte.\n\nMaîtriser le temps, c'est maîtriser tes émotions et tes résultats. Teste ces techniques et tu verras la différence. Abonne-toi pour plus de conseils trading !",
+  "titre": "Divergences RSI: Le Secret des Pros",
+  "sujet": "les divergences RSI",
+  "niveau": "débutant",
+  "actif": "USD/CAD",
+  "categorie": "forex",
+  "fond_type": "indicateur_rsi",
+  "voix_off": "Marre de rater les retournements de prix ? Reste là, je te montre une technique secrète des pros : les divergences RSI ! Imagine que le prix de l'USD/CAD monte, mais l'indicateur RSI, lui, commence à baisser. C'est bizarre, non ? C'est exactement ce qu'on appelle une divergence baissière. Le prix fait de nouveaux sommets, mais le RSI ne les confirme pas. Ça t'indique souvent qu'une correction ou un retournement à la baisse est imminent. À l'inverse, si l'USD/CAD chute et fait de nouveaux plus bas, mais que le RSI monte, on parle de divergence haussière. Le RSI ne confirme pas la faiblesse du prix, ce qui peut signaler une remontée prochaine. C'est un signal puissant ! Mais attention, ce n'est pas une boule de cristal. Utilise toujours d'autres confirmations. Regarde l'écran : ici sur l'USD/CAD, le prix monte mais le RSI descend. C'est une divergence baissière qui peut annoncer une baisse. Simple, non ? Alors, à toi de jouer ! Analyse tes graphiques et repère ces signaux. Abonne-toi pour plus d'astuces trading !",
   "sous_titres": [
-    "Ton trading t'épuise ?",
-    "Définis tes heures de trading.",
-    "Évite la scrutation constante.",
-    "Trade sur des horizons plus longs.",
-    "Moins de stress, signaux plus clairs.",
-    "Utilise des alertes efficaces.",
-    "La technologie est ton alliée.",
-    "Planifie ton analyse quotidienne.",
-    "Gagne en temps et sérénité.",
-    "Maîtrise ton temps, tes trades."
+    "Marre de rater les retournements ?",
+    "La technique secrète des pros !",
+    "Le prix monte, le RSI baisse ?",
+    "C'est une divergence baissière !",
+    "Signale un retournement imminent.",
+    "Prix chute, RSI monte ?",
+    "C'est une divergence haussière !",
+    "Un signal puissant à surveiller.",
+    "Toujours confirmer avec d'autres outils.",
+    "Repère ces signaux sur tes graphiques.",
+    "Abonne-toi pour plus d'astuces !"
   ],
   "concepts_cles": [
-    "Gestion temps",
-    "Overtrading",
-    "Alertes trading",
-    "Horizon temps",
-    "Discipline"
+    "Divergence RSI",
+    "Indicateur RSI",
+    "Divergence haussière",
+    "Divergence baissière",
+    "Retournement prix"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
