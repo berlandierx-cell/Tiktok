@@ -1,5 +1,6 @@
 import os
 import json
+import tempfile
 from tiktok_uploader.upload import upload_video
 
 
@@ -26,8 +27,8 @@ def publish():
 
     description = f"{data.get('titre', 'Trading')} 🚀 {data.get('tags', '#trading')}"
 
-    # Passer les cookies comme liste avec domain explicite
-    cookies = [
+    # Format JSON attendu par tiktok_uploader
+    cookies_data = [
         {
             "name": "sessionid",
             "value": sessionid,
@@ -35,16 +36,24 @@ def publish():
             "path": "/",
             "secure": True,
             "httpOnly": True,
+            "sameSite": "None"
         }
     ]
 
-    print("📤 Upload TikTok en cours...")
+    # Écrire dans un fichier temporaire
+    tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.json',
+                                      delete=False, encoding='utf-8')
+    json.dump(cookies_data, tmp)
+    tmp.close()
+    cookies_path = tmp.name
+
+    print(f"📤 Upload TikTok en cours... (cookies: {cookies_path})")
 
     try:
         failed = upload_video(
             filename=video_path,
             description=description,
-            cookies=cookies,
+            cookies=cookies_path,
             browser='chromium',
             headless=True
         )
@@ -56,6 +65,11 @@ def publish():
 
     except Exception as e:
         print(f"❌ Exception : {e}")
+
+    finally:
+        if os.path.exists(cookies_path):
+            os.remove(cookies_path)
+            print("🧹 Fichier temporaire supprimé.")
 
 
 if __name__ == "__main__":
