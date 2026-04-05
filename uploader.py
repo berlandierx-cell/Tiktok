@@ -26,13 +26,25 @@ def publish():
 
     description = f"{data.get('titre', 'Trading')} 🚀 {data.get('tags', '#trading')}"
 
+    # Passer les cookies comme liste avec domain explicite
+    cookies = [
+        {
+            "name": "sessionid",
+            "value": sessionid,
+            "domain": ".tiktok.com",
+            "path": "/",
+            "secure": True,
+            "httpOnly": True,
+        }
+    ]
+
     print("📤 Upload TikTok en cours...")
 
     try:
         failed = upload_video(
             filename=video_path,
             description=description,
-            sessionid=sessionid,
+            cookies=cookies,
             browser='chromium',
             headless=True
         )
