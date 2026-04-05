@@ -7,11 +7,8 @@ def publish():
     metadata_path = "video_metadata.json"
     video_path    = "final_video.mp4"
 
+    cookies   = os.getenv("TIKTOK_COOKIES")
     sessionid = os.getenv("TIKTOK_SESSION_ID")
-
-    if not sessionid:
-        print("❌ Erreur : TIKTOK_SESSION_ID est vide.")
-        return
 
     if not os.path.exists(metadata_path):
         print(f"❌ {metadata_path} introuvable.")
@@ -29,13 +26,30 @@ def publish():
     print("📤 Upload TikTok en cours...")
 
     try:
-        failed = upload_video(
-            filename=video_path,
-            description=description,
-            sessionid=sessionid,
-            browser='chromium',
-            headless=True
-        )
+        # 🔥 PRIORITÉ AUX COOKIES COMPLETS
+        if cookies:
+            print("🔐 Auth via cookies complets")
+            failed = upload_video(
+                filename=video_path,
+                description=description,
+                cookies=cookies,
+                browser='chromium',
+                headless=True
+            )
+
+        elif sessionid:
+            print("⚠️ Fallback sessionid (moins fiable)")
+            failed = upload_video(
+                filename=video_path,
+                description=description,
+                sessionid=sessionid,
+                browser='chromium',
+                headless=True
+            )
+
+        else:
+            print("❌ Aucun moyen d'auth trouvé")
+            return
 
         if not failed:
             print("✅ Vidéo uploadée sur TikTok !")
