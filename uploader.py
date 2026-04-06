@@ -4,6 +4,35 @@ import asyncio
 from playwright.async_api import async_playwright
 
 
+async def close_modals(page):
+    """Ferme tous les modals/popups TikTok qui pourraient bloquer."""
+    modal_closers = [
+        "button[aria-label='Close']",
+        "button[aria-label='Fermer']",
+        "[data-e2e='modal-close-inner-button']",
+        ".TUXModal button:has-text('OK')",
+        ".TUXModal button:has-text('Got it')",
+        ".TUXModal button:has-text('J\\'ai compris')",
+        ".TUXModal button:has-text('Continuer')",
+        ".TUXModal button:has-text('Continue')",
+        ".TUXModal button:has-text('Confirm')",
+        ".TUXModal button:has-text('Confirmer')",
+        "[data-tux-modal] button",
+    ]
+    closed = 0
+    for selector in modal_closers:
+        try:
+            btn = page.locator(selector).first
+            if await btn.is_visible():
+                await btn.click()
+                await page.wait_for_timeout(1000)
+                closed += 1
+                print(f"   🔒 Modal fermé ({selector})")
+        except:
+            pass
+    return closed
+
+
 async def upload_tiktok(video_path, description, sessionid):
     async with async_playwright() as p:
         browser = await p.chromium.launch(
@@ -52,17 +81,14 @@ async def upload_tiktok(video_path, description, sessionid):
 
         print("✅ TikTok Studio ouvert")
 
-        # Input file est hidden → on le force avec set_input_files sans attendre visibilité
+        # Fermer les modals initiaux
+        await close_modals(page)
+
+        # Upload fichier
         print("📁 Upload du fichier vidéo...")
         try:
-            # Attendre que l'élément existe dans le DOM (pas forcément visible)
-            await page.wait_for_selector(
-                "input[type='file']",
-                state="attached",   # juste présent dans le DOM, pas visible
-                timeout=30000
-            )
+            await page.wait_for_selector("input[type='file']", state="attached", timeout=30000)
             file_input = page.locator("input[type='file']").first
-            # force=True bypass la vérification de visibilité
             await file_input.set_input_files(video_path)
             print("✅ Fichier envoyé")
         except Exception as e:
@@ -71,31 +97,57 @@ async def upload_tiktok(video_path, description, sessionid):
             await browser.close()
             return False
 
-        # Attendre le traitement de la vidéo par TikTok
-        print("⏳ Traitement vidéo (40s)...")
-        await page.wait_for_timeout(40000)
+        # Attendre le traitement + fermer modals qui apparaissent après l'upload
+        print("⏳ Traitement vidéo (30s)...")
+        for i in range(6):
+            await page.wait_for_timeout(5000)
+            closed = await close_modals(page)
+            if closed:
+                print(f"   🔒 {closed} modal(s) fermé(s) à t+{(i+1)*5}s")
 
-        # Description
+        # Description — utiliser keyboard pour contourner les interceptions
         print("✍️ Description...")
         try:
+            # Cliquer via JavaScript pour éviter l'interception
             desc_box = page.locator("[contenteditable='true']").first
-            await desc_box.click()
+            await desc_box.dispatch_event("click")
+            await page.wait_for_timeout(1000)
             await page.keyboard.press("Control+a")
             await page.keyboard.type(description[:150])
             await page.wait_for_timeout(2000)
+            print("✅ Description remplie")
         except Exception as e:
             print(f"   ⚠️ Description ignorée : {e}")
 
-        # Publier
+        # Fermer les modals une dernière fois avant de publier
+        await close_modals(page)
+        await page.wait_for_timeout(2000)
+
+        # Publier via JavaScript pour éviter l'interception du modal overlay
         print("🚀 Publication...")
         try:
+            # Chercher le bouton Post dans le formulaire principal (pas dans la sidebar)
             post_btn = page.locator(
-                "button:has-text('Post'), button:has-text('Publier')"
+                "div[class*='upload'] button:has-text('Post'),"
+                "div[class*='upload'] button:has-text('Publier'),"
+                "form button:has-text('Post'),"
+                "form button:has-text('Publier'),"
+                "button[data-e2e='post_video_button']"
             ).first
+
+            # Fallback : chercher n'importe quel bouton Post visible
+            if not await post_btn.is_visible():
+                post_btn = page.locator(
+                    "button:has-text('Post'), button:has-text('Publier')"
+                ).last  # .last pour éviter la sidebar
+
             await post_btn.wait_for(state="visible", timeout=20000)
-            await post_btn.click()
+
+            # Cliquer via JS pour contourner l'overlay
+            await post_btn.dispatch_event("click")
             await page.wait_for_timeout(10000)
             print("✅ Vidéo publiée sur TikTok !")
+
         except Exception as e:
             print(f"❌ Bouton publier non trouvé : {e}")
             await page.screenshot(path="debug_publish.png")
