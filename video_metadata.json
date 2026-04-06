@@ -1,30 +1,31 @@
 {
-  "titre": "Patience : l'arme secrète du trader",
-  "sujet": "la patience en trading",
-  "niveau": "intermédiaire",
-  "actif": "DOT/USDT",
-  "categorie": "crypto",
+  "titre": "Erreurs Trading : Déjouez les Pièges",
+  "sujet": "les erreurs classiques du débutant",
+  "niveau": "confirmé",
+  "actif": "GBP/JPY",
+  "categorie": "forex",
   "fond_type": "texte_cles",
-  "voix_off": "La patience : ta meilleure amie en trading ? Beaucoup d'intermédiaires oublient cette vertu. Sur ce DOT/USDT, combien d'entrées impulsives ou de sorties prématurées aurais-tu évitées en attendant ton signal ? La patience, c'est une décision active, pas de l'inaction. Elle te permet d'attendre le setup idéal, d'éviter le FOMO. Laisse tes trades gagnants respirer pour maximiser profits. Le marché est constant. Concentre-toi sur la qualité, pas la fréquence. La discipline prime. Maîtrise tes émotions, respecte ton plan et fais confiance à ton analyse. La patience est l'arme secrète des traders performants. Régularité et sérénité t'attendent. Adopte-la !",
+  "voix_off": "Vous tradez le GBP/JPY et stagnez ? Ne tombez pas dans ces pièges, même confirmé ! Premier : gestion du risque lacunaire. Stops larges, sizing déséquilibré, c'est la dilution de capital assurée. La discipline est reine. Deuxième : l'overtrading. Poursuivre le marché ou le revenge trading détruisent votre compte. Chaque entrée doit être chirurgicale, basée sur un plan clair. Troisième : ignorer la macro-économie. Le GBP/JPY réagit aux taux, à l'inflation. Tradez informé, pas à l'aveugle. Quatrième : le biais de confirmation. Ne cherchez pas à valider vos préjugés. Votre journal de trading doit rester objectif pour corriger ces biais. Enfin, la psychologie. Peur, avidité, elles sabotent toute stratégie. Concentrez-vous sur le processus, pas le gain rapide. Maîtrisez ces erreurs, passez un cap. À vous !",
   "sous_titres": [
-    "Patience : ta meilleure amie ?",
-    "Stop aux trades impulsifs !",
-    "Attends le signal clair",
-    "Patience = décision active",
-    "Évite le FOMO en trading",
-    "Laisse tes gains respirer",
-    "Qualité prime sur quantité",
-    "Maîtrise tes émotions",
-    "Respecte toujours ton plan",
-    "La patience paie toujours",
-    "Traders performants l'utilisent"
+    "GBP/JPY : Vos résultats stagnent ?",
+    "Évitez ces pièges de trader confirmé !",
+    "Risque : Stops larges, sizing déséquilibré.",
+    "Dilution de capital assurée. Discipline !",
+    "Overtrading : Revenge trading tue votre compte.",
+    "Chaque entrée doit être chirurgicale.",
+    "Ignorez la macro ? Tradez à l'aveugle.",
+    "Biais de confirmation : Évitez vos préjugés.",
+    "Journal de trading objectif, essentiel.",
+    "Psychologie : Peur et avidité sabotent.",
+    "Concentrez-vous sur le processus.",
+    "Maîtrisez ces erreurs, passez un cap !"
   ],
   "concepts_cles": [
-    "Patience",
-    "Discipline",
-    "FOMO",
-    "Setup idéal",
-    "Gestion émotion"
+    "Gestion Risque",
+    "Overtrading",
+    "Analyse Macro",
+    "Biais Confirmation",
+    "Psychologie Trading"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
