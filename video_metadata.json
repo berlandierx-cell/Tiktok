@@ -1,30 +1,31 @@
 {
-  "titre": "RSI vs Stochastique : Lequel Choisir ?",
-  "sujet": "RSI vs Stochastique",
+  "titre": "Gérer Risque et Émotions en Trading",
+  "sujet": "risk management et psychologie",
   "niveau": "intermédiaire",
-  "actif": "ADA/USDT",
-  "categorie": "crypto",
-  "fond_type": "indicateur_rsi",
-  "voix_off": "RSI ou Stochastique : lequel choisir pour vos trades sur ADA/USDT ? C'est une question clé ! Décodons ça rapidement.\n\nLe RSI (Relative Strength Index) mesure la vitesse et le changement des prix, entre 0 et 100. Au-dessus de 70 = surachat ; en dessous de 30 = survende. Il excelle pour identifier la force des tendances et les divergences.\n\nLe Stochastique, lui, compare le prix de clôture à sa fourchette de prix. Ses lignes %K et %D varient de 0 à 100. Surachat au-dessus de 80, survende en dessous de 20. Il est très réactif, idéal pour détecter les retournements rapides en marchés range.\n\nLa différence ? Le Stochastique est plus sensible, générant plus de signaux. Le RSI est plus stable, meilleur pour les tendances fortes et les divergences fiables. Il peut rester longtemps en zones extrêmes.\n\nMon conseil ? Utilisez le RSI pour confirmer les tendances et divergences majeures. Le Stochastique est votre allié pour les retournements rapides ou marchés latéraux. Les combiner offre des confirmations robustes. Testez sur ADA/USDT et trouvez votre équilibre !",
+  "actif": "GBP/USD",
+  "categorie": "forex",
+  "fond_type": "schema_risk_reward",
+  "voix_off": "Pourquoi la plupart des traders échouent ? C'est souvent une question de psychologie et de gestion des risques. Imagine : tu places un trade sur le GBP/USD, l'analyse est bonne, mais le marché réagit contre toi. Que fais-tu ? Paniques-tu et coupes-tu ta perte trop tard ? Ou, pire, tu la laisses courir en espérant un retournement miracle ? Ça, c'est le piège ! La clé, c'est un plan de trading solide. Avant chaque entrée, définis ton ratio risque/rendement. Sur ce schéma de Risk/Reward, tu vois l'importance de viser des gains potentiels bien supérieurs à tes pertes acceptables. Si tu risques 1 pour gagner 2, un seul trade gagnant peut compenser deux perdants. Mais la psychologie joue un rôle crucial. L'émotion est l'ennemi. Accepte tes pertes comme une partie inévitable du jeu. Coupe-les rapidement si ton stop-loss est touché, sans hésitation. Ne laisse jamais une petite perte devenir catastrophique. Discipline et patience, c'est ça qui te mènera à la constance. Vise la gestion, pas la perfection. C'est en protégeant ton capital que tu resteras longtemps dans le jeu. Réfléchis bien avant d'agir !",
   "sous_titres": [
-    "RSI ou Stochastique ?",
-    "RSI : vitesse des prix",
-    "Surachat >70, survende <30",
-    "Idéal pour tendances fortes",
-    "Stochastique : prix sur fourchette",
-    "Surachat >80, survende <20",
-    "Détecte retournements rapides",
-    "Stochastique plus réactif",
-    "RSI plus stable",
-    "Combinez pour confirmations",
-    "Testez sur ADA/USDT"
+    "Pourquoi échouer en trading ?",
+    "Psychologie et gestion des risques.",
+    "Le marché réagit contre toi ?",
+    "Évite le piège de l'espoir.",
+    "Un plan de trading solide.",
+    "Défini ton ratio risque/rendement.",
+    "Vise des gains bien supérieurs.",
+    "L'émotion est ton ennemi.",
+    "Accepte tes pertes rapidement.",
+    "Ne panique jamais, discipline.",
+    "Protège ton capital activement.",
+    "Reste longtemps dans le jeu."
   ],
   "concepts_cles": [
-    "RSI",
-    "Stochastique",
-    "Surachat",
-    "Survende",
-    "Divergence"
+    "Risk/Reward",
+    "Stop-loss",
+    "Psychologie trading",
+    "Gestion capital",
+    "Discipline"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
