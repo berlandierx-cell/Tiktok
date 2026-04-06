@@ -1,31 +1,30 @@
 {
-  "titre": "Erreurs Trading : Déjouez les Pièges",
-  "sujet": "les erreurs classiques du débutant",
-  "niveau": "confirmé",
-  "actif": "GBP/JPY",
-  "categorie": "forex",
-  "fond_type": "texte_cles",
-  "voix_off": "Vous tradez le GBP/JPY et stagnez ? Ne tombez pas dans ces pièges, même confirmé ! Premier : gestion du risque lacunaire. Stops larges, sizing déséquilibré, c'est la dilution de capital assurée. La discipline est reine. Deuxième : l'overtrading. Poursuivre le marché ou le revenge trading détruisent votre compte. Chaque entrée doit être chirurgicale, basée sur un plan clair. Troisième : ignorer la macro-économie. Le GBP/JPY réagit aux taux, à l'inflation. Tradez informé, pas à l'aveugle. Quatrième : le biais de confirmation. Ne cherchez pas à valider vos préjugés. Votre journal de trading doit rester objectif pour corriger ces biais. Enfin, la psychologie. Peur, avidité, elles sabotent toute stratégie. Concentrez-vous sur le processus, pas le gain rapide. Maîtrisez ces erreurs, passez un cap. À vous !",
+  "titre": "RSI vs Stochastique : Lequel Choisir ?",
+  "sujet": "RSI vs Stochastique",
+  "niveau": "intermédiaire",
+  "actif": "ADA/USDT",
+  "categorie": "crypto",
+  "fond_type": "indicateur_rsi",
+  "voix_off": "RSI ou Stochastique : lequel choisir pour vos trades sur ADA/USDT ? C'est une question clé ! Décodons ça rapidement.\n\nLe RSI (Relative Strength Index) mesure la vitesse et le changement des prix, entre 0 et 100. Au-dessus de 70 = surachat ; en dessous de 30 = survende. Il excelle pour identifier la force des tendances et les divergences.\n\nLe Stochastique, lui, compare le prix de clôture à sa fourchette de prix. Ses lignes %K et %D varient de 0 à 100. Surachat au-dessus de 80, survende en dessous de 20. Il est très réactif, idéal pour détecter les retournements rapides en marchés range.\n\nLa différence ? Le Stochastique est plus sensible, générant plus de signaux. Le RSI est plus stable, meilleur pour les tendances fortes et les divergences fiables. Il peut rester longtemps en zones extrêmes.\n\nMon conseil ? Utilisez le RSI pour confirmer les tendances et divergences majeures. Le Stochastique est votre allié pour les retournements rapides ou marchés latéraux. Les combiner offre des confirmations robustes. Testez sur ADA/USDT et trouvez votre équilibre !",
   "sous_titres": [
-    "GBP/JPY : Vos résultats stagnent ?",
-    "Évitez ces pièges de trader confirmé !",
-    "Risque : Stops larges, sizing déséquilibré.",
-    "Dilution de capital assurée. Discipline !",
-    "Overtrading : Revenge trading tue votre compte.",
-    "Chaque entrée doit être chirurgicale.",
-    "Ignorez la macro ? Tradez à l'aveugle.",
-    "Biais de confirmation : Évitez vos préjugés.",
-    "Journal de trading objectif, essentiel.",
-    "Psychologie : Peur et avidité sabotent.",
-    "Concentrez-vous sur le processus.",
-    "Maîtrisez ces erreurs, passez un cap !"
+    "RSI ou Stochastique ?",
+    "RSI : vitesse des prix",
+    "Surachat >70, survende <30",
+    "Idéal pour tendances fortes",
+    "Stochastique : prix sur fourchette",
+    "Surachat >80, survende <20",
+    "Détecte retournements rapides",
+    "Stochastique plus réactif",
+    "RSI plus stable",
+    "Combinez pour confirmations",
+    "Testez sur ADA/USDT"
   ],
   "concepts_cles": [
-    "Gestion Risque",
-    "Overtrading",
-    "Analyse Macro",
-    "Biais Confirmation",
-    "Psychologie Trading"
+    "RSI",
+    "Stochastique",
+    "Surachat",
+    "Survende",
+    "Divergence"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
