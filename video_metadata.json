@@ -1,31 +1,29 @@
 {
-  "titre": "Gérer Risque et Émotions en Trading",
-  "sujet": "risk management et psychologie",
+  "titre": "Règle 1% Risque : Ton Bouclier Trading",
+  "sujet": "la règle des 1% de risque",
   "niveau": "intermédiaire",
   "actif": "GBP/USD",
   "categorie": "forex",
   "fond_type": "schema_risk_reward",
-  "voix_off": "Pourquoi la plupart des traders échouent ? C'est souvent une question de psychologie et de gestion des risques. Imagine : tu places un trade sur le GBP/USD, l'analyse est bonne, mais le marché réagit contre toi. Que fais-tu ? Paniques-tu et coupes-tu ta perte trop tard ? Ou, pire, tu la laisses courir en espérant un retournement miracle ? Ça, c'est le piège ! La clé, c'est un plan de trading solide. Avant chaque entrée, définis ton ratio risque/rendement. Sur ce schéma de Risk/Reward, tu vois l'importance de viser des gains potentiels bien supérieurs à tes pertes acceptables. Si tu risques 1 pour gagner 2, un seul trade gagnant peut compenser deux perdants. Mais la psychologie joue un rôle crucial. L'émotion est l'ennemi. Accepte tes pertes comme une partie inévitable du jeu. Coupe-les rapidement si ton stop-loss est touché, sans hésitation. Ne laisse jamais une petite perte devenir catastrophique. Discipline et patience, c'est ça qui te mènera à la constance. Vise la gestion, pas la perfection. C'est en protégeant ton capital que tu resteras longtemps dans le jeu. Réfléchis bien avant d'agir !",
+  "voix_off": "Marre de voir ton capital fondre en trading ? C'est une erreur que beaucoup font ! Aujourd'hui, on parle de la règle des 1% de risque, ton bouclier ultime pour la survie sur les marchés. \n\nImagine que tu as un capital de 5000€ et que tu trades le GBP/USD. La règle est simple : ne risque jamais plus de 1% de ce capital sur une seule position. Ça signifie maximum 50€ par trade, peu importe ta confiance ou ton analyse. \n\nPourquoi est-ce crucial ? Parce que même les meilleurs traders ont des séries perdantes. En limitant ta perte potentielle à 1%, une série de 10 trades négatifs ne te ferait perdre que 10% de ton compte, pas la totalité ! \n\nCela te permet de gérer tes émotions et de rester objectif. Calcule ton stop-loss de manière à ce que, si ton trade est perdant, la perte ne dépasse jamais ce fameux 1%. C'est la base d'une gestion de risque solide. Adopte cette discipline et regarde ton trading se transformer. Ne risque jamais ton capital pour une seule opportunité !",
   "sous_titres": [
-    "Pourquoi échouer en trading ?",
-    "Psychologie et gestion des risques.",
-    "Le marché réagit contre toi ?",
-    "Évite le piège de l'espoir.",
-    "Un plan de trading solide.",
-    "Défini ton ratio risque/rendement.",
-    "Vise des gains bien supérieurs.",
-    "L'émotion est ton ennemi.",
-    "Accepte tes pertes rapidement.",
-    "Ne panique jamais, discipline.",
-    "Protège ton capital activement.",
-    "Reste longtemps dans le jeu."
+    "Marre de perdre en trading ?",
+    "La règle des 1% arrive !",
+    "Ne risque jamais trop d'argent.",
+    "Maximum 1% de ton capital.",
+    "Protège ton compte de trading.",
+    "Même avec séries perdantes.",
+    "Stop-loss indispensable pour cela.",
+    "Gère mieux tes émotions.",
+    "Clé de la survie financière.",
+    "Transforme ton trading aujourd'hui."
   ],
   "concepts_cles": [
-    "Risk/Reward",
+    "Gestion du risque",
+    "Capital",
     "Stop-loss",
-    "Psychologie trading",
-    "Gestion capital",
-    "Discipline"
+    "Discipline",
+    "Longévité"
   ],
   "tags": "#trading #forex #bourse #apprendre #finance"
 }
