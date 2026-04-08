@@ -1,29 +1,28 @@
 {
-  "titre": "Règle 1% Risque : Ton Bouclier Trading",
-  "sujet": "la règle des 1% de risque",
-  "niveau": "intermédiaire",
-  "actif": "GBP/USD",
+  "titre": "MACD : Maîtrisez les breakouts EUR/GBP",
+  "sujet": "MACD et les breakouts",
+  "niveau": "confirmé",
+  "actif": "EUR/GBP",
   "categorie": "forex",
-  "fond_type": "schema_risk_reward",
-  "voix_off": "Marre de voir ton capital fondre en trading ? C'est une erreur que beaucoup font ! Aujourd'hui, on parle de la règle des 1% de risque, ton bouclier ultime pour la survie sur les marchés. \n\nImagine que tu as un capital de 5000€ et que tu trades le GBP/USD. La règle est simple : ne risque jamais plus de 1% de ce capital sur une seule position. Ça signifie maximum 50€ par trade, peu importe ta confiance ou ton analyse. \n\nPourquoi est-ce crucial ? Parce que même les meilleurs traders ont des séries perdantes. En limitant ta perte potentielle à 1%, une série de 10 trades négatifs ne te ferait perdre que 10% de ton compte, pas la totalité ! \n\nCela te permet de gérer tes émotions et de rester objectif. Calcule ton stop-loss de manière à ce que, si ton trade est perdant, la perte ne dépasse jamais ce fameux 1%. C'est la base d'une gestion de risque solide. Adopte cette discipline et regarde ton trading se transformer. Ne risque jamais ton capital pour une seule opportunité !",
+  "fond_type": "indicateur_macd",
+  "voix_off": "Les breakouts sur EUR/GBP vous frustrent ? Le MACD est la solution ! Trader confirmé, un breakout exige une anticipation précise. Sur l'EUR/GBP, le MACD révèle des signaux. Repérez la divergence : prix consolidés, MACD indiquant un momentum contraire. Souvent, cela préfigure une cassure imminente. L'histogramme MACD est votre confirmation essentielle. Une expansion rapide de l'histogramme, au-delà de la ligne zéro, valide un momentum fort post-rupture. Le croisement ligne MACD / ligne de signal, dans le sens du mouvement, renforce la validation. N'entrez pas précipitamment. Attendez une dynamique claire post-cassure. Histogramme décroissant après un pic ? Signe d'épuisement ou retest. Combinez action des prix et MACD. C'est votre formule pour breakouts réussis. Affûtez vos stratégies !",
   "sous_titres": [
-    "Marre de perdre en trading ?",
-    "La règle des 1% arrive !",
-    "Ne risque jamais trop d'argent.",
-    "Maximum 1% de ton capital.",
-    "Protège ton compte de trading.",
-    "Même avec séries perdantes.",
-    "Stop-loss indispensable pour cela.",
-    "Gère mieux tes émotions.",
-    "Clé de la survie financière.",
-    "Transforme ton trading aujourd'hui."
+    "Les breakouts vous frustrent ?",
+    "Le MACD est la solution !",
+    "Anticipez les cassures précises.",
+    "Repérez les divergences clés.",
+    "L'histogramme confirme le momentum.",
+    "Croisement ligne MACD / signal.",
+    "Validez la dynamique post-rupture.",
+    "Attention à l'épuisement !",
+    "Action prix + MACD = succès."
   ],
   "concepts_cles": [
-    "Gestion du risque",
-    "Capital",
-    "Stop-loss",
-    "Discipline",
-    "Longévité"
+    "Divergence MACD",
+    "Histogramme",
+    "Breakout",
+    "Momentum",
+    "Ligne de signal"
   ],
   "tags": "#trading #forex #bourse #apprendre #finance"
 }
