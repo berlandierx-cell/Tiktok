@@ -3,7 +3,7 @@ name: TikTok Generator 2026 *
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 8 * * *'  # Tous les jours à 8h UTC
+    - cron: '0 10 * * *'  # Tous les jours à 8h UTC
 
 permissions:
   contents: write
