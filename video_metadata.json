@@ -1,28 +1,31 @@
 {
-  "titre": "MACD : Maîtrisez les breakouts EUR/GBP",
-  "sujet": "MACD et les breakouts",
-  "niveau": "confirmé",
-  "actif": "EUR/GBP",
+  "titre": "Quelle période de moyenne mobile choisir ?",
+  "sujet": "choisir la bonne période de moyenne mobile",
+  "niveau": "débutant",
+  "actif": "GBP/USD",
   "categorie": "forex",
-  "fond_type": "indicateur_macd",
-  "voix_off": "Les breakouts sur EUR/GBP vous frustrent ? Le MACD est la solution ! Trader confirmé, un breakout exige une anticipation précise. Sur l'EUR/GBP, le MACD révèle des signaux. Repérez la divergence : prix consolidés, MACD indiquant un momentum contraire. Souvent, cela préfigure une cassure imminente. L'histogramme MACD est votre confirmation essentielle. Une expansion rapide de l'histogramme, au-delà de la ligne zéro, valide un momentum fort post-rupture. Le croisement ligne MACD / ligne de signal, dans le sens du mouvement, renforce la validation. N'entrez pas précipitamment. Attendez une dynamique claire post-cassure. Histogramme décroissant après un pic ? Signe d'épuisement ou retest. Combinez action des prix et MACD. C'est votre formule pour breakouts réussis. Affûtez vos stratégies !",
+  "fond_type": "moyenne_mobile",
+  "voix_off": "Tu utilises les moyennes mobiles mais quelle période choisir ? C'est une question clé en trading ! Sur ce graphique GBP/USD, on voit des moyennes mobiles, mais comment bien les régler ?Il n'y a pas de \"meilleure\" période unique. Tout dépend de ton style de trading !Si tu fais du trading très court terme (scalping, day trading), choisis des périodes courtes. Pense à 9, 10 ou 20. Elles réagissent vite aux moindres mouvements du GBP/USD, parfait pour les opportunités rapides.Pour le moyen terme (swing trading), des périodes comme 50 ou 100 sont plus adaptées. Elles filtrent le bruit et te donnent une vision plus stable des tendances.Enfin, pour le long terme, si tu investis, la moyenne mobile 200 est très populaire. Elle identifie les grandes directions du marché.Regarde l'écran : une moyenne mobile courte suit le prix de près, une longue est plus lisse. L'important est de tester différentes périodes. Trouve celle qui correspond à TA stratégie. N'oublie pas : combine-les toujours avec d'autres outils pour confirmer. À toi de jouer !",
   "sous_titres": [
-    "Les breakouts vous frustrent ?",
-    "Le MACD est la solution !",
-    "Anticipez les cassures précises.",
-    "Repérez les divergences clés.",
-    "L'histogramme confirme le momentum.",
-    "Croisement ligne MACD / signal.",
-    "Validez la dynamique post-rupture.",
-    "Attention à l'épuisement !",
-    "Action prix + MACD = succès."
+    "Quelle période choisir ?",
+    "Ça dépend de ton style.",
+    "Court terme ? Périodes 9, 10, 20.",
+    "Réagit vite aux prix.",
+    "Moyen terme ? Périodes 50, 100.",
+    "Tendances plus stables.",
+    "Long terme ? Moyenne 200.",
+    "Grandes directions du marché.",
+    "Une courte suit le prix.",
+    "Une longue est plus lisse.",
+    "Teste différentes périodes.",
+    "Combine avec d'autres outils."
   ],
   "concepts_cles": [
-    "Divergence MACD",
-    "Histogramme",
-    "Breakout",
-    "Momentum",
-    "Ligne de signal"
+    "Moyenne mobile",
+    "Période",
+    "Court terme",
+    "Long terme",
+    "Swing trading"
   ],
   "tags": "#trading #forex #bourse #apprendre #finance"
 }
