@@ -1,31 +1,30 @@
 {
-  "titre": "Quelle période de moyenne mobile choisir ?",
-  "sujet": "choisir la bonne période de moyenne mobile",
+  "titre": "Stoppe tes émotions pour gagner en trading",
+  "sujet": "la peur et la cupidité en trading",
   "niveau": "débutant",
-  "actif": "GBP/USD",
-  "categorie": "forex",
-  "fond_type": "moyenne_mobile",
-  "voix_off": "Tu utilises les moyennes mobiles mais quelle période choisir ? C'est une question clé en trading ! Sur ce graphique GBP/USD, on voit des moyennes mobiles, mais comment bien les régler ?Il n'y a pas de \"meilleure\" période unique. Tout dépend de ton style de trading !Si tu fais du trading très court terme (scalping, day trading), choisis des périodes courtes. Pense à 9, 10 ou 20. Elles réagissent vite aux moindres mouvements du GBP/USD, parfait pour les opportunités rapides.Pour le moyen terme (swing trading), des périodes comme 50 ou 100 sont plus adaptées. Elles filtrent le bruit et te donnent une vision plus stable des tendances.Enfin, pour le long terme, si tu investis, la moyenne mobile 200 est très populaire. Elle identifie les grandes directions du marché.Regarde l'écran : une moyenne mobile courte suit le prix de près, une longue est plus lisse. L'important est de tester différentes périodes. Trouve celle qui correspond à TA stratégie. N'oublie pas : combine-les toujours avec d'autres outils pour confirmer. À toi de jouer !",
+  "actif": "MATIC/USDT",
+  "categorie": "crypto",
+  "fond_type": "texte_cles",
+  "voix_off": "Savais-tu que tes émotions détruisent ton portefeuille plus vite que le marché lui-même ? En trading, deux forces dominent ton esprit : la peur et la cupidité. Regarde le MATIC sur ce graphique. Quand le prix s'envole, la cupidité te pousse à acheter par peur de rater le mouvement. C'est le fameux FOMO. Tu espères gagner toujours plus, mais souvent, tu achètes au plus haut juste avant le crash. À l'inverse, quand le cours du MATIC chute, la peur te paralyse totalement. Tu paniques et tu vends à perte, souvent juste avant que le prix ne remonte en flèche. Ces émotions sont tes pires ennemies face aux graphiques. Pour réussir, tu dois trader comme un robot, pas comme un humain. Un bon trader suit un plan strict et ne laisse jamais ses sentiments décider à sa place. Fixe tes objectifs et tes limites avant d'ouvrir ta position. Maîtrise tes émotions et tu maîtriseras enfin tes profits !",
   "sous_titres": [
-    "Quelle période choisir ?",
-    "Ça dépend de ton style.",
-    "Court terme ? Périodes 9, 10, 20.",
-    "Réagit vite aux prix.",
-    "Moyen terme ? Périodes 50, 100.",
-    "Tendances plus stables.",
-    "Long terme ? Moyenne 200.",
-    "Grandes directions du marché.",
-    "Une courte suit le prix.",
-    "Une longue est plus lisse.",
-    "Teste différentes périodes.",
-    "Combine avec d'autres outils."
+    "Tes émotions détruisent ton capital",
+    "Voici la peur et la cupidité",
+    "Regarde bien le cours MATIC",
+    "La cupidité crée le FOMO",
+    "On achète souvent trop haut",
+    "La peur te fait paniquer",
+    "Tu vends avant la hausse",
+    "Deviens un robot en trading",
+    "Suis toujours un plan strict",
+    "Fixe tes objectifs à l'avance",
+    "Maîtrise tes émotions pour gagner"
   ],
   "concepts_cles": [
-    "Moyenne mobile",
-    "Période",
-    "Court terme",
-    "Long terme",
-    "Swing trading"
+    "FOMO",
+    "Psychologie du trading",
+    "Plan de trading",
+    "Prise de profit",
+    "Gestion émotionnelle"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
