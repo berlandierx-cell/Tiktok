@@ -1,30 +1,31 @@
 {
-  "titre": "Stoppe tes émotions pour gagner en trading",
-  "sujet": "la peur et la cupidité en trading",
+  "titre": "MACD : Ton Ami pour Trader le DOGE",
+  "sujet": "MACD et les moyennes mobiles",
   "niveau": "débutant",
-  "actif": "MATIC/USDT",
+  "actif": "DOGE/USDT",
   "categorie": "crypto",
-  "fond_type": "texte_cles",
-  "voix_off": "Savais-tu que tes émotions détruisent ton portefeuille plus vite que le marché lui-même ? En trading, deux forces dominent ton esprit : la peur et la cupidité. Regarde le MATIC sur ce graphique. Quand le prix s'envole, la cupidité te pousse à acheter par peur de rater le mouvement. C'est le fameux FOMO. Tu espères gagner toujours plus, mais souvent, tu achètes au plus haut juste avant le crash. À l'inverse, quand le cours du MATIC chute, la peur te paralyse totalement. Tu paniques et tu vends à perte, souvent juste avant que le prix ne remonte en flèche. Ces émotions sont tes pires ennemies face aux graphiques. Pour réussir, tu dois trader comme un robot, pas comme un humain. Un bon trader suit un plan strict et ne laisse jamais ses sentiments décider à sa place. Fixe tes objectifs et tes limites avant d'ouvrir ta position. Maîtrise tes émotions et tu maîtriseras enfin tes profits !",
+  "fond_type": "indicateur_macd",
+  "voix_off": "Comment savoir quand acheter ou vendre du DOGE ? Le MACD est ta réponse ! Outil clé pour débuter en trading.\n\nLe MACD, ou Moving Average Convergence Divergence, t'aide à capter la force et direction d'une tendance. Il a deux lignes et un histogramme.\n\nSur ton graphique DOGE/USDT : quand la ligne MACD (rapide) croise la ligne de signal (lente) vers le haut, c'est un signal d'achat ! Surveille cette opportunité.\n\nSi la ligne MACD croise vers le bas, ça peut indiquer un signal de vente. L'histogramme montre l'intensité : s'il grandit, la tendance est forte.\n\nCet indicateur, basé sur les moyennes mobiles, donne une vision rapide du momentum. Un fondamental à maîtriser.\n\nPrêt à trader ? Abonne-toi pour d'autres astuces !",
   "sous_titres": [
-    "Tes émotions détruisent ton capital",
-    "Voici la peur et la cupidité",
-    "Regarde bien le cours MATIC",
-    "La cupidité crée le FOMO",
-    "On achète souvent trop haut",
-    "La peur te fait paniquer",
-    "Tu vends avant la hausse",
-    "Deviens un robot en trading",
-    "Suis toujours un plan strict",
-    "Fixe tes objectifs à l'avance",
-    "Maîtrise tes émotions pour gagner"
+    "Quand acheter/vendre DOGE ?",
+    "Découvre l'indicateur MACD !",
+    "Outil clé pour débutant.",
+    "MACD : force et direction.",
+    "Lignes MACD et Signal.",
+    "Croisement haut : signal achat.",
+    "Croisement bas : signal vente.",
+    "Histogramme : intensité tendance.",
+    "Basé sur moyennes mobiles.",
+    "Comprends le momentum.",
+    "Maîtrise cet indicateur.",
+    "Abonne-toi pour astuces !"
   ],
   "concepts_cles": [
-    "FOMO",
-    "Psychologie du trading",
-    "Plan de trading",
-    "Prise de profit",
-    "Gestion émotionnelle"
+    "MACD",
+    "Ligne de Signal",
+    "Histogramme",
+    "Moyennes Mobiles",
+    "Momentum"
   ],
   "tags": "#trading #crypto #bourse #apprendre #finance"
 }
