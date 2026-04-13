@@ -1,31 +1,29 @@
 {
-  "titre": "Engulfing Haussier: Détecte les Retours sur Bitcoin",
-  "sujet": "l'engulfing haussier",
-  "niveau": "intermédiaire",
-  "actif": "BTC/USDT",
+  "titre": "Anticipe la chute avec les Corbeaux Noirs",
+  "sujet": "le three black crows",
+  "niveau": "débutant",
+  "actif": "ADA/USDT",
   "categorie": "crypto",
   "fond_type": "chandeliers",
-  "voix_off": "Marre de rater les retours haussiers sur Bitcoin ? Découvre l'Engulfing Haussier, un pattern clé sur BTC/USDT. C'est un signal à deux bougies. La première est petite et baissière (rouge). La seconde est une grande bougie haussière (verte) qui engloutit entièrement le corps de la première. Le corps vert doit dépasser les extrêmes du corps rouge précédent. Ce pattern signale un puissant revirement du sentiment, souvent après une tendance baissière. Pour sa fiabilité, cherche-le en bas de tendance, avec un volume croissant sur la bougie verte. Attention, ce n'est pas infaillible. Combine-le toujours avec d'autres outils, comme les supports ou le RSI, pour confirmer ton analyse. Prêt à dompter le marché ?",
+  "voix_off": "Tu veux savoir quand une tendance haussière va se terminer ? Regarde bien ce schéma sur l'ADA/USDT. C’est ce qu'on appelle les Trois Corbeaux Noirs. C’est un signal de retournement puissant que tous les débutants doivent connaître pour éviter de perdre de l'argent bêtement. Imagine, après une belle montée, trois grandes bougies rouges apparaissent l'une après l'autre. Chaque bougie s'ouvre à l'intérieur du corps de la précédente et clôture nettement plus bas. C’est le signe clair que les vendeurs ont totalement pris le contrôle du marché. Les acheteurs sont épuisés et la chute risque de continuer violemment. Ce pattern annonce souvent une baisse durable du prix de l'actif. Quand tu vois ça, ne cherche surtout pas à acheter tout de suite. Attends une confirmation ou protège tes gains si tu es déjà en position. Maîtriser les bougies japonaises, c’est la base pour réussir en trading crypto. Abonne-toi pour plus d'astuces !",
   "sous_titres": [
-    "Marre des retours haussiers ratés ?",
-    "L'Engulfing Haussier, clé sur BTC.",
-    "C'est un signal à deux bougies.",
-    "Petite bougie rouge, puis grande verte.",
-    "Verte engloutit entièrement la rouge.",
-    "Corps vert dépasse les extrêmes rouges.",
-    "Signale puissant revirement du sentiment.",
-    "Cherche-le en bas de tendance.",
-    "Volume croissant pour meilleure fiabilité.",
-    "Pas infaillible, combine les outils.",
-    "Confirme toujours ton analyse trading.",
-    "Prêt à dompter le marché crypto ?"
+    "Identifie le signal de baisse.",
+    "Trois bougies rouges apparaissent.",
+    "C'est le Three Black Crows.",
+    "Signe d'un retournement baissier.",
+    "Les vendeurs prennent le contrôle.",
+    "Le prix risque de chuter.",
+    "Ne pas acheter pendant l'alerte.",
+    "Protège tes gains dès maintenant.",
+    "Maîtrise les chandeliers japonais.",
+    "Abonne-toi pour apprendre vite."
   ],
   "concepts_cles": [
-    "Engulfing Haussier",
-    "Chandeliers japonais",
-    "Retournement haussier",
-    "Volume",
-    "Supports techniques"
+    "Retournement baissier",
+    "Bougies japonaises",
+    "Tendance haussière",
+    "Trois Corbeaux Noirs",
+    "Signal de vente"
   ],
   "tags": "#trading #crypto #bourse #apprendre #finance"
 }
