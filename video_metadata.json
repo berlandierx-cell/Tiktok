@@ -1,29 +1,31 @@
 {
-  "titre": "Anticipe la chute avec les Corbeaux Noirs",
-  "sujet": "le three black crows",
+  "titre": "Erreurs de Risk Management Fatales",
+  "sujet": "les erreurs de risk management",
   "niveau": "débutant",
-  "actif": "ADA/USDT",
-  "categorie": "crypto",
-  "fond_type": "chandeliers",
-  "voix_off": "Tu veux savoir quand une tendance haussière va se terminer ? Regarde bien ce schéma sur l'ADA/USDT. C’est ce qu'on appelle les Trois Corbeaux Noirs. C’est un signal de retournement puissant que tous les débutants doivent connaître pour éviter de perdre de l'argent bêtement. Imagine, après une belle montée, trois grandes bougies rouges apparaissent l'une après l'autre. Chaque bougie s'ouvre à l'intérieur du corps de la précédente et clôture nettement plus bas. C’est le signe clair que les vendeurs ont totalement pris le contrôle du marché. Les acheteurs sont épuisés et la chute risque de continuer violemment. Ce pattern annonce souvent une baisse durable du prix de l'actif. Quand tu vois ça, ne cherche surtout pas à acheter tout de suite. Attends une confirmation ou protège tes gains si tu es déjà en position. Maîtriser les bougies japonaises, c’est la base pour réussir en trading crypto. Abonne-toi pour plus d'astuces !",
+  "actif": "EUR/JPY",
+  "categorie": "forex",
+  "fond_type": "schema_risk_reward",
+  "voix_off": "Attention ! Ces erreurs détruisent vos comptes de trading et vous empêchent de réussir. Beaucoup de débutants se lancent sans comprendre l'importance du risk management. C'est l'erreur fatale numéro un. Premièrement : ne jamais placer de Stop Loss. Vous tradez l'EUR/JPY, et si le marché se retourne violemment contre vous sans filet de sécurité, votre capital peut fondre en un clin d'œil. C'est la protection essentielle ! Deuxièmement : risquer un pourcentage trop élevé de votre capital sur un seul trade. Mettre la moitié de votre compte sur une seule position, c'est du pur casino. Les traders expérimentés ne risquent généralement jamais plus de 1 à 2% de leur capital total par transaction. Troisièmement : une taille de position inadaptée. Ne pas calculer le bon nombre de lots ou d'unités à échanger en fonction de votre capital et de votre Stop Loss. C'est la clé pour gérer votre risque efficacement. Quatrièmement : l'absence de plan de trading clair. Protégez votre argent avant de chercher à en gagner. Le risk management est le pilier de la longévité en trading. Apprenez ces bases et évitez les pièges !",
   "sous_titres": [
-    "Identifie le signal de baisse.",
-    "Trois bougies rouges apparaissent.",
-    "C'est le Three Black Crows.",
-    "Signe d'un retournement baissier.",
-    "Les vendeurs prennent le contrôle.",
-    "Le prix risque de chuter.",
-    "Ne pas acheter pendant l'alerte.",
-    "Protège tes gains dès maintenant.",
-    "Maîtrise les chandeliers japonais.",
-    "Abonne-toi pour apprendre vite."
+    "Ces erreurs détruisent vos comptes !",
+    "Ne jamais placer de Stop Loss.",
+    "Capital fondu en un clin d'œil.",
+    "Votre filet de sécurité essentiel.",
+    "Risquer trop par transaction.",
+    "Plus de 1-2% par trade, non.",
+    "Taille de position inadaptée.",
+    "Calculer le bon nombre de lots.",
+    "Absence de plan de trading clair.",
+    "Protégez votre argent avant tout.",
+    "Pilier de la longévité en trading.",
+    "Apprenez et évitez ces pièges."
   ],
   "concepts_cles": [
-    "Retournement baissier",
-    "Bougies japonaises",
-    "Tendance haussière",
-    "Trois Corbeaux Noirs",
-    "Signal de vente"
+    "Stop Loss",
+    "Risk management",
+    "Taille position",
+    "Capital trading",
+    "Plan trading"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
