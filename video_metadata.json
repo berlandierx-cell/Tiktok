@@ -1,31 +1,29 @@
 {
-  "titre": "Divergences RSI: Le secret des traders pro",
-  "sujet": "les divergences RSI",
-  "niveau": "débutant",
-  "actif": "DOGE/USDT",
-  "categorie": "crypto",
-  "fond_type": "indicateur_rsi",
-  "voix_off": "Le prix te ment parfois sur les cryptos ? Découvre un secret d'expert : les divergences RSI. Reste bien jusqu'à la fin !\n\nRegarde le DOGE/USDT. Son prix monte, mais le RSI, cette ligne en bas sur ton écran, commence à descendre. C'est une divergence baissière ! Le prix paraît fort, mais le 'momentum' d'achat, la force derrière, s'épuise. C'est un signal d'alerte fort : un retournement à la baisse pourrait arriver bientôt.\n\nÀ l'inverse, si le prix du DOGE chute, mais que le RSI monte, on parle de divergence haussière. Cela suggère que la pression de vente diminue et qu'un rebond est possible.\n\nCes indices t'aident à anticiper les changements de tendance. Mais attention, ne les utilise pas seuls ! Combine-les toujours avec d'autres outils d'analyse pour confirmer. Comprendre les divergences te rendra un bien meilleur trader. Abonne-toi pour plus d'astuces trading crypto !",
+  "titre": "Optimise tes Moyennes Mobiles sur GBP/JPY",
+  "sujet": "MA rapide vs MA lente",
+  "niveau": "confirmé",
+  "actif": "GBP/JPY",
+  "categorie": "forex",
+  "fond_type": "moyenne_mobile",
+  "voix_off": "Arrête de subir le bruit du marché sur la Guppy. Pour trader efficacement le GBP/JPY, la synchronisation de tes moyennes mobiles est vitale. La MA rapide, comme l'EMA 9, capture l'élan immédiat et la réactivité brute du prix. À l'inverse, la MA lente, type EMA 50 ou 200, définit ta structure institutionnelle globale. Le piège pour beaucoup de traders confirmés ? Se focaliser uniquement sur le croisement. C'est une erreur. Regarde plutôt l'écartement, ou l'inclinaison des pentes. Sur une paire aussi volatile que le Yen, l'EMA rapide sert de déclencheur tactique, tandis que la lente filtre les faux signaux de retournement. Si l'angle de ta MA lente s'aplatit pendant que la rapide oscille violemment, tu es en phase de distribution. Ne cherche pas le breakout immédiat, attends la ré-accélération directionnelle. Maîtriser cette dualité, c'est comprendre que la MA rapide suit le momentum, alors que la lente valide la tendance de fond.",
   "sous_titres": [
-    "Prix te ment parfois ?",
-    "Découvre divergences RSI.",
-    "Prix DOGE monte, RSI descend.",
-    "C'est divergence baissière.",
-    "Momentum d'achat s'épuise.",
-    "Retournement baisse possible.",
-    "Prix DOGE chute, RSI monte.",
-    "C'est divergence haussière.",
-    "Pression vente diminue, rebond.",
-    "Indices pour anticiper tendances.",
-    "Combine avec autres outils.",
-    "Deviens meilleur trader."
+    "Maîtrise les moyennes mobiles sur GBP/JPY.",
+    "L'EMA 9 capture l'élan immédiat.",
+    "L'EMA 50 définit la structure.",
+    "Évite le piège des croisements simples.",
+    "Analyse l'inclinaison des pentes.",
+    "Le Yen exige des filtres stricts.",
+    "La lente filtre les faux signaux.",
+    "Identifie les phases de distribution.",
+    "Attends la ré-accélération du momentum.",
+    "Valide toujours la tendance de fond."
   ],
   "concepts_cles": [
-    "Divergence RSI",
-    "Momentum",
-    "Baissière",
-    "Haussière",
-    "Retournement"
+    "EMA 9 vs EMA 50",
+    "Structure institutionnelle",
+    "Inclinaison des pentes",
+    "Phase de distribution",
+    "Momentum directionnel"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
