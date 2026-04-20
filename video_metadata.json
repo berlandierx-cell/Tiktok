@@ -1,29 +1,29 @@
 {
-  "titre": "Position Sizing Avancé: Maîtrise Ton Risque",
-  "sujet": "position sizing avancé",
-  "niveau": "intermédiaire",
-  "actif": "DOT/USDT",
-  "categorie": "crypto",
+  "titre": "Calcule ton lot Forex en 60 secondes",
+  "sujet": "comment calculer son lot en forex",
+  "niveau": "débutant",
+  "actif": "GBP/USD",
+  "categorie": "forex",
   "fond_type": "schema_risk_reward",
-  "voix_off": "Tu as du mal à gérer tes tailles de position? Stop le 1% fixe! Le position sizing, c'est bien plus qu'une règle rigide. Pour un sizing avancé, oublie le simple pourcentage de ton capital. Pense plutôt à ton risque réel par trade. Imagine tu trades le DOT/USDT. Un stop loss de 5% sur DOT n'a pas le même impact qu'un stop de 1% sur une action moins volatile. Ici, avec notre schéma Risk/Reward, on ajuste. On calcule le nombre d'unités à acheter pour qu'en cas de stop touché, tu perdes le montant PRÉDÉFINI, disons 1% de ton capital. Cela intègre la volatilité de l'actif et la distance de ton stop. Utilise l'ATR pour estimer la volatilité et placer tes stops de manière intelligente. C'est crucial pour ne pas sur-exposer ton capital sur des setups risqués. Adapte ta taille en fonction de ta distance de stop ET de la volatilité. C'est la clé pour une gestion du risque robuste et une performance stable sur le long terme. Protège ton capital !",
+  "voix_off": "Arrête de trader au hasard ! Tu vas cramer ton compte si tu ne sais pas calculer ton lot. Sur le GBP/USD, comme sur tous les actifs forex, la taille de ta position est la clé de ta survie. D'abord, décide combien tu acceptes de perdre sur un trade. Un bon débutant risque maximum 1 % de son capital. Imaginons que tu as mille euros : ton risque est donc de dix euros. Ensuite, regarde ton graphique. Où places-tu ton stop loss ? Si la distance est de vingt pips, tu divises ton risque par cette distance. C'est ce calcul précis qui détermine si tu dois ouvrir 0.01 ou 0.10 lot. Ne devine jamais le chiffre ! Utilise une application gratuite comme Myfxbook pour faire le calcul en deux secondes. Maîtrise ton risque avant de vouloir gagner gros. Abonne-toi pour protéger ton capital.",
   "sous_titres": [
-    "Gère ta taille de position efficacement.",
-    "Oublie le 1% fixe.",
-    "Pense risque réel par trade.",
-    "DOT/USDT: ajustez selon stop.",
-    "Calculez unités pour risque fixe.",
-    "Intègre volatilité et distance stop.",
-    "Utilise l'ATR pour tes stops.",
-    "Adapte taille à distance et volatilité.",
-    "Gère ton risque pour long terme.",
-    "Protège ton capital !"
+    "Arrête de trader au hasard !",
+    "Tu vas cramer ton compte.",
+    "Calcule ton lot dès maintenant.",
+    "Risque maximum 1 % par trade.",
+    "Trouve la distance du stop loss.",
+    "Divise ton risque par les pips.",
+    "Ne devine jamais le chiffre.",
+    "Utilise l'application Myfxbook gratuitement.",
+    "Protège ton capital avant tout.",
+    "Abonne-toi pour plus de conseils."
   ],
   "concepts_cles": [
-    "Position Sizing",
-    "Volatilité",
-    "ATR",
+    "Gestion du risque",
     "Stop Loss",
-    "Capital Risqué"
+    "Pips",
+    "Taille de position",
+    "Capital de trading"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
