@@ -1,29 +1,30 @@
 {
-  "titre": "Calcule ton lot Forex en 60 secondes",
-  "sujet": "comment calculer son lot en forex",
+  "titre": "MA et Breakouts expliqués facilement",
+  "sujet": "MA et les breakouts",
   "niveau": "débutant",
-  "actif": "GBP/USD",
-  "categorie": "forex",
-  "fond_type": "schema_risk_reward",
-  "voix_off": "Arrête de trader au hasard ! Tu vas cramer ton compte si tu ne sais pas calculer ton lot. Sur le GBP/USD, comme sur tous les actifs forex, la taille de ta position est la clé de ta survie. D'abord, décide combien tu acceptes de perdre sur un trade. Un bon débutant risque maximum 1 % de son capital. Imaginons que tu as mille euros : ton risque est donc de dix euros. Ensuite, regarde ton graphique. Où places-tu ton stop loss ? Si la distance est de vingt pips, tu divises ton risque par cette distance. C'est ce calcul précis qui détermine si tu dois ouvrir 0.01 ou 0.10 lot. Ne devine jamais le chiffre ! Utilise une application gratuite comme Myfxbook pour faire le calcul en deux secondes. Maîtrise ton risque avant de vouloir gagner gros. Abonne-toi pour protéger ton capital.",
+  "actif": "ADA/USDT",
+  "categorie": "crypto",
+  "fond_type": "moyenne_mobile",
+  "voix_off": "Envie d'anticiper les mouvements du marché crypto ? Voyons ensemble les Moyennes Mobiles et les Breakouts. C'est simple et efficace pour tout débutant !\n\nSur le graphique d'ADA/USDT que vous voyez, la ligne représente une Moyenne Mobile. Son rôle ? Lisser le prix sur une période donnée pour mieux percevoir la tendance générale. C'est très pratique pour avoir une vision claire !\n\nMaintenant, qu'est-ce qu'un 'Breakout' ? C'est quand le prix de l'actif 'casse' cette Moyenne Mobile de manière significative. Si le prix passe au-dessus de la ligne et s'y maintient, c'est souvent un signal haussier potentiel. Le marché pourrait monter !\n\nInversement, si le prix tombe en dessous de la Moyenne Mobile et y reste, cela peut indiquer un signal baissier à venir. C'est un excellent outil pour détecter les renversements de tendance.\n\nMais attention : utilisez toujours d'autres indicateurs pour confirmer vos signaux. Ne misez jamais tout sur un seul ! Prêt à l'essayer ? Suivez-moi pour plus de conseils trading !",
   "sous_titres": [
-    "Arrête de trader au hasard !",
-    "Tu vas cramer ton compte.",
-    "Calcule ton lot dès maintenant.",
-    "Risque maximum 1 % par trade.",
-    "Trouve la distance du stop loss.",
-    "Divise ton risque par les pips.",
-    "Ne devine jamais le chiffre.",
-    "Utilise l'application Myfxbook gratuitement.",
-    "Protège ton capital avant tout.",
-    "Abonne-toi pour plus de conseils."
+    "Anticipez mouvements du marché crypto.",
+    "Moyennes Mobiles et Breakouts.",
+    "La ligne : Moyenne Mobile.",
+    "Lisse le prix, montre tendance.",
+    "Un 'Breakout' : prix casse.",
+    "Prix au-dessus ? Signal haussier.",
+    "Prix en dessous ? Signal baissier.",
+    "Détectez les renversements.",
+    "Combinez avec autres indicateurs.",
+    "Ne misez pas sur un seul !",
+    "Prêt à essayer ? Suivez !"
   ],
   "concepts_cles": [
-    "Gestion du risque",
-    "Stop Loss",
-    "Pips",
-    "Taille de position",
-    "Capital de trading"
+    "Moyenne Mobile",
+    "Breakout",
+    "Tendance",
+    "Signal haussier",
+    "Signal baissier"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
