@@ -1,30 +1,29 @@
 {
-  "titre": "MA et Breakouts expliqués facilement",
-  "sujet": "MA et les breakouts",
+  "titre": "Risque Fixe vs Variable : Le Secret",
+  "sujet": "risque fixe vs risque variable",
   "niveau": "débutant",
-  "actif": "ADA/USDT",
+  "actif": "BNB/USDT",
   "categorie": "crypto",
-  "fond_type": "moyenne_mobile",
-  "voix_off": "Envie d'anticiper les mouvements du marché crypto ? Voyons ensemble les Moyennes Mobiles et les Breakouts. C'est simple et efficace pour tout débutant !\n\nSur le graphique d'ADA/USDT que vous voyez, la ligne représente une Moyenne Mobile. Son rôle ? Lisser le prix sur une période donnée pour mieux percevoir la tendance générale. C'est très pratique pour avoir une vision claire !\n\nMaintenant, qu'est-ce qu'un 'Breakout' ? C'est quand le prix de l'actif 'casse' cette Moyenne Mobile de manière significative. Si le prix passe au-dessus de la ligne et s'y maintient, c'est souvent un signal haussier potentiel. Le marché pourrait monter !\n\nInversement, si le prix tombe en dessous de la Moyenne Mobile et y reste, cela peut indiquer un signal baissier à venir. C'est un excellent outil pour détecter les renversements de tendance.\n\nMais attention : utilisez toujours d'autres indicateurs pour confirmer vos signaux. Ne misez jamais tout sur un seul ! Prêt à l'essayer ? Suivez-moi pour plus de conseils trading !",
+  "fond_type": "schema_risk_reward",
+  "voix_off": "Arrête de jeter ton argent par les fenêtres quand tu trades du BNB ! Sais-tu pourquoi la majorité des débutants échouent en seulement quelques semaines ? C'est parce qu'ils ne maîtrisent pas la différence vitale entre risque fixe et risque variable. Le risque fixe, c'est ta protection ultime. Tu décides de perdre, par exemple, seulement un pour cent de ton capital total par trade. Quoi qu'il arrive sur le marché, ta perte est connue et acceptée à l'avance. À l'inverse, le risque variable, c'est le mode casino. Tu mises gros quand tu as confiance et peu quand tu as peur. Résultat ? Une seule mauvaise opération peut anéantir tous tes gains précédents. En trading, la régularité est la seule clé du succès. Sur ce schéma, tu vois qu'un risque fixe permet de rester dans le jeu même après plusieurs échecs. Apprends à calculer ta taille de position avant de cliquer. Abonne-toi pour ne plus trader au hasard !",
   "sous_titres": [
-    "Anticipez mouvements du marché crypto.",
-    "Moyennes Mobiles et Breakouts.",
-    "La ligne : Moyenne Mobile.",
-    "Lisse le prix, montre tendance.",
-    "Un 'Breakout' : prix casse.",
-    "Prix au-dessus ? Signal haussier.",
-    "Prix en dessous ? Signal baissier.",
-    "Détectez les renversements.",
-    "Combinez avec autres indicateurs.",
-    "Ne misez pas sur un seul !",
-    "Prêt à essayer ? Suivez !"
+    "Arrête de jeter ton argent.",
+    "Pourquoi les débutants échouent-ils ?",
+    "Risque fixe vs risque variable.",
+    "Le risque fixe te protège.",
+    "Perds un pour cent maximum.",
+    "Le risque variable est dangereux.",
+    "Ne joue pas au casino.",
+    "Une erreur peut tout détruire.",
+    "Calcule ta taille de position.",
+    "Abonne-toi pour plus d'astuces."
   ],
   "concepts_cles": [
-    "Moyenne Mobile",
-    "Breakout",
-    "Tendance",
-    "Signal haussier",
-    "Signal baissier"
+    "Risque fixe",
+    "Risque variable",
+    "Gestion du capital",
+    "Taille de position",
+    "Psychologie du trading"
   ],
   "tags": "#trading #crypto #bourse #apprendre #finance"
 }
