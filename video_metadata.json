@@ -1,29 +1,26 @@
 {
-  "titre": "Dominer les breakouts AUD/USD avec les MA",
-  "sujet": "MA et les breakouts",
-  "niveau": "confirmé",
-  "actif": "AUD/USD",
-  "categorie": "forex",
-  "fond_type": "moyenne_mobile",
-  "voix_off": "Marre de te faire piéger par les faux breakouts sur l'AUD/USD ? Pour un trader confirmé, la cassure d'une résistance ne suffit pas. Tu dois impérativement corréler ton action de prix avec la pente de ta moyenne mobile exponentielle. Sur ce graphique, observe comment la EMA 50 agit comme un filtre de momentum. Si le prix break une zone horizontale alors que la MA reste plate, le risque de bull trap est maximal. Attends plutôt une convergence : une cassure franche suivie d'un retest chirurgical sur la moyenne mobile qui sert maintenant de support dynamique. Analyse le rejet par la mèche, c'est là que réside ta confirmation institutionnelle. En intégrant cette confluence, tu passes d'un setup probabiliste à un trade à haute conviction. Ne chasse jamais le prix loin de sa moyenne, attends que l'élasticité se réduise. Maîtrise cette synergie et ton taux de réussite sur le Forex va exploser.",
+  "titre": "Le Risk/Reward expliqué",
+  "sujet": "le risk/reward",
+  "niveau": "débutant",
+  "actif": "BTC/USDT",
+  "categorie": "crypto",
+  "fond_type": "schema_risk_reward",
+  "voix_off": "Est-ce que tu sais vraiment ce qu'est le risk reward ? C'est le ratio entre ce que tu risques et ce que tu peux gagner. Avec un ratio de 1 pour 3, tu peux perdre deux trades sur trois et rester rentable. Avant chaque trade, calcule ce ratio. En dessous de 1 pour 2, passe ton chemin.",
   "sous_titres": [
-    "Fini les faux breakouts AUD/USD",
-    "La MA comme filtre ultime",
-    "Surveille la pente de l'EMA",
-    "Évite les cassures sans momentum",
-    "Attends un retest sur MA",
-    "Support dynamique vs zone horizontale",
-    "Analyse le rejet des mèches",
-    "Confirmation institutionnelle nécessaire",
-    "Réduis l'élasticité du prix",
-    "Trade à haute conviction uniquement"
+    "Tu connais le risk/reward ?",
+    "Ratio gain contre perte",
+    "1 risqué pour 3 gagné",
+    "Perdre et rester rentable",
+    "Calcule avant chaque trade",
+    "Minimum 1 pour 2",
+    "Base du trading pro"
   ],
   "concepts_cles": [
-    "EMA 50",
-    "Support dynamique",
-    "Rejet de mèche",
-    "Bull trap",
-    "Confluence technique"
+    "Risk/Reward",
+    "Stop Loss",
+    "Take Profit",
+    "Ratio 1:2",
+    "Money Management"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #riskmanagement #crypto #apprendre #bourse"
 }
