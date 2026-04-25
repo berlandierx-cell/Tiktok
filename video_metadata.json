@@ -1,26 +1,31 @@
 {
-  "titre": "Le Risk/Reward expliqué",
-  "sujet": "le risk/reward",
-  "niveau": "débutant",
-  "actif": "BTC/USDT",
+  "titre": "MACD : Maîtrisez les Croisements sur DOGE",
+  "sujet": "les croisements de lignes MACD",
+  "niveau": "confirmé",
+  "actif": "DOGE/USDT",
   "categorie": "crypto",
-  "fond_type": "schema_risk_reward",
-  "voix_off": "Est-ce que tu sais vraiment ce qu'est le risk reward ? C'est le ratio entre ce que tu risques et ce que tu peux gagner. Avec un ratio de 1 pour 3, tu peux perdre deux trades sur trois et rester rentable. Avant chaque trade, calcule ce ratio. En dessous de 1 pour 2, passe ton chemin.",
+  "fond_type": "indicateur_macd",
+  "voix_off": "Vos signaux sur DOGE/USDT manquent de clarté ? Optimisez avec les croisements MACD ! Un outil clé pour anticiper les renversements sur crypto.\n\nLe MACD utilise deux lignes : MACD (rapide) et Signal (sa moyenne mobile lente).\nCroisement haussier : MACD passe au-dessus de Signal. Indique momentum ascendant. Confirmez avec volume ou structure. Ne tradez jamais MACD seul.\n\nCroisement baissier : MACD franchit Signal par le bas. Suggère perte de momentum, correction. Attention aux marchés en range.\n\nLes divergences sont cruciales. Prix monte, MACD baisse ? Divergence baissière. Un avertissement. Intégrez cela. Le MACD est puissant, mais gestion du risque essentielle. Tradez smart !",
   "sous_titres": [
-    "Tu connais le risk/reward ?",
-    "Ratio gain contre perte",
-    "1 risqué pour 3 gagné",
-    "Perdre et rester rentable",
-    "Calcule avant chaque trade",
-    "Minimum 1 pour 2",
-    "Base du trading pro"
+    "Signaux flous sur DOGE ?",
+    "Optimisez avec croisements MACD.",
+    "Deux lignes clés : MACD et Signal.",
+    "Haussier : MACD passe au-dessus.",
+    "Indique momentum ascendant.",
+    "Toujours confirmer les signaux.",
+    "Baissier : MACD franchit par le bas.",
+    "Suggère perte de momentum.",
+    "Divergences sont cruciales.",
+    "Prix monte, MACD baisse ?",
+    "Avertissement de divergence baissière.",
+    "Gestion du risque essentielle."
   ],
   "concepts_cles": [
-    "Risk/Reward",
-    "Stop Loss",
-    "Take Profit",
-    "Ratio 1:2",
-    "Money Management"
+    "Croisement MACD",
+    "Ligne de signal",
+    "Momentum ascendant",
+    "Divergence baissière",
+    "Gestion du risque"
   ],
-  "tags": "#trading #riskmanagement #crypto #apprendre #bourse"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
