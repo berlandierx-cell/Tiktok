@@ -1,31 +1,30 @@
 {
-  "titre": "MACD : Maîtrisez les Croisements sur DOGE",
-  "sujet": "les croisements de lignes MACD",
-  "niveau": "confirmé",
-  "actif": "DOGE/USDT",
-  "categorie": "crypto",
-  "fond_type": "indicateur_macd",
-  "voix_off": "Vos signaux sur DOGE/USDT manquent de clarté ? Optimisez avec les croisements MACD ! Un outil clé pour anticiper les renversements sur crypto.\n\nLe MACD utilise deux lignes : MACD (rapide) et Signal (sa moyenne mobile lente).\nCroisement haussier : MACD passe au-dessus de Signal. Indique momentum ascendant. Confirmez avec volume ou structure. Ne tradez jamais MACD seul.\n\nCroisement baissier : MACD franchit Signal par le bas. Suggère perte de momentum, correction. Attention aux marchés en range.\n\nLes divergences sont cruciales. Prix monte, MACD baisse ? Divergence baissière. Un avertissement. Intégrez cela. Le MACD est puissant, mais gestion du risque essentielle. Tradez smart !",
+  "titre": "MA : Ton premier guide en trading !",
+  "sujet": "les MA en bourse",
+  "niveau": "débutant",
+  "actif": "AUD/USD",
+  "categorie": "forex",
+  "fond_type": "moyenne_mobile",
+  "voix_off": "Tu veux anticiper les mouvements du marché, même en étant débutant ? Regarde l'AUD/USD ! La ligne que tu vois bouger avec le prix, c'est une Moyenne Mobile, ou MA. C'est simple mais puissant pour le trading. La MA lisse le prix en calculant sa moyenne sur une période définie, par exemple les 50 dernières bougies. Ça te montre la direction générale du prix, la tendance. Une ligne qui monte ? C'est haussier ! Une ligne qui descend ? C'est baissier ! Fini le stress des petites fluctuations aléatoires qui peuvent t'induire en erreur. Sur notre AUD/USD, si le prix reste au-dessus de la MA, c'est souvent un signe de force, de momentum. En dessous, c'est plutôt un signal de faiblesse. Ça t'aide concrètement à voir si le marché est plutôt à l'achat ou à la vente. C'est un outil fondamental pour bien débuter. Maîtrise les Moyennes Mobiles et tes décisions seront bien plus éclairées. Abonne-toi pour plus de conseils en trading !",
   "sous_titres": [
-    "Signaux flous sur DOGE ?",
-    "Optimisez avec croisements MACD.",
-    "Deux lignes clés : MACD et Signal.",
-    "Haussier : MACD passe au-dessus.",
-    "Indique momentum ascendant.",
-    "Toujours confirmer les signaux.",
-    "Baissier : MACD franchit par le bas.",
-    "Suggère perte de momentum.",
-    "Divergences sont cruciales.",
-    "Prix monte, MACD baisse ?",
-    "Avertissement de divergence baissière.",
-    "Gestion du risque essentielle."
+    "Tu veux anticiper le marché ?",
+    "Découvre la Moyenne Mobile (MA).",
+    "Une ligne simple mais puissante.",
+    "Elle lisse le prix du AUD/USD.",
+    "Vois la tendance facilement.",
+    "Ligne monte = marché haussier.",
+    "Ligne descend = marché baissier.",
+    "Prix au-dessus de MA = force.",
+    "Prix en dessous = faiblesse.",
+    "Ton guide pour débuter.",
+    "Abonne-toi pour réussir !"
   ],
   "concepts_cles": [
-    "Croisement MACD",
-    "Ligne de signal",
-    "Momentum ascendant",
-    "Divergence baissière",
-    "Gestion du risque"
+    "Moyenne Mobile",
+    "Tendance",
+    "Lisser prix",
+    "Forex",
+    "Signal trading"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
