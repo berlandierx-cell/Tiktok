@@ -1,30 +1,30 @@
 {
-  "titre": "MA : Ton premier guide en trading !",
-  "sujet": "les MA en bourse",
-  "niveau": "débutant",
-  "actif": "AUD/USD",
-  "categorie": "forex",
-  "fond_type": "moyenne_mobile",
-  "voix_off": "Tu veux anticiper les mouvements du marché, même en étant débutant ? Regarde l'AUD/USD ! La ligne que tu vois bouger avec le prix, c'est une Moyenne Mobile, ou MA. C'est simple mais puissant pour le trading. La MA lisse le prix en calculant sa moyenne sur une période définie, par exemple les 50 dernières bougies. Ça te montre la direction générale du prix, la tendance. Une ligne qui monte ? C'est haussier ! Une ligne qui descend ? C'est baissier ! Fini le stress des petites fluctuations aléatoires qui peuvent t'induire en erreur. Sur notre AUD/USD, si le prix reste au-dessus de la MA, c'est souvent un signe de force, de momentum. En dessous, c'est plutôt un signal de faiblesse. Ça t'aide concrètement à voir si le marché est plutôt à l'achat ou à la vente. C'est un outil fondamental pour bien débuter. Maîtrise les Moyennes Mobiles et tes décisions seront bien plus éclairées. Abonne-toi pour plus de conseils en trading !",
+  "titre": "MACD & Fibonacci: Stratégie de Confluence Ultime",
+  "sujet": "MACD et Fibonacci",
+  "niveau": "confirmé",
+  "actif": "BNB/USDT",
+  "categorie": "crypto",
+  "fond_type": "indicateur_macd",
+  "voix_off": "Le MACD est puissant, mais couplé à Fibonacci, il optimise vos setups! Sur ce BNB/USDT, la confluence décuple l'analyse. Le MACD, votre oscillateur de momentum, vous signale un croisement haussier, indiquant une inversion potentielle. C'est votre premier filtre, mais attendez confirmation! Maintenant, superposez vos retracements de Fibonacci. Si ce croisement MACD se produit sur un niveau clé de Fibonacci – 0.5 ou 0.618, par exemple – vous avez une confirmation robuste. C'est une zone de valeur, souvent un point d'inflexion majeur. Pour une entrée affinée, surveillez les divergences MACD haussières ou baissières. Une divergence haussière, confirmée par un retracement Fibonacci valide sur un swing bas, est un signal d'achat premium. Vous ciblez des points pivots avec probabilité accrue. Utilisez les extensions de Fibonacci pour définir vos take-profits. La synergie MACD/Fibonacci est un game-changer pour des setups robustes. Optimisez vos entrées, sécurisez vos sorties. Maîtrisez la confluence!",
   "sous_titres": [
-    "Tu veux anticiper le marché ?",
-    "Découvre la Moyenne Mobile (MA).",
-    "Une ligne simple mais puissante.",
-    "Elle lisse le prix du AUD/USD.",
-    "Vois la tendance facilement.",
-    "Ligne monte = marché haussier.",
-    "Ligne descend = marché baissier.",
-    "Prix au-dessus de MA = force.",
-    "Prix en dessous = faiblesse.",
-    "Ton guide pour débuter.",
-    "Abonne-toi pour réussir !"
+    "MACD + Fibonacci: Optimisez vos setups!",
+    "BNB/USDT: Confluence pour l'analyse.",
+    "MACD: Croisement haussier, premier filtre.",
+    "Retracements Fibonacci: Niveaux clés.",
+    "Confluence: Confirmation robuste entrée.",
+    "Divergences MACD: Affinez votre entrée.",
+    "Signal d'achat premium: Probabilité accrue.",
+    "Extensions Fibonacci: Définir take-profits.",
+    "Synergie MACD/Fibonacci: Game-changer.",
+    "Optimisez vos entrées, sécurisez sorties.",
+    "Maîtrisez la confluence maintenant!"
   ],
   "concepts_cles": [
-    "Moyenne Mobile",
-    "Tendance",
-    "Lisser prix",
-    "Forex",
-    "Signal trading"
+    "MACD",
+    "Fibonacci",
+    "Confluence",
+    "Divergence",
+    "Retracement"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
