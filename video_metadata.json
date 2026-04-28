@@ -1,30 +1,29 @@
 {
-  "titre": "MACD & Fibonacci: Stratégie de Confluence Ultime",
-  "sujet": "MACD et Fibonacci",
-  "niveau": "confirmé",
-  "actif": "BNB/USDT",
+  "titre": "Bougies longues vs courtes : force du marché",
+  "sujet": "les bougies longues vs courtes",
+  "niveau": "intermédiaire",
+  "actif": "DOT/USDT",
   "categorie": "crypto",
-  "fond_type": "indicateur_macd",
-  "voix_off": "Le MACD est puissant, mais couplé à Fibonacci, il optimise vos setups! Sur ce BNB/USDT, la confluence décuple l'analyse. Le MACD, votre oscillateur de momentum, vous signale un croisement haussier, indiquant une inversion potentielle. C'est votre premier filtre, mais attendez confirmation! Maintenant, superposez vos retracements de Fibonacci. Si ce croisement MACD se produit sur un niveau clé de Fibonacci – 0.5 ou 0.618, par exemple – vous avez une confirmation robuste. C'est une zone de valeur, souvent un point d'inflexion majeur. Pour une entrée affinée, surveillez les divergences MACD haussières ou baissières. Une divergence haussière, confirmée par un retracement Fibonacci valide sur un swing bas, est un signal d'achat premium. Vous ciblez des points pivots avec probabilité accrue. Utilisez les extensions de Fibonacci pour définir vos take-profits. La synergie MACD/Fibonacci est un game-changer pour des setups robustes. Optimisez vos entrées, sécurisez vos sorties. Maîtrisez la confluence!",
+  "fond_type": "chandeliers",
+  "voix_off": "Tu veux décoder la force du marché ? Regarde ces bougies sur DOT/USDT ! Leur taille est un signal crucial de conviction des traders. Une bougie longue, verte ou rouge, indique mouvement de prix puissant, forte conviction. Sur DOT, longue verte signale momentum haussier ou cassure. Confirmation pour tes entrées/sorties. Longue rouge, forte pression vendeuse. À l'inverse, bougie courte révèle l'indécision. Ni acheteurs ni vendeurs dominent. Ces petites bougies, parfois dojis, montrent consolidation ou hésitation. Volatilité faible. Elles précèdent souvent un mouvement majeur. Maîtriser cette distinction est crucial. Longues = force, courtes = indécision. Analyse-les avec volume et supports/résistances. Vital pour affiner tes stratégies sur le DOT !",
   "sous_titres": [
-    "MACD + Fibonacci: Optimisez vos setups!",
-    "BNB/USDT: Confluence pour l'analyse.",
-    "MACD: Croisement haussier, premier filtre.",
-    "Retracements Fibonacci: Niveaux clés.",
-    "Confluence: Confirmation robuste entrée.",
-    "Divergences MACD: Affinez votre entrée.",
-    "Signal d'achat premium: Probabilité accrue.",
-    "Extensions Fibonacci: Définir take-profits.",
-    "Synergie MACD/Fibonacci: Game-changer.",
-    "Optimisez vos entrées, sécurisez sorties.",
-    "Maîtrisez la confluence maintenant!"
+    "Décoder la force du marché.",
+    "Bougies DOT/USDT, cruciales.",
+    "Longue bougie : forte conviction.",
+    "Momentum haussier ou cassure.",
+    "Pression acheteuse ou vendeuse.",
+    "Bougie courte : indécision.",
+    "Consolidation ou hésitation.",
+    "Volatilité faible, pause marché.",
+    "Analyser avec volume et niveaux.",
+    "Affiner tes stratégies DOT."
   ],
   "concepts_cles": [
-    "MACD",
-    "Fibonacci",
-    "Confluence",
-    "Divergence",
-    "Retracement"
+    "Chandelier",
+    "Momentum",
+    "Volatilité",
+    "Consolidation",
+    "Indécision"
   ],
   "tags": "#trading #crypto #bourse #apprendre #finance"
 }
