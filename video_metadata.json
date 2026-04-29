@@ -1,29 +1,29 @@
 {
-  "titre": "Bougies longues vs courtes : force du marché",
-  "sujet": "les bougies longues vs courtes",
-  "niveau": "intermédiaire",
-  "actif": "DOT/USDT",
+  "titre": "Maîtriser la Shooting Star sur le BTC",
+  "sujet": "le shooting star",
+  "niveau": "confirmé",
+  "actif": "BTC/USDT",
   "categorie": "crypto",
   "fond_type": "chandeliers",
-  "voix_off": "Tu veux décoder la force du marché ? Regarde ces bougies sur DOT/USDT ! Leur taille est un signal crucial de conviction des traders. Une bougie longue, verte ou rouge, indique mouvement de prix puissant, forte conviction. Sur DOT, longue verte signale momentum haussier ou cassure. Confirmation pour tes entrées/sorties. Longue rouge, forte pression vendeuse. À l'inverse, bougie courte révèle l'indécision. Ni acheteurs ni vendeurs dominent. Ces petites bougies, parfois dojis, montrent consolidation ou hésitation. Volatilité faible. Elles précèdent souvent un mouvement majeur. Maîtriser cette distinction est crucial. Longues = force, courtes = indécision. Analyse-les avec volume et supports/résistances. Vital pour affiner tes stratégies sur le DOT !",
+  "voix_off": "Arrêtez de racheter chaque pump du Bitcoin sans regarder cette structure de retournement majeure. On est sur le BTC/USDT, en pleine zone de supply. Regardez cette bougie : c'est une Shooting Star. Ce n'est pas juste une mèche, c'est un échec cuisant des acheteurs à maintenir les prix au-dessus de la résistance psychologique. Pour un trader confirmé, cette mèche supérieure représente une absorption massive de la liquidité. Le corps réel est petit, situé en bas du range de la bougie, prouvant que les vendeurs ont repris le contrôle avant la clôture. Mais attention, ne shortez pas aveuglément. On cherche une confluence avec un RSI en surachat ou une divergence baissière. La validation survient à la cassure du plus bas de la mèche. Si le volume augmente sur la bougie suivante, le setup de reversal est activé. Gérez votre risque, le sommet de la mèche est votre stop loss technique.",
   "sous_titres": [
-    "Décoder la force du marché.",
-    "Bougies DOT/USDT, cruciales.",
-    "Longue bougie : forte conviction.",
-    "Momentum haussier ou cassure.",
-    "Pression acheteuse ou vendeuse.",
-    "Bougie courte : indécision.",
-    "Consolidation ou hésitation.",
-    "Volatilité faible, pause marché.",
-    "Analyser avec volume et niveaux.",
-    "Affiner tes stratégies DOT."
+    "Ne rachetez pas chaque pump.",
+    "Structure de retournement majeure détectée.",
+    "Observez cette Shooting Star précise.",
+    "Échec critique des acheteurs ici.",
+    "Absorption massive de la liquidité.",
+    "Les vendeurs reprennent le contrôle.",
+    "Cherchez une confluence technique globale.",
+    "Surveillez le RSI en surachat.",
+    "Validation sous le plus bas.",
+    "Le setup de reversal s'active."
   ],
   "concepts_cles": [
-    "Chandelier",
-    "Momentum",
-    "Volatilité",
-    "Consolidation",
-    "Indécision"
+    "Absorption de liquidité",
+    "Zone de supply",
+    "Rejet de résistance",
+    "Confluence technique",
+    "Ratio mèche-corps"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bitcoin #analysetechnique #priceaction"
 }
