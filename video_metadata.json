@@ -1,29 +1,31 @@
 {
-  "titre": "Domine l'Outside Bar sur ETH/USDT",
-  "sujet": "l'outside bar",
+  "titre": "RSI et News : Piège Majeur !",
+  "sujet": "le RSI et les news",
   "niveau": "intermédiaire",
-  "actif": "ETH/USDT",
-  "categorie": "crypto",
-  "fond_type": "chandeliers",
-  "voix_off": "Arrête de te faire piéger par les fausses cassures sur l'ETH. Aujourd'hui, on décode l'Outside Bar, le pattern ultime pour repérer les retournements de tendance. Une Outside Bar, c'est quand une bougie avale complètement le plus haut et le plus bas de la bougie précédente. Ce n'est pas juste visuel : c'est un balayage de liquidité des deux côtés qui montre une prise de contrôle agressive d'un camp. Sur l'ETH/USDT, si tu vois ce setup après un mouvement impulsif, prépare-toi. Les acheteurs et les vendeurs ont été testés, et le camp gagnant va propulser le prix. Pour valider le trade, attends la clôture au-delà de l'Outside Bar. C’est un signal de force majeure souvent utilisé par les institutionnels pour piéger les traders retail. Analyse tes chandeliers, surveille les volumes, et ne te laisse plus sortir par la volatilité. Abonne-toi pour maîtriser tes entrées et passer un palier.",
+  "actif": "EUR/GBP",
+  "categorie": "forex",
+  "fond_type": "indicateur_rsi",
+  "voix_off": "RSI et news : un piège majeur à éviter ! Vous utilisez le RSI pour surachat/survente sur EUR/GBP. Mais face aux annonces économiques majeures, le RSI devient trompeur. La volatilité explose, le prix dévie brutalement. L'indicateur reste bloqué en zones extrêmes, sans signal valide. Pourquoi ? Le RSI mesure le momentum. Un événement fondamental écrase cette dynamique technique. Il peut signaler une survente alors que le prix chute encore. Ou une surachat quand il monte toujours. Risque de fausses cassures, trades prématurés. Ma solution ? Pendant les news, privilégiez l'action des prix. Attendez que la volatilité se calme. Ensuite, utilisez le RSI pour des divergences de momentum fiables, une fois le marché stabilisé. Les fondamentaux dominent toujours l'indicateur !",
   "sous_titres": [
-    "Marre des fausses cassures sur ETH ?",
-    "Découvre l'Outside Bar pour tes trades.",
-    "Elle avale la bougie précédente entière.",
-    "C'est un balayage de liquidité massif.",
-    "Les institutionnels piègent les traders retail.",
-    "Surveille bien les clôtures sur ETH.",
-    "Attends la cassure du pattern Outside.",
-    "La force du mouvement est confirmée.",
-    "Analyse les volumes avec les chandeliers.",
-    "Maîtrise tes entrées sur la crypto."
+    "RSI et news : piège majeur ?",
+    "EUR/GBP : surachat/survente",
+    "Annonces majeures ? RSI trompeur !",
+    "Volatilité explose, prix dévie.",
+    "RSI bloqué en zones extrêmes.",
+    "Pourquoi ? Fondamentaux écrasent momentum.",
+    "Prix chute, RSI montre survente.",
+    "Risque de fausses cassures.",
+    "Priorisez l'action des prix.",
+    "Attendez la volatilité calmer.",
+    "RSI fiable pour divergences après.",
+    "Fondamentaux dominent l'indicateur."
   ],
   "concepts_cles": [
-    "Outside Bar",
-    "Balayage de liquidité",
-    "Chandeliers japonais",
-    "Retournement de tendance",
-    "Trading institutionnel"
+    "RSI",
+    "News économiques",
+    "Volatilité",
+    "Momentum",
+    "Action prix"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
