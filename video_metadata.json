@@ -1,31 +1,30 @@
 {
-  "titre": "RSI et News : Piège Majeur !",
-  "sujet": "le RSI et les news",
-  "niveau": "intermédiaire",
-  "actif": "EUR/GBP",
-  "categorie": "forex",
-  "fond_type": "indicateur_rsi",
-  "voix_off": "RSI et news : un piège majeur à éviter ! Vous utilisez le RSI pour surachat/survente sur EUR/GBP. Mais face aux annonces économiques majeures, le RSI devient trompeur. La volatilité explose, le prix dévie brutalement. L'indicateur reste bloqué en zones extrêmes, sans signal valide. Pourquoi ? Le RSI mesure le momentum. Un événement fondamental écrase cette dynamique technique. Il peut signaler une survente alors que le prix chute encore. Ou une surachat quand il monte toujours. Risque de fausses cassures, trades prématurés. Ma solution ? Pendant les news, privilégiez l'action des prix. Attendez que la volatilité se calme. Ensuite, utilisez le RSI pour des divergences de momentum fiables, une fois le marché stabilisé. Les fondamentaux dominent toujours l'indicateur !",
+  "titre": "MACD + RSI: Synergie Gagnante pour Crypto",
+  "sujet": "combiner MACD et RSI",
+  "niveau": "confirmé",
+  "actif": "DOGE/USDT",
+  "categorie": "crypto",
+  "fond_type": "indicateur_macd",
+  "voix_off": "Stop de trader à l'aveugle ! Marre des faux signaux ? Pour un trading crypto robuste, combinez MACD et RSI. Ce n'est pas juste additionner, c'est créer une confluence stratégique. Le MACD, votre indicateur de momentum et de tendance, identifie les croisements de lignes de signal. Quand il valide une impulsion haussière, cherchez la confirmation avec le RSI. Le RSI, lui, vous révèle les zones de surachat ou de survente, et surtout, les divergences.\n\nImaginez : DOGE/USDT commence une phase corrective. Le MACD montre un affaiblissement du momentum. Simultanément, le RSI dessine une divergence haussière alors que le prix baisse. Cela suggère un épuisement des vendeurs. Ou inversement, un MACD en surachat avec un RSI montrant une divergence baissière annonce souvent un retournement. Ne prenez jamais un signal seul. La clé est la convergence des indicateurs. Un croisement MACD haussier confirmé par un RSI sortant de la zone de survente offre une probabilité bien plus élevée. Maximisez vos setups ! C'est la synergie qui prime pour anticiper les mouvements de marché avec plus de précision.",
   "sous_titres": [
-    "RSI et news : piège majeur ?",
-    "EUR/GBP : surachat/survente",
-    "Annonces majeures ? RSI trompeur !",
-    "Volatilité explose, prix dévie.",
-    "RSI bloqué en zones extrêmes.",
-    "Pourquoi ? Fondamentaux écrasent momentum.",
-    "Prix chute, RSI montre survente.",
-    "Risque de fausses cassures.",
-    "Priorisez l'action des prix.",
-    "Attendez la volatilité calmer.",
-    "RSI fiable pour divergences après.",
-    "Fondamentaux dominent l'indicateur."
+    "Stop de trader à l'aveugle !",
+    "Créez une confluence stratégique.",
+    "MACD: momentum et tendance.",
+    "RSI: surachat ou survente.",
+    "Divergences sont la clé.",
+    "DOGE/USDT en phase corrective.",
+    "MACD affaiblit, RSI diverge.",
+    "Signe d'épuisement des vendeurs.",
+    "Ne prenez jamais signal seul.",
+    "La synergie maximise vos setups.",
+    "Anticipez avec plus de précision."
   ],
   "concepts_cles": [
+    "MACD",
     "RSI",
-    "News économiques",
-    "Volatilité",
-    "Momentum",
-    "Action prix"
+    "Confluence",
+    "Divergence",
+    "Momentum"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
