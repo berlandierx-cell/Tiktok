@@ -1,30 +1,31 @@
 {
-  "titre": "MACD + RSI: Synergie Gagnante pour Crypto",
-  "sujet": "combiner MACD et RSI",
-  "niveau": "confirmé",
-  "actif": "DOGE/USDT",
-  "categorie": "crypto",
-  "fond_type": "indicateur_macd",
-  "voix_off": "Stop de trader à l'aveugle ! Marre des faux signaux ? Pour un trading crypto robuste, combinez MACD et RSI. Ce n'est pas juste additionner, c'est créer une confluence stratégique. Le MACD, votre indicateur de momentum et de tendance, identifie les croisements de lignes de signal. Quand il valide une impulsion haussière, cherchez la confirmation avec le RSI. Le RSI, lui, vous révèle les zones de surachat ou de survente, et surtout, les divergences.\n\nImaginez : DOGE/USDT commence une phase corrective. Le MACD montre un affaiblissement du momentum. Simultanément, le RSI dessine une divergence haussière alors que le prix baisse. Cela suggère un épuisement des vendeurs. Ou inversement, un MACD en surachat avec un RSI montrant une divergence baissière annonce souvent un retournement. Ne prenez jamais un signal seul. La clé est la convergence des indicateurs. Un croisement MACD haussier confirmé par un RSI sortant de la zone de survente offre une probabilité bien plus élevée. Maximisez vos setups ! C'est la synergie qui prime pour anticiper les mouvements de marché avec plus de précision.",
+  "titre": "Les 5 Règles d'Or du Trading",
+  "sujet": "les règles d'or du trader",
+  "niveau": "débutant",
+  "actif": "USD/JPY",
+  "categorie": "forex",
+  "fond_type": "texte_cles",
+  "voix_off": "Envie de trader sans te ruiner ? Voici les 5 règles d'or pour tout débutant ! Avec l'USD/JPY en fond, plongeons dans le monde du Forex !\n\nPremièrement : forme-toi ! Le trading n'est pas un casino. Apprends les bases, les graphiques, les stratégies. L'éducation est ta clé pour comprendre les marchés.\n\nDeuxièmement : gère ton risque ! Ne mise jamais plus que ce que tu peux perdre. Protège ton capital, c'est ta priorité. Fixe des stops loss !\n\nTroisièmement : aie un plan ! Définis tes objectifs, tes points d'entrée et de sortie. Suis ton plan à la lettre, sans exception.\n\nQuatrièmement : maîtrise tes émotions ! Peur et cupidité sont dangereuses. Reste patient, discipliné, peu importe les fluctuations.\n\nEnfin, cinquièmement : commence petit ! Utilise d'abord un compte démo. Quand tu es prêt, investis de petites sommes. La pratique rend parfait !\n\nApplique ces règles et construis une base solide pour réussir. Abonne-toi !",
   "sous_titres": [
-    "Stop de trader à l'aveugle !",
-    "Créez une confluence stratégique.",
-    "MACD: momentum et tendance.",
-    "RSI: surachat ou survente.",
-    "Divergences sont la clé.",
-    "DOGE/USDT en phase corrective.",
-    "MACD affaiblit, RSI diverge.",
-    "Signe d'épuisement des vendeurs.",
-    "Ne prenez jamais signal seul.",
-    "La synergie maximise vos setups.",
-    "Anticipez avec plus de précision."
+    "Envie de trader sans te ruiner ?",
+    "Voici les 5 règles d'or !",
+    "Forme-toi sans cesse aux bases.",
+    "Gère toujours bien ton risque.",
+    "Protège ton capital, c'est crucial.",
+    "Aie un plan de trading solide.",
+    "Maîtrise tes émotions fortes.",
+    "Patience et discipline sont clés.",
+    "Commence petit, utilise la démo.",
+    "La pratique te rendra parfait.",
+    "Construis une base solide.",
+    "Abonne-toi pour plus de conseils !"
   ],
   "concepts_cles": [
-    "MACD",
-    "RSI",
-    "Confluence",
-    "Divergence",
-    "Momentum"
+    "Formation",
+    "Gestion risque",
+    "Plan trading",
+    "Émotions",
+    "Compte démo"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
