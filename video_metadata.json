@@ -1,31 +1,31 @@
 {
-  "titre": "Les 5 Règles d'Or du Trading",
-  "sujet": "les règles d'or du trader",
-  "niveau": "débutant",
-  "actif": "USD/JPY",
-  "categorie": "forex",
-  "fond_type": "texte_cles",
-  "voix_off": "Envie de trader sans te ruiner ? Voici les 5 règles d'or pour tout débutant ! Avec l'USD/JPY en fond, plongeons dans le monde du Forex !\n\nPremièrement : forme-toi ! Le trading n'est pas un casino. Apprends les bases, les graphiques, les stratégies. L'éducation est ta clé pour comprendre les marchés.\n\nDeuxièmement : gère ton risque ! Ne mise jamais plus que ce que tu peux perdre. Protège ton capital, c'est ta priorité. Fixe des stops loss !\n\nTroisièmement : aie un plan ! Définis tes objectifs, tes points d'entrée et de sortie. Suis ton plan à la lettre, sans exception.\n\nQuatrièmement : maîtrise tes émotions ! Peur et cupidité sont dangereuses. Reste patient, discipliné, peu importe les fluctuations.\n\nEnfin, cinquièmement : commence petit ! Utilise d'abord un compte démo. Quand tu es prêt, investis de petites sommes. La pratique rend parfait !\n\nApplique ces règles et construis une base solide pour réussir. Abonne-toi !",
+  "titre": "Dark Cloud Cover : Le Signal Baissier Clé",
+  "sujet": "le dark cloud cover",
+  "niveau": "confirmé",
+  "actif": "XRP/USDT",
+  "categorie": "crypto",
+  "fond_type": "chandeliers",
+  "voix_off": "Votre momentum haussier s'essouffle subitement sur XRP/USDT ? Attention au Dark Cloud Cover ! Ce puissant pattern de retournement baissier est un avertissement clair pour les traders confirmés. Il se manifeste par une bougie bullish forte, suivie d'une bougie bearish qui ouvre au-dessus du corps de la précédente mais clôture profondément DANS son corps, idéalement au-delà des 50%. La psychologie est cruciale : les acheteurs tentent une incursion, mais les vendeurs reprennent violemment la main, annulant une grande partie de la progression. Observez-le après une tendance haussière prononcée. Pour confirmation, recherchez un volume élevé sur la bougie baissière ou une clôture subséquente sous le point bas du pattern. Ignorer ce signal peut coûter cher. Quand vous l'identifiez sur votre graphique XRP, c'est le moment d'envisager des prises de profits partielles ou de resserrer vos stops. Maîtriser le Dark Cloud Cover, c'est affiner votre edge et mieux gérer votre risque. Restez vigilant, le marché ne pardonne pas les imprudences. À vous de jouer !",
   "sous_titres": [
-    "Envie de trader sans te ruiner ?",
-    "Voici les 5 règles d'or !",
-    "Forme-toi sans cesse aux bases.",
-    "Gère toujours bien ton risque.",
-    "Protège ton capital, c'est crucial.",
-    "Aie un plan de trading solide.",
-    "Maîtrise tes émotions fortes.",
-    "Patience et discipline sont clés.",
-    "Commence petit, utilise la démo.",
-    "La pratique te rendra parfait.",
-    "Construis une base solide.",
-    "Abonne-toi pour plus de conseils !"
+    "Momentum haussier sur XRP ?",
+    "Attention au Dark Cloud Cover.",
+    "Puissant pattern de retournement baissier.",
+    "Bougie bullish forte, puis bearish.",
+    "Clôture sous les 50% du corps.",
+    "Vendeurs reprennent violemment la main.",
+    "Confirmer avec volume élevé.",
+    "Prises de profits partielles.",
+    "Resserrer vos stops maintenant.",
+    "Maîtriser ce signal clé.",
+    "Affiner votre edge de trading.",
+    "Gérez mieux votre risque."
   ],
   "concepts_cles": [
-    "Formation",
+    "Dark Cloud Cover",
+    "Pattern baissier",
+    "Retournement marché",
     "Gestion risque",
-    "Plan trading",
-    "Émotions",
-    "Compte démo"
+    "Analyse chandelles"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
