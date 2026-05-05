@@ -1,31 +1,29 @@
 {
-  "titre": "Dark Cloud Cover : Le Signal Baissier Clé",
-  "sujet": "le dark cloud cover",
+  "titre": "RSI 9 vs 14 : Le secret sur GBP/JPY",
+  "sujet": "le RSI période 9 vs 14",
   "niveau": "confirmé",
-  "actif": "XRP/USDT",
-  "categorie": "crypto",
-  "fond_type": "chandeliers",
-  "voix_off": "Votre momentum haussier s'essouffle subitement sur XRP/USDT ? Attention au Dark Cloud Cover ! Ce puissant pattern de retournement baissier est un avertissement clair pour les traders confirmés. Il se manifeste par une bougie bullish forte, suivie d'une bougie bearish qui ouvre au-dessus du corps de la précédente mais clôture profondément DANS son corps, idéalement au-delà des 50%. La psychologie est cruciale : les acheteurs tentent une incursion, mais les vendeurs reprennent violemment la main, annulant une grande partie de la progression. Observez-le après une tendance haussière prononcée. Pour confirmation, recherchez un volume élevé sur la bougie baissière ou une clôture subséquente sous le point bas du pattern. Ignorer ce signal peut coûter cher. Quand vous l'identifiez sur votre graphique XRP, c'est le moment d'envisager des prises de profits partielles ou de resserrer vos stops. Maîtriser le Dark Cloud Cover, c'est affiner votre edge et mieux gérer votre risque. Restez vigilant, le marché ne pardonne pas les imprudences. À vous de jouer !",
+  "actif": "GBP/JPY",
+  "categorie": "forex",
+  "fond_type": "indicateur_rsi",
+  "voix_off": "Arrête d'utiliser le RSI 14 par défaut sur le GBP/JPY. C'est le piège des débutants. Sur une paire aussi volatile, le réglage standard est souvent en retard. Pourquoi passer à la période 9 ? Parce que la réactivité est la clé. Le RSI 9 capte les retournements de momentum bien plus tôt, idéal pour le scalping ou l'intraday. En période 14, tu rates l'entrée alors que le prix a déjà pivoté. Sur le GBP/JPY, la vélocité des bougies nécessite un oscillateur nerveux. Attention toutefois, plus de réactivité signifie plus de faux signaux. Pour filtrer le bruit, combine ton RSI 9 avec une analyse de structure de marché H1. Ne cherche pas seulement les zones de surachat ou survente classiques. Cherche les divergences cachées que le RSI 14 lisse trop violemment. Teste ce paramètre, observe la différence de timing sur tes entrées et optimise enfin ton edge.",
   "sous_titres": [
-    "Momentum haussier sur XRP ?",
-    "Attention au Dark Cloud Cover.",
-    "Puissant pattern de retournement baissier.",
-    "Bougie bullish forte, puis bearish.",
-    "Clôture sous les 50% du corps.",
-    "Vendeurs reprennent violemment la main.",
-    "Confirmer avec volume élevé.",
-    "Prises de profits partielles.",
-    "Resserrer vos stops maintenant.",
-    "Maîtriser ce signal clé.",
-    "Affiner votre edge de trading.",
-    "Gérez mieux votre risque."
+    "Arrête d'utiliser le RSI 14 standard.",
+    "C'est le piège des débutants confirmés.",
+    "Sur GBP/JPY, la volatilité domine tout.",
+    "Pourquoi passer à la période 9 ?",
+    "La réactivité est votre meilleur atout.",
+    "Captez les retournements bien plus tôt.",
+    "Le RSI 14 lisse trop l'action.",
+    "Filtrez le bruit en structure H1.",
+    "Repérez les divergences de momentum cachées.",
+    "Optimisez dès maintenant votre timing d'entrée."
   ],
   "concepts_cles": [
-    "Dark Cloud Cover",
-    "Pattern baissier",
-    "Retournement marché",
-    "Gestion risque",
-    "Analyse chandelles"
+    "Réactivité du momentum",
+    "Lissage du signal",
+    "Divergence cachée",
+    "Volatilité intrinsèque",
+    "Optimisation du timing"
   ],
-  "tags": "#trading #crypto #bourse #apprendre #finance"
+  "tags": "#trading #forex #rsi #scalping #gbpjpy"
 }
