@@ -1,29 +1,29 @@
 {
-  "titre": "RSI 9 vs 14 : Le secret sur GBP/JPY",
-  "sujet": "le RSI période 9 vs 14",
-  "niveau": "confirmé",
-  "actif": "GBP/JPY",
+  "titre": "Évite les pièges institutionnels sur l'EUR/JPY",
+  "sujet": "les pièges à retail traders",
+  "niveau": "intermédiaire",
+  "actif": "EUR/JPY",
   "categorie": "forex",
-  "fond_type": "indicateur_rsi",
-  "voix_off": "Arrête d'utiliser le RSI 14 par défaut sur le GBP/JPY. C'est le piège des débutants. Sur une paire aussi volatile, le réglage standard est souvent en retard. Pourquoi passer à la période 9 ? Parce que la réactivité est la clé. Le RSI 9 capte les retournements de momentum bien plus tôt, idéal pour le scalping ou l'intraday. En période 14, tu rates l'entrée alors que le prix a déjà pivoté. Sur le GBP/JPY, la vélocité des bougies nécessite un oscillateur nerveux. Attention toutefois, plus de réactivité signifie plus de faux signaux. Pour filtrer le bruit, combine ton RSI 9 avec une analyse de structure de marché H1. Ne cherche pas seulement les zones de surachat ou survente classiques. Cherche les divergences cachées que le RSI 14 lisse trop violemment. Teste ce paramètre, observe la différence de timing sur tes entrées et optimise enfin ton edge.",
+  "fond_type": "texte_cles",
+  "voix_off": "Tu penses que l'EUR/JPY respecte tes supports classiques ? Détrompe-toi. Les institutions utilisent tes ordres stop comme carburant. C’est ce qu’on appelle l’inducement. Regarde ce niveau sur l'EUR/JPY : la cassure semble parfaite pour un achat, mais c’est un piège. C’est une chasse à la liquidité. En tant que retail, tu entres trop tôt. La Smart Money attend que tu sois positionné pour inverser la tendance brutalement. Pour éviter ça, ne trade pas la première cassure. Attends le balayage des plus hauts précédents et observe une cassure de structure interne. Cherche le Fair Value Gap qui suit ce mouvement violent. Si tu vois une bougie impulsive après la prise de liquidité, c’est là que le vrai mouvement commence. Identifie les zones d'offre et de demande institutionnelles, pas juste des lignes de tendance fragiles. Protège ton capital en comprenant qui manipule le prix.",
   "sous_titres": [
-    "Arrête d'utiliser le RSI 14 standard.",
-    "C'est le piège des débutants confirmés.",
-    "Sur GBP/JPY, la volatilité domine tout.",
-    "Pourquoi passer à la période 9 ?",
-    "La réactivité est votre meilleur atout.",
-    "Captez les retournements bien plus tôt.",
-    "Le RSI 14 lisse trop l'action.",
-    "Filtrez le bruit en structure H1.",
-    "Repérez les divergences de momentum cachées.",
-    "Optimisez dès maintenant votre timing d'entrée."
+    "Pourquoi tes stops sautent sur l'EUR/JPY ?",
+    "Les institutions utilisent ta liquidité.",
+    "C'est le piège de l'inducement.",
+    "La cassure semble pourtant parfaite.",
+    "Mais c'est une manipulation volontaire.",
+    "Attends le balayage des hauts.",
+    "Surveille la cassure de structure.",
+    "Repère les Fair Value Gaps.",
+    "Vise les zones d'offre institutionnelles.",
+    "Ne sois plus la liquidité."
   ],
   "concepts_cles": [
-    "Réactivité du momentum",
-    "Lissage du signal",
-    "Divergence cachée",
-    "Volatilité intrinsèque",
-    "Optimisation du timing"
+    "Inducement",
+    "Prise de liquidité",
+    "Smart Money",
+    "Fair Value Gap",
+    "Structure de marché"
   ],
-  "tags": "#trading #forex #rsi #scalping #gbpjpy"
+  "tags": "#trading #forex #bourse #apprendre #finance"
 }
