@@ -1,29 +1,29 @@
 {
-  "titre": "Évite les pièges institutionnels sur l'EUR/JPY",
-  "sujet": "les pièges à retail traders",
-  "niveau": "intermédiaire",
-  "actif": "EUR/JPY",
-  "categorie": "forex",
-  "fond_type": "texte_cles",
-  "voix_off": "Tu penses que l'EUR/JPY respecte tes supports classiques ? Détrompe-toi. Les institutions utilisent tes ordres stop comme carburant. C’est ce qu’on appelle l’inducement. Regarde ce niveau sur l'EUR/JPY : la cassure semble parfaite pour un achat, mais c’est un piège. C’est une chasse à la liquidité. En tant que retail, tu entres trop tôt. La Smart Money attend que tu sois positionné pour inverser la tendance brutalement. Pour éviter ça, ne trade pas la première cassure. Attends le balayage des plus hauts précédents et observe une cassure de structure interne. Cherche le Fair Value Gap qui suit ce mouvement violent. Si tu vois une bougie impulsive après la prise de liquidité, c’est là que le vrai mouvement commence. Identifie les zones d'offre et de demande institutionnelles, pas juste des lignes de tendance fragiles. Protège ton capital en comprenant qui manipule le prix.",
+  "titre": "RSI 9 vs 14 : Domine l'AVAX",
+  "sujet": "le RSI période 9 vs 14",
+  "niveau": "confirmé",
+  "actif": "AVAX/USDT",
+  "categorie": "crypto",
+  "fond_type": "indicateur_rsi",
+  "voix_off": "Tu penses encore que le RSI 14 est la norme absolue sur crypto ? Grave erreur si tu scalpes l'AVAX. On compare aujourd'hui le RSI standard face au RSI période 9. Sur un actif ultra-volatil comme l'AVAX/USDT, la différence de réactivité est monumentale. Le RSI 14 lisse énormément le bruit du marché, mais il masque souvent des retournements de tendance cruciaux en intra-day. À l'inverse, passer sur une période 9 transforme ton indicateur en véritable détecteur de momentum. Tu identifies les zones de surachat et de survente bien plus tôt, parfait pour anticiper les breakouts. Attention cependant : cette sensibilité accrue multiplie les faux signaux. Il est impératif de coupler le RSI 9 avec une analyse de flux ou de volume pour filtrer les déviances. Pour du scalping agressif, le 9 est roi. Pour du swing trading serein, garde le 14. Quel est ton réglage favori ?",
   "sous_titres": [
-    "Pourquoi tes stops sautent sur l'EUR/JPY ?",
-    "Les institutions utilisent ta liquidité.",
-    "C'est le piège de l'inducement.",
-    "La cassure semble pourtant parfaite.",
-    "Mais c'est une manipulation volontaire.",
-    "Attends le balayage des hauts.",
-    "Surveille la cassure de structure.",
-    "Repère les Fair Value Gaps.",
-    "Vise les zones d'offre institutionnelles.",
-    "Ne sois plus la liquidité."
+    "Tu penses que le RSI 14 suffit ?",
+    "Sur AVAX, c'est une grave erreur.",
+    "Comparons le RSI 14 et 9.",
+    "Le 14 lisse trop le bruit.",
+    "Le RSI 9 détecte le momentum.",
+    "Anticipe les breakouts plus tôt.",
+    "Attention aux nombreux faux signaux.",
+    "Filtre toujours avec le volume.",
+    "Le 9 pour le scalping agressif.",
+    "Le 14 pour le swing trading."
   ],
   "concepts_cles": [
-    "Inducement",
-    "Prise de liquidité",
-    "Smart Money",
-    "Fair Value Gap",
-    "Structure de marché"
+    "RSI période 9",
+    "Momentum",
+    "Surachat survente",
+    "Bruit du marché",
+    "Scalping vs Swing"
   ],
-  "tags": "#trading #forex #bourse #apprendre #finance"
+  "tags": "#trading #crypto #bourse #apprendre #finance"
 }
