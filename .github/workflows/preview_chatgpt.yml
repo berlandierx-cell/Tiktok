@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   preview:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     timeout-minutes: 40
     env:
       TIKTOK_DRY_RUN: "true"
