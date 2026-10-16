@@ -1,6 +1,6 @@
-name: "TikTok - Preview ChatGPT (sans publication)"
+name: "TikTok - Preview rapide FR (NON PUBLIE)"
 
-# Uniquement à la demande : pas de cron, pas de push, pas de TikTok.
+# Aucune publication, aucun cron, aucun secret TikTok, aucun Gemini.
 on:
   workflow_dispatch:
 
@@ -9,65 +9,70 @@ permissions:
 
 jobs:
   preview:
-    name: "Generer MP4 (NON PUBLIE)"
     runs-on: self-hosted
-    timeout-minutes: 60
+    timeout-minutes: 40
     env:
       TIKTOK_DRY_RUN: "true"
 
     steps:
-      - name: "Checkout"
+      - name: "Recuperer la branche de simulation"
         uses: actions/checkout@v4
 
-      - name: "Installer dependances de rendu seulement"
+      - name: "Dependances de preview"
         run: |
-          python3 -m pip install --break-system-packages edge-tts matplotlib numpy pillow
+          python3 -m pip install --break-system-packages edge-tts Pillow
+          ffmpeg -version | head -1
 
-      - name: "Charger le script ChatGPT - Gemini non invoque"
+      - name: "Script 100% ChatGPT : aucune generation Gemini"
         run: |
           python3 - <<'PY'
           import json
           from pathlib import Path
-          p = Path("simulation/video_metadata_chatgpt.json")
-          data = json.loads(p.read_text(encoding="utf-8"))
-          keys = ("titre", "voix_off", "niveau", "fond_type", "sous_titres")
-          assert all(data.get(k) for k in keys), "Metadonnees incompletes"
-          assert 120 <= len(data["voix_off"].split()) <= 160, "Script hors plage 120-160 mots"
-          assert len(data["sous_titres"]) >= 8, "Pas assez de sous-titres"
-          Path("video_metadata.json").write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
-          print("Script valide, aucune API Gemini appelee.")
+          data = json.loads(Path("simulation/video_metadata_chatgpt.json").read_text(encoding="utf-8"))
+          assert data.get("publication_autorisee") is False, "Publication non autorisee"
+          assert 75 <= len(data["voix_off"].split()) <= 115
+          assert len(data["sous_titres"]) >= 10
+          Path("video_metadata.json").write_text(
+              json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
           PY
 
-      - name: "Generer la voix et l'avatar (runner Wav2Lip)"
+      - name: "Voix francaise naturelle et dynamique"
         run: |
-          test -f "$HOME/Wav2Lip/checkpoints/wav2lip.pth" || { echo "Checkpoint Wav2Lip absent"; exit 1; }
-          python3 video_gen.py
-          test -s voice.mp3
-          test -s avatar_talking.mp4
+          python3 - <<'PY'
+          import asyncio, json
+          import edge_tts
+          from pathlib import Path
+          text = json.loads(Path("video_metadata.json").read_text(encoding="utf-8"))["voix_off"]
+          async def generate():
+              voices = ["fr-FR-VivienneMultilingualNeural", "fr-FR-DeniseNeural"]
+              for voice in voices:
+                  try:
+                      await edge_tts.Communicate(text, voice, rate="+15%").save("voice.mp3")
+                      if Path("voice.mp3").stat().st_size > 2000:
+                          print(f"Voix prete : {voice}")
+                          return
+                  except Exception as exc:
+                      print(f"Voix {voice} indisponible : {type(exc).__name__}")
+              raise RuntimeError("Aucune voix francaise disponible")
+          asyncio.run(generate())
+          PY
 
-      - name: "Generer le fond adapte a la duree audio"
+      - name: "Monter la video au rythme de la voix"
         run: |
-          python3 background.py
-          test -s background.mp4
-
-      - name: "Assembler la video"
-        run: |
-          python3 composer.py
+          python3 simulation/fast_preview.py
           test -s final_video.mp4
 
-      - name: "Valider format et piste audio"
+      - name: "Verifier le MP4 et l'audio"
         run: |
-          ffprobe -v error -show_entries stream=codec_type \
-            -of csv=p=0 final_video.mp4 | grep -q video
-          ffprobe -v error -show_entries stream=codec_type \
-            -of csv=p=0 final_video.mp4 | grep -q audio
-          ffprobe -v error -show_entries format=duration,size \
+          ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height \
             -of default=noprint_wrappers=1 final_video.mp4
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name \
+            -of default=noprint_wrappers=1 final_video.mp4 | grep -q codec_name
 
-      - name: "Livrer artefact prive de simulation (NE PUBLIE PAS)"
+      - name: "Telecharger la version test en artefact GitHub"
         uses: actions/upload-artifact@v4
         with:
-          name: tiktok-chatgpt-preview-${{ github.run_number }}
+          name: tiktok-preview-fr-${{ github.run_number }}
           path: |
             final_video.mp4
             video_metadata.json
