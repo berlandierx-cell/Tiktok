@@ -2,6 +2,11 @@ name: "TikTok - Preview rapide FR (NON PUBLIE)"
 
 # Aucune publication, aucun cron, aucun secret TikTok, aucun Gemini.
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'simulation/**'
+      - '.github/workflows/preview_chatgpt.yml'
   workflow_dispatch:
 
 permissions:
