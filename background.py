@@ -1,5 +1,8 @@
 import json
 import random
+import math
+import os
+import subprocess
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -444,6 +447,16 @@ def render_schema_risk_reward(ax, frame):
 # ─────────────────────────────────────────────
 
 def generate_background(metadata_path="video_metadata.json", output_path="background.mp4"):
+    # Adapte le montage a la duree reelle de la voix off au lieu de 60 s fixes.
+    global TOTAL_FRAMES
+    if os.path.exists("voice.mp3"):
+        raw = subprocess.check_output(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "default=noprint_wrappers=1:nokey=1", "voice.mp3"],
+            text=True,
+        ).strip()
+        TOTAL_FRAMES = max(FPS, math.ceil(float(raw) * FPS))
+        print(f"🕒 Fond synchronise sur la voix : {TOTAL_FRAMES / FPS:.2f} s")
     with open(metadata_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 

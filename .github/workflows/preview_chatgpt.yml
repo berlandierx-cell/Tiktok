@@ -1,0 +1,89 @@
+name: "TikTok - Preview rapide FR (NON PUBLIE)"
+
+# Aucune publication, aucun cron, aucun secret TikTok, aucun Gemini.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'simulation/**'
+      - '.github/workflows/preview_chatgpt.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      TIKTOK_DRY_RUN: "true"
+
+    steps:
+      - name: "Recuperer la branche de simulation"
+        uses: actions/checkout@v4
+
+      - name: "Dependances de preview"
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          python3 -m pip install --break-system-packages edge-tts Pillow
+          ffmpeg -version | head -1
+          ffprobe -version | head -1
+
+      - name: "Script 100% ChatGPT : aucune generation Gemini"
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path("simulation/video_metadata_chatgpt.json").read_text(encoding="utf-8"))
+          assert data.get("publication_autorisee") is False, "Publication non autorisee"
+          assert 75 <= len(data["voix_off"].split()) <= 115
+          assert len(data["sous_titres"]) >= 10
+          Path("video_metadata.json").write_text(
+              json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+          PY
+
+      - name: "Voix francaise naturelle et dynamique"
+        run: |
+          python3 - <<'PY'
+          import asyncio, json
+          import edge_tts
+          from pathlib import Path
+          text = json.loads(Path("video_metadata.json").read_text(encoding="utf-8"))["voix_off"]
+          async def generate():
+              voices = ["fr-FR-VivienneMultilingualNeural", "fr-FR-DeniseNeural"]
+              for voice in voices:
+                  try:
+                      await edge_tts.Communicate(text, voice, rate="+15%").save("voice.mp3")
+                      if Path("voice.mp3").stat().st_size > 2000:
+                          print(f"Voix prete : {voice}")
+                          return
+                  except Exception as exc:
+                      print(f"Voix {voice} indisponible : {type(exc).__name__}")
+              raise RuntimeError("Aucune voix francaise disponible")
+          asyncio.run(generate())
+          PY
+
+      - name: "Monter la video au rythme de la voix"
+        run: |
+          python3 simulation/fast_preview.py
+          test -s final_video.mp4
+
+      - name: "Verifier le MP4 et l'audio"
+        run: |
+          ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height \
+            -of default=noprint_wrappers=1 final_video.mp4
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name \
+            -of default=noprint_wrappers=1 final_video.mp4 | grep -q codec_name
+
+      - name: "Telecharger la version test en artefact GitHub"
+        uses: actions/upload-artifact@v4
+        with:
+          name: tiktok-preview-fr-${{ github.run_number }}
+          path: |
+            final_video.mp4
+            video_metadata.json
+          retention-days: 7
+          if-no-files-found: error
+          compression-level: 1
