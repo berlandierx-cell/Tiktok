@@ -1,0 +1,30 @@
+{
+  "titre": "Perdre 7 trades et finir gagnant ?",
+  "sujet": "ratio risque-rendement et taux de réussite",
+  "niveau": "débutant",
+  "actif": "BTC/USDT",
+  "categorie": "crypto",
+  "fond_type": "schema_risk_reward",
+  "voix_off": "Et si tu pouvais avoir tort sept fois sur dix… et finir gagnant ? C’est possible, grâce au ratio risque-rendement. Imagine dix trades, avec cent euros risqués à chaque fois. Sur sept trades perdants, tu perds sept cents euros. Sur les trois gagnants, tu encaisses trois cents euros par trade : neuf cents euros au total. Résultat : plus deux cents euros, avant les frais. Mais attention, ce n’est pas une recette magique. Un ratio de un pour trois ne suffit pas si tes objectifs sont irréalistes, si tu déplaces ton stop, ou si tu ignores les coûts. Avant d’entrer, définis ton stop-loss, ton objectif et la taille de ta position. Ensuite, note tes résultats sur une série de trades. C’est la combinaison du taux de réussite et du ratio qui compte. Tu veux un exemple avec un graphique ?",
+  "sous_titres": [
+    "7 pertes sur 10, et gagnant ?",
+    "Le secret : ratio risque-rendement",
+    "100 € risqués sur chaque trade",
+    "Sept pertes : moins 700 euros",
+    "Trois gains : plus 900 euros",
+    "Résultat : plus 200 euros",
+    "Attention aux frais et aux stops",
+    "Fixe ton stop et ton objectif",
+    "Dimensionne chaque position avant d'entrer",
+    "Le taux de réussite compte",
+    "Le ratio ne suffit pas seul"
+  ],
+  "concepts_cles": [
+    "Risque/rendement",
+    "Ratio 1:3",
+    "Taux de réussite",
+    "Stop Loss",
+    "Espérance"
+  ],
+  "tags": "#trading #riskmanagement #crypto #educationfinanciere #gestiondurisque"
+}
