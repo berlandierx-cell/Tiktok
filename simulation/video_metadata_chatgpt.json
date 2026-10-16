@@ -1,30 +1,33 @@
 {
-  "titre": "Perdre 7 trades et finir gagnant ?",
+  "titre": "7 PERDUS. ET TU GAGNES QUAND MÊME ?",
   "sujet": "ratio risque-rendement et taux de réussite",
   "niveau": "débutant",
   "actif": "BTC/USDT",
   "categorie": "crypto",
   "fond_type": "schema_risk_reward",
-  "voix_off": "Et si tu pouvais avoir tort sept fois sur dix… et finir gagnant ? C’est possible, grâce au ratio risque-rendement. Imagine dix trades, avec cent euros risqués à chaque fois. Sur sept trades perdants, tu perds sept cents euros. Sur les trois gagnants, tu encaisses trois cents euros par trade : neuf cents euros au total. Résultat : plus deux cents euros, avant les frais. Mais attention, ce n’est pas une recette magique. Un ratio de un pour trois ne suffit pas si tes objectifs sont irréalistes, si tu déplaces ton stop, ou si tu ignores les coûts. Avant d’entrer, définis ton stop-loss, ton objectif et la taille de ta position. Ensuite, note tes résultats sur une série de trades. C’est la combinaison du taux de réussite et du ratio qui compte. Tu veux un exemple avec un graphique ?",
+  "voix_off": "Sept trades perdus sur dix. Et pourtant... tu gagnes de l'argent ! Regarde. Tu risques cent euros par trade. Sept pertes : moins sept cents. Trois gains à trois cents : plus neuf cents. Bilan ? Plus deux cents euros, avant frais ! Le truc, ce n'est pas ton taux de réussite. C'est ton ratio gain sur perte. Mais attention : seulement si tes objectifs sont atteints et tes stops respectés. Alors, quand quelqu'un te vante quatre-vingt-dix pour cent de trades gagnants, demande plutôt : combien il perd quand il se trompe ? Voilà ce qui change tout.",
   "sous_titres": [
-    "7 pertes sur 10, et gagnant ?",
-    "Le secret : ratio risque-rendement",
-    "100 € risqués sur chaque trade",
-    "Sept pertes : moins 700 euros",
-    "Trois gains : plus 900 euros",
-    "Résultat : plus 200 euros",
-    "Attention aux frais et aux stops",
-    "Fixe ton stop et ton objectif",
-    "Dimensionne chaque position avant d'entrer",
-    "Le taux de réussite compte",
-    "Le ratio ne suffit pas seul"
+    "7 PERTES SUR 10 !",
+    "ET TU FINIS GAGNANT ?",
+    "10 TRADES, 100 € RISQUÉS",
+    "7 PERTES = −700 €",
+    "3 GAINS = +900 €",
+    "BILAN : +200 € AVANT FRAIS",
+    "70 % DE TRADES PERDANTS",
+    "LE SECRET : GAIN / PERTE",
+    "1 RISQUÉ POUR 3 VISÉS",
+    "STOPS RESPECTÉS, OBJECTIFS ATTEINTS",
+    "90 % DE RÉUSSITE ? ET ALORS ?",
+    "COMBIEN TU PERDS QUAND TU AS TORT ?"
   ],
   "concepts_cles": [
-    "Risque/rendement",
+    "7 pertes",
+    "3 gains",
     "Ratio 1:3",
-    "Taux de réussite",
-    "Stop Loss",
-    "Espérance"
+    "+200 € avant frais",
+    "Stops respectés"
   ],
-  "tags": "#trading #riskmanagement #crypto #educationfinanciere #gestiondurisque"
+  "tags": "#trading #crypto #risquerecompense #riskmanagement #financetok",
+  "script_version": "ChatGPT_V2_2026-10-16",
+  "publication_autorisee": false
 }
