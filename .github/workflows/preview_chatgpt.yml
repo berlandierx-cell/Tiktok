@@ -1,0 +1,76 @@
+name: "TikTok - Preview ChatGPT (sans publication)"
+
+# Uniquement à la demande : pas de cron, pas de push, pas de TikTok.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    name: "Generer MP4 (NON PUBLIE)"
+    runs-on: self-hosted
+    timeout-minutes: 60
+    env:
+      TIKTOK_DRY_RUN: "true"
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Installer dependances de rendu seulement"
+        run: |
+          python3 -m pip install --break-system-packages edge-tts matplotlib numpy pillow
+
+      - name: "Charger le script ChatGPT - Gemini non invoque"
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("simulation/video_metadata_chatgpt.json")
+          data = json.loads(p.read_text(encoding="utf-8"))
+          keys = ("titre", "voix_off", "niveau", "fond_type", "sous_titres")
+          assert all(data.get(k) for k in keys), "Metadonnees incompletes"
+          assert 120 <= len(data["voix_off"].split()) <= 160, "Script hors plage 120-160 mots"
+          assert len(data["sous_titres"]) >= 8, "Pas assez de sous-titres"
+          Path("video_metadata.json").write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+          print("Script valide, aucune API Gemini appelee.")
+          PY
+
+      - name: "Generer la voix et l'avatar (runner Wav2Lip)"
+        run: |
+          test -f "$HOME/Wav2Lip/checkpoints/wav2lip.pth" || { echo "Checkpoint Wav2Lip absent"; exit 1; }
+          python3 video_gen.py
+          test -s voice.mp3
+          test -s avatar_talking.mp4
+
+      - name: "Generer le fond adapte a la duree audio"
+        run: |
+          python3 background.py
+          test -s background.mp4
+
+      - name: "Assembler la video"
+        run: |
+          python3 composer.py
+          test -s final_video.mp4
+
+      - name: "Valider format et piste audio"
+        run: |
+          ffprobe -v error -show_entries stream=codec_type \
+            -of csv=p=0 final_video.mp4 | grep -q video
+          ffprobe -v error -show_entries stream=codec_type \
+            -of csv=p=0 final_video.mp4 | grep -q audio
+          ffprobe -v error -show_entries format=duration,size \
+            -of default=noprint_wrappers=1 final_video.mp4
+
+      - name: "Livrer artefact prive de simulation (NE PUBLIE PAS)"
+        uses: actions/upload-artifact@v4
+        with:
+          name: tiktok-chatgpt-preview-${{ github.run_number }}
+          path: |
+            final_video.mp4
+            video_metadata.json
+          retention-days: 7
+          if-no-files-found: error
+          compression-level: 1
